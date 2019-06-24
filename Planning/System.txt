@@ -1,0 +1,32 @@
+Start:
+	initial learning variable(Affect the efficiency of study)
+
+Game:
+	plan the schechle in each days, with sudden event
+	duration: 30 days
+
+Method:
+	increase knowledge
+	increase exam skill
+	tutorials
+	break
+
+Grading:
+	5**: knowledge>90 exam skill>90 learning variable>8
+	5* : knowledge>85 exam skill>85 learning variable>6
+	5  : knowledge>80 exam skill>70
+	4  : knowledge>60 exam skill>60
+	3  : knowledge>30 exam skill>not required
+	2  : knowledge>20 exam skill>not required
+	1  : knowledge>10 exam skill>not required
+	u  : knowledge>10 exam skill>not required
+
+Exam:
+	Lucky variable: Very hard, hard, Normal, Easy, Very easy
+	
+	Very hard: exam skill-20
+	hard        : knowledge>90 skill>90 not affected
+		 knowledge-10  skill-5
+	Normal: not affected
+	Easy        : skill*1.5
+	Very easy: knowledge*1.5 skill+20
