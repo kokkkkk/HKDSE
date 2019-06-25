@@ -6,10 +6,28 @@ public class study {
 	Basic.initial initial = new Basic.initial();
 	Random rand = new Random();
 	private int mark[] = initial.study;
+	int[] knowledge = initial.knowledge;
+	int[] examSkill = initial.examSkill;
 	int iniValue = initial.iniValue;
 	
-	public void mark_cal(int sub){
-		getMark()[sub] = getMark()[sub]+ iniValue*rand.nextInt(4);
+	public void mark_cal(int sub, int choice){
+		
+		switch(choice){
+		
+		case 1:
+			knowledge[sub] += iniValue*rand.nextInt(4);
+			break;
+			
+		case 2:
+			examSkill[sub] += iniValue*rand.nextInt(4);
+			
+		case 3:
+			knowledge[sub] += iniValue*rand.nextInt(4);
+			examSkill[sub] += iniValue*rand.nextInt(4);
+			
+		}
+		
+		getMark()[sub] = (knowledge[sub]+examSkill[sub])/2;
 		
 	}
 	

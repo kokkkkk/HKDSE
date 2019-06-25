@@ -12,7 +12,7 @@ public class input implements ActionListener{
 	main.energy energy = new main.energy();
 	
 	int day,chin,eng,math,ls,sub1,sub2,energyValue;
-	int[] mark, studySubject;
+	int[] mark, studySubject, choices;
 	boolean timeup, energyUseup;
 	
 	public input(frame.Main m){
@@ -30,12 +30,14 @@ public class input implements ActionListener{
 			
 			studySubject = main.getStudySubject();
 			
+			choices = main.getChoices();
+			
 			energyValue = energy.energyUse(studySubject);
 			
 			energyUseup = energy.checkEnergyUseup();
 			
 			for(int i=0; i<main.getStudySubject().length; i++){
-				study.mark_cal(studySubject[i]);
+				study.mark_cal(studySubject[i],choices[i]);
 			}
 			
 			mark = study.getMark();

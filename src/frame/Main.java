@@ -802,40 +802,54 @@ public class Main {
 		a_choicePanel.setVisible(true);
 		n_choicePanel.setVisible(true);
 		
-		m_revisionButton.setEnabled(true);
-		m_doPaperButton.setEnabled(true);
-		m_tutorialButton.setEnabled(true);
-		a_revisionButton.setEnabled(true);
-		a_doPaperButton.setEnabled(true);
-		a_tutorialButton.setEnabled(true);
-		n_revisionButton.setEnabled(true);
-		n_doPaperButton.setEnabled(true);
-		n_tutorialButton.setEnabled(true);
+		if(energyBar.getValue() <= 0){
+			
+			m_breakButton.setEnabled(true);
+			a_breakButton.setEnabled(true);
+			n_breakButton.setEnabled(true);
+			
+		}else{
+			
+			m_revisionButton.setEnabled(true);
+			m_doPaperButton.setEnabled(true);
+			m_tutorialButton.setEnabled(true);
+			m_breakButton.setEnabled(true);
+			a_revisionButton.setEnabled(true);
+			a_doPaperButton.setEnabled(true);
+			a_tutorialButton.setEnabled(true);
+			a_breakButton.setEnabled(true);
+			n_revisionButton.setEnabled(true);
+			n_doPaperButton.setEnabled(true);
+			n_tutorialButton.setEnabled(true);
+			n_breakButton.setEnabled(true);
+			
+			mSubjectPanel.setVisible(false);
+			aSubjectPanel.setVisible(false);
+			nSubjectPanel.setVisible(false);
+			
+			m_chin.setEnabled(true);
+			m_eng.setEnabled(true);
+			m_math.setEnabled(true);
+			m_ls.setEnabled(true);
+			m_sub1.setEnabled(true);
+			m_sub2.setEnabled(true);
+			
+			a_chin.setEnabled(true);
+			a_eng.setEnabled(true);
+			a_math.setEnabled(true);
+			a_ls.setEnabled(true);
+			a_sub1.setEnabled(true);
+			a_sub2.setEnabled(true);
+			
+			n_chin.setEnabled(true);
+			n_eng.setEnabled(true);
+			n_math.setEnabled(true);
+			n_ls.setEnabled(true);
+			n_sub1.setEnabled(true);
+			n_sub2.setEnabled(true);
+		}
 		
-		mSubjectPanel.setVisible(false);
-		aSubjectPanel.setVisible(false);
-		nSubjectPanel.setVisible(false);
 		
-		m_chin.setEnabled(true);
-		m_eng.setEnabled(true);
-		m_math.setEnabled(true);
-		m_ls.setEnabled(true);
-		m_sub1.setEnabled(true);
-		m_sub2.setEnabled(true);
-		
-		a_chin.setEnabled(true);
-		a_eng.setEnabled(true);
-		a_math.setEnabled(true);
-		a_ls.setEnabled(true);
-		a_sub1.setEnabled(true);
-		a_sub2.setEnabled(true);
-		
-		n_chin.setEnabled(true);
-		n_eng.setEnabled(true);
-		n_math.setEnabled(true);
-		n_ls.setEnabled(true);
-		n_sub1.setEnabled(true);
-		n_sub2.setEnabled(true);
 	}
 	
 	public void changeEnergyBar(int energyValue){
@@ -846,26 +860,15 @@ public class Main {
 	
 	public void energyUseup(){
 		
-		m_chin.setEnabled(false);
-		m_eng.setEnabled(false);
-		m_math.setEnabled(false);
-		m_ls.setEnabled(false);
-		m_sub1.setEnabled(false);
-		m_sub2.setEnabled(false);
-		
-		a_chin.setEnabled(false);
-		a_eng.setEnabled(false);
-		a_math.setEnabled(false);
-		a_ls.setEnabled(false);
-		a_sub1.setEnabled(false);
-		a_sub2.setEnabled(false);
-		
-		n_chin.setEnabled(false);
-		n_eng.setEnabled(false);
-		n_math.setEnabled(false);
-		n_ls.setEnabled(false);
-		n_sub1.setEnabled(false);
-		n_sub2.setEnabled(false);
+		m_revisionButton.setEnabled(false);
+		m_doPaperButton.setEnabled(false);
+		m_tutorialButton.setEnabled(false);
+		a_revisionButton.setEnabled(false);
+		a_doPaperButton.setEnabled(false);
+		a_tutorialButton.setEnabled(false);
+		n_revisionButton.setEnabled(false);
+		n_doPaperButton.setEnabled(false);
+		n_tutorialButton.setEnabled(false);
 		
 	}
 	
@@ -888,6 +891,10 @@ public class Main {
 
 	public int[] getStudySubject() {
 		return studySubject;
+	}
+	
+	public int[] getChoices() {
+		return choices;
 	}
 
 	public void setStudySubject(int[] studySubject) {
