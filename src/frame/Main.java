@@ -18,11 +18,11 @@ public class Main {
 	public JFrame window;
 	public Container con;
 	JPanel dayPanel, mainTextPanel,dataPanel,adddayPanel,m_choicePanel,a_choicePanel,n_choicePanel,mPanel,aPanel,
-	nPanel,energyLevelPanel;
+	nPanel,energyLevelPanel,dayResetPanel;
 	JLabel dayLabel, dayNumber,dataName1,dataName2,dataName3,dataName4,dataName5,dataName6,dataNum1,dataNum2,
 	dataNum3,dataNum4,dataNum5,dataNum6,mLabel,aLabel,nLabel,energyLevelLabel;
 	JButton dayAdd, m_chin,m_eng,m_math,m_ls,m_sub1,m_sub2,a_chin,a_eng,a_math,a_ls,a_sub1,a_sub2,n_chin,n_eng,
-	n_math,n_ls,n_sub1,n_sub2;
+	n_math,n_ls,n_sub1,n_sub2,dayReset;
 	JProgressBar energyBar;
 	Font normalFont = new Font("Times New Roman", Font.PLAIN,21);
 	int day, chin, eng, math, ls, sub1, sub2;
@@ -31,6 +31,7 @@ public class Main {
 	Basic.initial initial = new Basic.initial();
 	Control.choiceHandler choiceHandler = new Control.choiceHandler(this);
 	Control.input input = new Control.input(this);
+	Control.dayResetHandler dayResetHandler = new Control.dayResetHandler(this);
 	main.study study = new main.study();
 	main.result result = new main.result();
 	frame.endGame endGame = new endGame(this);
@@ -83,8 +84,12 @@ public class Main {
 		n_choicePanel.setBackground(Color.blue);
 		
 		adddayPanel = new JPanel();
-		adddayPanel.setBounds(350,500,200,50);
+		adddayPanel.setBounds(350,500,120,50);
 		adddayPanel.setBackground(Color.blue);
+		
+		dayResetPanel = new JPanel();
+		dayResetPanel.setBounds(500,500,120,50);
+		dayResetPanel.setBackground(Color.blue);
 		
 		mPanel = new JPanel();
 		mPanel.setBounds(160,100,590,30);
@@ -176,6 +181,13 @@ public class Main {
 		dayAdd.setFont(normalFont);
 		dayAdd.setFocusPainted(false);
 		dayAdd.addActionListener(input); //when click, call the class
+		
+		dayReset = new JButton("Reset");
+		dayReset.setBackground(Color.black);
+		dayReset.setForeground(Color.white);
+		dayReset.setFont(normalFont);
+		dayReset.setFocusPainted(false);
+		dayReset.addActionListener(dayResetHandler); //when click, call the class
 		
 		m_chin = new JButton("Chin");
 		m_chin.setBackground(Color.black);
@@ -332,6 +344,8 @@ public class Main {
 		energyLevelPanel.add(energyBar);
 		
 		adddayPanel.add(dayAdd);
+		
+		dayResetPanel.add(dayReset);
 
 		dataPanel.add(dataName1);
 		dataPanel.add(dataNum1);
@@ -381,6 +395,7 @@ public class Main {
 		con.add(mainTextPanel);
 		con.add(dataPanel);
 		con.add(adddayPanel);
+		con.add(dayResetPanel);
 		con.add(energyLevelPanel);
 		
 		window.setVisible(true);
@@ -620,6 +635,8 @@ public class Main {
 		mPanel.setVisible(false);
 		aPanel.setVisible(false);
 		nPanel.setVisible(false);
+		energyLevelPanel.setVisible(false);
+		dayResetPanel.setVisible(false);
 		
 		endGame.resultSetup(mark);
 	}

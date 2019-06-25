@@ -37,7 +37,7 @@ public class endGame {
 		resultPanel.setBorder(BorderFactory.createLineBorder(Color.green));
 		
 		restartPanel = new JPanel();
-		restartPanel.setBounds(350,500,200,50);
+		restartPanel.setBounds(350,500,120,50);
 		restartPanel.setBackground(Color.blue);
 		
 		chinName = new JLabel("Chin",SwingConstants.CENTER);
