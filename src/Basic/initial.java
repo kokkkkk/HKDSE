@@ -13,5 +13,7 @@ public class initial {
 	public int sub_2 = 0; // Subject 2
 	public int iniValue = rand.nextInt(11)+1;
 	public int[] study = {0,0,0,0,0,0,0}; //null, chin, eng, math, ls, sub1, sub2
+	public int[] knowledge = {0,0,0,0,0,0,0};
+	public int[] examSkill = {0,0,0,0,0,0,0};
 	public String[] subject = {"null","Chinese", "English", "Math", "LS", "Sub1", "Sub2"};
 }

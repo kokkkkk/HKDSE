@@ -14,6 +14,42 @@ public class choiceHandler implements ActionListener{
 		String Choice = event.getActionCommand();
 		
 		switch(Choice){
+		 case "m_revision":
+			 Main.morningChoice(1);
+			 break;
+		 case "m_doPaper":
+			 Main.morningChoice(2);
+			 break;
+		 case "m_tutorial":
+			 Main.morningChoice(3);
+			 break;
+		 case "m_break":
+			 Main.morningChoice(4);
+			 break;
+		 case "a_revision":
+			 Main.afternoonChoice(1);
+			 break;
+		 case "a_doPaper":
+			 Main.afternoonChoice(2);
+			 break;
+		 case "a_tutorial":
+			 Main.afternoonChoice(3);
+			 break;
+		 case "a_break":
+			 Main.afternoonChoice(4);
+			 break;
+		 case "n_revision":
+			 Main.nightChoice(1);
+			 break;
+		 case "n_doPaper":
+			 Main.nightChoice(2);
+			 break;
+		 case "n_tutorial":
+			 Main.nightChoice(3);
+			 break;
+		 case "n_break":
+			 Main.nightChoice(4);
+			 break;
 		 case "m_chin": 
 			 Main.morningAction(1);
 			 break;

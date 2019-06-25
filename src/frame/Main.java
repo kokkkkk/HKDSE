@@ -17,16 +17,26 @@ public class Main {
 	
 	public JFrame window;
 	public Container con;
+	
 	JPanel dayPanel, mainTextPanel,dataPanel,adddayPanel,m_choicePanel,a_choicePanel,n_choicePanel,mPanel,aPanel,
-	nPanel,energyLevelPanel,dayResetPanel;
+	nPanel,mSubjectPanel,aSubjectPanel,nSubjectPanel,energyLevelPanel,dayResetPanel;
+	
 	JLabel dayLabel, dayNumber,dataName1,dataName2,dataName3,dataName4,dataName5,dataName6,dataNum1,dataNum2,
 	dataNum3,dataNum4,dataNum5,dataNum6,mLabel,aLabel,nLabel,energyLevelLabel;
+	
 	JButton dayAdd, m_chin,m_eng,m_math,m_ls,m_sub1,m_sub2,a_chin,a_eng,a_math,a_ls,a_sub1,a_sub2,n_chin,n_eng,
-	n_math,n_ls,n_sub1,n_sub2,dayReset;
+	n_math,n_ls,n_sub1,n_sub2,dayReset,m_revisionButton,m_doPaperButton,m_tutorialButton,m_breakButton,
+	a_revisionButton,a_doPaperButton,a_tutorialButton,a_breakButton,n_revisionButton,n_doPaperButton,
+	n_tutorialButton,n_breakButton;
+	
 	JProgressBar energyBar;
+	
 	Font normalFont = new Font("Times New Roman", Font.PLAIN,21);
+	Font smallFont = new Font("Times New Roman", Font.PLAIN,17);
+	
 	int day, chin, eng, math, ls, sub1, sub2;
 	private int[] studySubject = {0,0,0};
+	private int[] choices = {0,0,0};
 	
 	Basic.initial initial = new Basic.initial();
 	Control.choiceHandler choiceHandler = new Control.choiceHandler(this);
@@ -82,6 +92,21 @@ public class Main {
 		n_choicePanel.setBounds(160,390,590,100);
 		n_choicePanel.setLayout(new GridLayout(1,6));
 		n_choicePanel.setBackground(Color.blue);
+		
+		mSubjectPanel = new JPanel();
+		mSubjectPanel.setBounds(160,130,590,100);
+		mSubjectPanel.setLayout(new GridLayout(1,6));
+		mSubjectPanel.setBackground(Color.blue);
+		
+		aSubjectPanel = new JPanel();
+		aSubjectPanel.setBounds(160,260,590,100);
+		aSubjectPanel.setLayout(new GridLayout(1,6));
+		aSubjectPanel.setBackground(Color.blue);
+		
+		nSubjectPanel = new JPanel();
+		nSubjectPanel.setBounds(160,390,590,100);
+		nSubjectPanel.setLayout(new GridLayout(1,6));
+		nSubjectPanel.setBackground(Color.blue);
 		
 		adddayPanel = new JPanel();
 		adddayPanel.setBounds(350,500,120,50);
@@ -188,6 +213,102 @@ public class Main {
 		dayReset.setFont(normalFont);
 		dayReset.setFocusPainted(false);
 		dayReset.addActionListener(dayResetHandler); //when click, call the class
+		
+		m_revisionButton = new JButton("Revision");
+		m_revisionButton.setBackground(Color.black);
+		m_revisionButton.setForeground(Color.white);
+		m_revisionButton.setFont(normalFont);
+		m_revisionButton.setFocusPainted(false);
+		m_revisionButton.setActionCommand("m_revision");
+		m_revisionButton.addActionListener(choiceHandler); //when click, call the class
+		
+		m_doPaperButton = new JButton("Do Past Paper");
+		m_doPaperButton.setBackground(Color.black);
+		m_doPaperButton.setForeground(Color.white);
+		m_doPaperButton.setFont(smallFont);
+		m_doPaperButton.setFocusPainted(false);
+		m_doPaperButton.setActionCommand("m_doPaper");
+		m_doPaperButton.addActionListener(choiceHandler); //when click, call the class
+		
+		m_tutorialButton = new JButton("Go tutorial");
+		m_tutorialButton.setBackground(Color.black);
+		m_tutorialButton.setForeground(Color.white);
+		m_tutorialButton.setFont(normalFont);
+		m_tutorialButton.setFocusPainted(false);
+		m_tutorialButton.setActionCommand("m_tutorial");
+		m_tutorialButton.addActionListener(choiceHandler); //when click, call the class
+		
+		m_breakButton = new JButton("Break");
+		m_breakButton.setBackground(Color.black);
+		m_breakButton.setForeground(Color.white);
+		m_breakButton.setFont(normalFont);
+		m_breakButton.setFocusPainted(false);
+		m_breakButton.setActionCommand("m_break");
+		m_breakButton.addActionListener(choiceHandler); //when click, call the class
+		
+		a_revisionButton = new JButton("Revision");
+		a_revisionButton.setBackground(Color.black);
+		a_revisionButton.setForeground(Color.white);
+		a_revisionButton.setFont(normalFont);
+		a_revisionButton.setFocusPainted(false);
+		a_revisionButton.setActionCommand("a_revision");
+		a_revisionButton.addActionListener(choiceHandler); //when click, call the class
+		
+		a_doPaperButton = new JButton("Do Past Paper");
+		a_doPaperButton.setBackground(Color.black);
+		a_doPaperButton.setForeground(Color.white);
+		a_doPaperButton.setFont(smallFont);
+		a_doPaperButton.setFocusPainted(false);
+		a_doPaperButton.setActionCommand("a_doPaper");
+		a_doPaperButton.addActionListener(choiceHandler); //when click, call the class
+		
+		a_tutorialButton = new JButton("Go tutorial");
+		a_tutorialButton.setBackground(Color.black);
+		a_tutorialButton.setForeground(Color.white);
+		a_tutorialButton.setFont(normalFont);
+		a_tutorialButton.setFocusPainted(false);
+		a_tutorialButton.setActionCommand("a_tutorial");
+		a_tutorialButton.addActionListener(choiceHandler); //when click, call the class
+		
+		a_breakButton = new JButton("Break");
+		a_breakButton.setBackground(Color.black);
+		a_breakButton.setForeground(Color.white);
+		a_breakButton.setFont(normalFont);
+		a_breakButton.setFocusPainted(false);
+		a_breakButton.setActionCommand("a_break");
+		a_breakButton.addActionListener(choiceHandler); //when click, call the class
+		
+		n_revisionButton = new JButton("Revision");
+		n_revisionButton.setBackground(Color.black);
+		n_revisionButton.setForeground(Color.white);
+		n_revisionButton.setFont(normalFont);
+		n_revisionButton.setFocusPainted(false);
+		n_revisionButton.setActionCommand("n_revision");
+		n_revisionButton.addActionListener(choiceHandler); //when click, call the class
+		
+		n_doPaperButton = new JButton("Do Past Paper");
+		n_doPaperButton.setBackground(Color.black);
+		n_doPaperButton.setForeground(Color.white);
+		n_doPaperButton.setFont(smallFont);
+		n_doPaperButton.setFocusPainted(false);
+		n_doPaperButton.setActionCommand("n_doPaper");
+		n_doPaperButton.addActionListener(choiceHandler); //when click, call the class
+		
+		n_tutorialButton = new JButton("Go tutorial");
+		n_tutorialButton.setBackground(Color.black);
+		n_tutorialButton.setForeground(Color.white);
+		n_tutorialButton.setFont(normalFont);
+		n_tutorialButton.setFocusPainted(false);
+		n_tutorialButton.setActionCommand("n_tutorial");
+		n_tutorialButton.addActionListener(choiceHandler); //when click, call the class
+		
+		n_breakButton = new JButton("Break");
+		n_breakButton.setBackground(Color.black);
+		n_breakButton.setForeground(Color.white);
+		n_breakButton.setFont(normalFont);
+		n_breakButton.setFocusPainted(false);
+		n_breakButton.setActionCommand("n_break");
+		n_breakButton.addActionListener(choiceHandler); //when click, call the class
 		
 		m_chin = new JButton("Chin");
 		m_chin.setBackground(Color.black);
@@ -364,32 +485,50 @@ public class Main {
 		aPanel.add(aLabel);
 		nPanel.add(nLabel);
 		
-		m_choicePanel.add(m_chin);
-		m_choicePanel.add(m_eng);
-		m_choicePanel.add(m_math);
-		m_choicePanel.add(m_ls);
-		m_choicePanel.add(m_sub1);
-		m_choicePanel.add(m_sub2);
+		m_choicePanel.add(m_revisionButton);
+		m_choicePanel.add(m_doPaperButton);
+		m_choicePanel.add(m_tutorialButton);
+		m_choicePanel.add(m_breakButton);
 		
-		a_choicePanel.add(a_chin);
-		a_choicePanel.add(a_eng);
-		a_choicePanel.add(a_math);
-		a_choicePanel.add(a_ls);
-		a_choicePanel.add(a_sub1);
-		a_choicePanel.add(a_sub2);
+		a_choicePanel.add(a_revisionButton);
+		a_choicePanel.add(a_doPaperButton);
+		a_choicePanel.add(a_tutorialButton);
+		a_choicePanel.add(a_breakButton);
 		
-		n_choicePanel.add(n_chin);
-		n_choicePanel.add(n_eng);
-		n_choicePanel.add(n_math);
-		n_choicePanel.add(n_ls);
-		n_choicePanel.add(n_sub1);
-		n_choicePanel.add(n_sub2);
+		n_choicePanel.add(n_revisionButton);
+		n_choicePanel.add(n_doPaperButton);
+		n_choicePanel.add(n_tutorialButton);
+		n_choicePanel.add(n_breakButton);
+		
+		mSubjectPanel.add(m_chin);
+		mSubjectPanel.add(m_eng);
+		mSubjectPanel.add(m_math);
+		mSubjectPanel.add(m_ls);
+		mSubjectPanel.add(m_sub1);
+		mSubjectPanel.add(m_sub2);
+		
+		aSubjectPanel.add(a_chin);
+		aSubjectPanel.add(a_eng);
+		aSubjectPanel.add(a_math);
+		aSubjectPanel.add(a_ls);
+		aSubjectPanel.add(a_sub1);
+		aSubjectPanel.add(a_sub2);
+		
+		nSubjectPanel.add(n_chin);
+		nSubjectPanel.add(n_eng);
+		nSubjectPanel.add(n_math);
+		nSubjectPanel.add(n_ls);
+		nSubjectPanel.add(n_sub1);
+		nSubjectPanel.add(n_sub2);
 		
 		con.add(dayPanel);
 		con.add(mPanel);
 		con.add(m_choicePanel);
 		con.add(a_choicePanel);
 		con.add(n_choicePanel);
+		con.add(mSubjectPanel);
+		con.add(aSubjectPanel);
+		con.add(nSubjectPanel);
 		con.add(aPanel);
 		con.add(nPanel);
 		con.add(mainTextPanel);
@@ -399,6 +538,11 @@ public class Main {
 		con.add(energyLevelPanel);
 		
 		window.setVisible(true);
+		
+		mSubjectPanel.setVisible(false);
+		aSubjectPanel.setVisible(false);
+		nSubjectPanel.setVisible(false);
+		
 		
 		valueSetup(initial.day, initial.Chin, initial.Eng, initial.Math, initial.ls, initial.sub_1 , initial.sub_2);
 	}
@@ -419,6 +563,86 @@ public class Main {
 		dataNum4.setText(""+ls);
 		dataNum5.setText(""+sub1);
 		dataNum6.setText(""+sub2);
+	}
+	
+	public void morningChoice(int choice){
+		
+		switch(choice){
+		
+		case 1:
+		case 2:
+		case 3:
+			
+			subChoose(choice,0);
+			break;
+			
+		case 4:
+			m_revisionButton.setEnabled(false);
+			m_doPaperButton.setEnabled(false);
+			m_tutorialButton.setEnabled(false);
+			
+		}
+	}
+	
+	public void afternoonChoice(int choice){
+		switch(choice){
+		
+		case 1:
+		case 2:
+		case 3:
+			
+			subChoose(choice,1);
+			break;
+			
+		case 4:
+			a_revisionButton.setEnabled(false);
+			a_doPaperButton.setEnabled(false);
+			a_tutorialButton.setEnabled(false);
+			
+		}
+	}
+	
+	public void nightChoice(int choice){
+		
+		switch(choice){
+		
+		case 1:
+		case 2:
+		case 3:
+			
+			subChoose(choice,2);
+			break;
+			
+		case 4:
+			n_revisionButton.setEnabled(false);
+			n_doPaperButton.setEnabled(false);
+			n_tutorialButton.setEnabled(false);
+			
+		}
+		
+	}
+	
+	public void subChoose(int choice, int timeSlot){
+		
+		choices[timeSlot] = choice ;
+		
+		switch(timeSlot){
+		case 0:
+			m_choicePanel.setVisible(false);
+			mSubjectPanel.setVisible(true);
+			break;
+			
+		case 1:
+			a_choicePanel.setVisible(false);
+			aSubjectPanel.setVisible(true);
+			break;
+			
+		case 2:
+			n_choicePanel.setVisible(false);
+			nSubjectPanel.setVisible(true);
+			break;
+			
+		}
 	}
 	
 	public void morningAction(int sub){
@@ -471,6 +695,7 @@ public class Main {
 	
 	public void afternoonAction(int sub){
 		getStudySubject()[1] = sub;
+		
 		switch(sub){
 		case 1 :
 			a_eng.setEnabled(false);
@@ -569,7 +794,27 @@ public class Main {
 		
 		for(int i=0; i<studySubject.length;i++){
 			studySubject[i] = 0;
+			
+			choices[i] = 0;
 		}
+		
+		m_choicePanel.setVisible(true);
+		a_choicePanel.setVisible(true);
+		n_choicePanel.setVisible(true);
+		
+		m_revisionButton.setEnabled(true);
+		m_doPaperButton.setEnabled(true);
+		m_tutorialButton.setEnabled(true);
+		a_revisionButton.setEnabled(true);
+		a_doPaperButton.setEnabled(true);
+		a_tutorialButton.setEnabled(true);
+		n_revisionButton.setEnabled(true);
+		n_doPaperButton.setEnabled(true);
+		n_tutorialButton.setEnabled(true);
+		
+		mSubjectPanel.setVisible(false);
+		aSubjectPanel.setVisible(false);
+		nSubjectPanel.setVisible(false);
 		
 		m_chin.setEnabled(true);
 		m_eng.setEnabled(true);
