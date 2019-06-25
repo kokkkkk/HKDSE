@@ -2,6 +2,7 @@ package frame;
 
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 
@@ -9,17 +10,20 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JProgressBar;
+import javax.swing.SwingConstants;
 
 public class Main {
 	
 	public JFrame window;
 	public Container con;
 	JPanel dayPanel, mainTextPanel,dataPanel,adddayPanel,m_choicePanel,a_choicePanel,n_choicePanel,mPanel,aPanel,
-	nPanel;
+	nPanel,energyLevelPanel;
 	JLabel dayLabel, dayNumber,dataName1,dataName2,dataName3,dataName4,dataName5,dataName6,dataNum1,dataNum2,
-	dataNum3,dataNum4,dataNum5,dataNum6,mLabel,aLabel,nLabel;
+	dataNum3,dataNum4,dataNum5,dataNum6,mLabel,aLabel,nLabel,energyLevelLabel;
 	JButton dayAdd, m_chin,m_eng,m_math,m_ls,m_sub1,m_sub2,a_chin,a_eng,a_math,a_ls,a_sub1,a_sub2,n_chin,n_eng,
 	n_math,n_ls,n_sub1,n_sub2;
+	JProgressBar energyBar;
 	Font normalFont = new Font("Times New Roman", Font.PLAIN,21);
 	int day, chin, eng, math, ls, sub1, sub2;
 	private int[] studySubject = {0,0,0};
@@ -49,6 +53,10 @@ public class Main {
 		dayPanel = new JPanel();
 		dayPanel.setBounds(650,20,100,40);
 		dayPanel.setBackground(Color.red);
+		
+		energyLevelPanel = new JPanel();
+		energyLevelPanel.setBounds(400,20,200,50);
+		energyLevelPanel.setBackground(Color.red);
 		
 		mainTextPanel = new JPanel();
 		mainTextPanel.setBounds(160,100,590,400);
@@ -93,6 +101,10 @@ public class Main {
 		dayLabel = new JLabel("Day: ");
 		dayLabel.setFont(normalFont);
 		dayLabel.setForeground(Color.white);
+		
+		energyLevelLabel = new JLabel("Energy",SwingConstants.CENTER);
+		energyLevelLabel.setFont(normalFont);
+		energyLevelLabel.setForeground(Color.white);
 		
 		dayNumber = new JLabel();
 		dayNumber.setFont(normalFont);
@@ -309,8 +321,15 @@ public class Main {
 		n_sub2.setActionCommand("n_sub2");
 		n_sub2.addActionListener(choiceHandler); //when click, call the class
 		
+		energyBar = new JProgressBar();
+		energyBar.setPreferredSize(new Dimension(200,50));
+		energyBar.setValue(100);
+		
 		dayPanel.add(dayLabel);
 		dayPanel.add(dayNumber);
+		
+		energyLevelPanel.add(energyLevelLabel);
+		energyLevelPanel.add(energyBar);
 		
 		adddayPanel.add(dayAdd);
 
@@ -362,6 +381,7 @@ public class Main {
 		con.add(mainTextPanel);
 		con.add(dataPanel);
 		con.add(adddayPanel);
+		con.add(energyLevelPanel);
 		
 		window.setVisible(true);
 		
@@ -558,6 +578,37 @@ public class Main {
 		n_sub2.setEnabled(true);
 	}
 	
+	public void changeEnergyBar(int energyValue){
+		
+		energyBar.setValue(energyValue);
+		
+	}
+	
+	public void energyUseup(){
+		
+		m_chin.setEnabled(false);
+		m_eng.setEnabled(false);
+		m_math.setEnabled(false);
+		m_ls.setEnabled(false);
+		m_sub1.setEnabled(false);
+		m_sub2.setEnabled(false);
+		
+		a_chin.setEnabled(false);
+		a_eng.setEnabled(false);
+		a_math.setEnabled(false);
+		a_ls.setEnabled(false);
+		a_sub1.setEnabled(false);
+		a_sub2.setEnabled(false);
+		
+		n_chin.setEnabled(false);
+		n_eng.setEnabled(false);
+		n_math.setEnabled(false);
+		n_ls.setEnabled(false);
+		n_sub1.setEnabled(false);
+		n_sub2.setEnabled(false);
+		
+	}
+	
 	public void endGame(int[] mark){
 		dayPanel.setVisible(false);
 		mainTextPanel.setVisible(false);
@@ -571,22 +622,6 @@ public class Main {
 		nPanel.setVisible(false);
 		
 		endGame.resultSetup(mark);
-	}
-	
-	public void restart(){
-		dayPanel.setVisible(true);
-		mainTextPanel.setVisible(true);
-		dataPanel.setVisible(true);
-		adddayPanel.setVisible(true);
-		m_choicePanel.setVisible(true);
-		a_choicePanel.setVisible(true);
-		n_choicePanel.setVisible(true);
-		mPanel.setVisible(true);
-		aPanel.setVisible(true);
-		nPanel.setVisible(true);
-		
-		Basic.initial initial = new Basic.initial();
-		valueSetup(initial.day, initial.Chin, initial.Eng, initial.Math, initial.ls, initial.sub_1 , initial.sub_2);
 	}
 
 	public int[] getStudySubject() {

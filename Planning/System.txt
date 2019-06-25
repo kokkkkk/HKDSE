@@ -6,8 +6,8 @@ Game:
 	duration: 30 days
 
 Method:
-	increase knowledge
-	increase exam skill
+	increase knowledge //study books
+	increase exam skill //Do past paper
 	tutorials
 	break
 
