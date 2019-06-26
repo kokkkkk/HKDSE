@@ -19,10 +19,10 @@ public class Main {
 	public Container con;
 	
 	JPanel dayPanel, mainTextPanel,dataPanel,adddayPanel,m_choicePanel,a_choicePanel,n_choicePanel,mPanel,aPanel,
-	nPanel,mSubjectPanel,aSubjectPanel,nSubjectPanel,energyLevelPanel,dayResetPanel;
+	nPanel,mSubjectPanel,aSubjectPanel,nSubjectPanel,energyLevelPanel,dayResetPanel,moneyPanel;
 	
 	JLabel dayLabel, dayNumber,dataName1,dataName2,dataName3,dataName4,dataName5,dataName6,dataNum1,dataNum2,
-	dataNum3,dataNum4,dataNum5,dataNum6,mLabel,aLabel,nLabel,energyLevelLabel;
+	dataNum3,dataNum4,dataNum5,dataNum6,mLabel,aLabel,nLabel,energyLevelLabel,moneyLabel,moneyValueLabel;
 	
 	JButton dayAdd, m_chin,m_eng,m_math,m_ls,m_sub1,m_sub2,a_chin,a_eng,a_math,a_ls,a_sub1,a_sub2,n_chin,n_eng,
 	n_math,n_ls,n_sub1,n_sub2,dayReset,m_revisionButton,m_doPaperButton,m_tutorialButton,m_breakButton,
@@ -34,7 +34,7 @@ public class Main {
 	Font normalFont = new Font("Times New Roman", Font.PLAIN,21);
 	Font smallFont = new Font("Times New Roman", Font.PLAIN,17);
 	
-	int day, chin, eng, math, ls, sub1, sub2;
+	int day, chin, eng, math, ls, sub1, sub2, money;
 	private int[] studySubject = {0,0,0};
 	private int[] choices = {0,0,0};
 	
@@ -68,6 +68,10 @@ public class Main {
 		energyLevelPanel = new JPanel();
 		energyLevelPanel.setBounds(400,20,200,50);
 		energyLevelPanel.setBackground(Color.red);
+		
+		moneyPanel = new JPanel();
+		moneyPanel.setBounds(10,20,200,40);
+		moneyPanel.setBackground(Color.red);
 		
 		mainTextPanel = new JPanel();
 		mainTextPanel.setBounds(160,100,590,400);
@@ -132,6 +136,10 @@ public class Main {
 		dayLabel.setFont(normalFont);
 		dayLabel.setForeground(Color.white);
 		
+		moneyLabel = new JLabel("Money: ");
+		moneyLabel.setFont(normalFont);
+		moneyLabel.setForeground(Color.white);
+		
 		energyLevelLabel = new JLabel("Energy",SwingConstants.CENTER);
 		energyLevelLabel.setFont(normalFont);
 		energyLevelLabel.setForeground(Color.white);
@@ -139,6 +147,10 @@ public class Main {
 		dayNumber = new JLabel();
 		dayNumber.setFont(normalFont);
 		dayNumber.setForeground(Color.white);
+		
+		moneyValueLabel = new JLabel("0");
+		moneyValueLabel.setFont(normalFont);
+		moneyValueLabel.setForeground(Color.white);
 		
 		dataName1 = new JLabel("Chin: ");
 		dataName1.setFont(normalFont);
@@ -461,6 +473,9 @@ public class Main {
 		dayPanel.add(dayLabel);
 		dayPanel.add(dayNumber);
 		
+		moneyPanel.add(moneyLabel);
+		moneyPanel.add(moneyValueLabel);
+		
 		energyLevelPanel.add(energyLevelLabel);
 		energyLevelPanel.add(energyBar);
 		
@@ -522,6 +537,7 @@ public class Main {
 		nSubjectPanel.add(n_sub2);
 		
 		con.add(dayPanel);
+		con.add(moneyPanel);
 		con.add(mPanel);
 		con.add(m_choicePanel);
 		con.add(a_choicePanel);
@@ -543,6 +559,9 @@ public class Main {
 		aSubjectPanel.setVisible(false);
 		nSubjectPanel.setVisible(false);
 		
+		m_tutorialButton.setEnabled(false);
+		a_tutorialButton.setEnabled(false);
+		n_tutorialButton.setEnabled(false);
 		
 		valueSetup(initial.day, initial.Chin, initial.Eng, initial.Math, initial.ls, initial.sub_1 , initial.sub_2);
 	}
@@ -563,6 +582,26 @@ public class Main {
 		dataNum4.setText(""+ls);
 		dataNum5.setText(""+sub1);
 		dataNum6.setText(""+sub2);
+	}
+	
+	public void valueSetup(int dayValue, int chinValue, int engValue, int mathValue, int lsValue, int sub1Value, int sub2Value, int moneyValue){
+		day = dayValue;
+		chin = chinValue;
+		eng = engValue;
+		math = mathValue;
+		ls = lsValue;
+		sub1 = sub1Value;
+		sub2 = sub2Value;
+		money = moneyValue;
+		
+		dayNumber.setText(""+day);
+		dataNum1.setText(""+chin);
+		dataNum2.setText(""+eng);
+		dataNum3.setText(""+math);
+		dataNum4.setText(""+ls);
+		dataNum5.setText(""+sub1);
+		dataNum6.setText(""+sub2);
+		moneyValueLabel.setText(""+moneyValue);
 	}
 	
 	public void morningChoice(int choice){
@@ -885,8 +924,10 @@ public class Main {
 		nPanel.setVisible(false);
 		energyLevelPanel.setVisible(false);
 		dayResetPanel.setVisible(false);
+		moneyPanel.setVisible(false);
 		
 		endGame.resultSetup(knowledge,examSkill);
+		
 	}
 
 	public int[] getStudySubject() {
@@ -899,5 +940,13 @@ public class Main {
 
 	public void setStudySubject(int[] studySubject) {
 		this.studySubject = studySubject;
+	}
+	
+	public void moneyUseup(){
+		
+		m_tutorialButton.setEnabled(false);
+		a_tutorialButton.setEnabled(false);
+		n_tutorialButton.setEnabled(false);
+		
 	}
 }

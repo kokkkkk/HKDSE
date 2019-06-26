@@ -10,8 +10,9 @@ public class input implements ActionListener{
 	frame.Main main;
 	main.study study = new main.study();
 	main.energy energy = new main.energy();
+	main.money money = new main.money();
 	
-	int day,chin,eng,math,ls,sub1,sub2,energyValue;
+	int day,chin,eng,math,ls,sub1,sub2,energyValue,moneyValue;
 	int[] mark, studySubject, choices;
 	boolean timeup, energyUseup;
 	
@@ -37,6 +38,7 @@ public class input implements ActionListener{
 			energyUseup = energy.checkEnergyUseup();
 			
 			for(int i=0; i<main.getStudySubject().length; i++){
+				
 				study.mark_cal(studySubject[i],choices[i]);
 			}
 			
@@ -48,15 +50,28 @@ public class input implements ActionListener{
 			sub1 = mark[5];
 			sub2 = mark[6];
 			
-			main.valueSetup(day,chin,eng,math,ls,sub1,sub2);
+			money.addMoney();
+			
+			money.lostMoney(study.getMoneyValue());
+			
+			moneyValue = money.getMoney();
+			
+			main.valueSetup(day,chin,eng,math,ls,sub1,sub2,moneyValue);
 			
 			main.changeEnergyBar(energyValue);
+			
+			study.setMoneyValue(0);
 			
 			main.dayReset();
 			
 			if(energyUseup){
 				
 				main.energyUseup();
+			}
+			
+			if(money.getMoneyuseup()){
+				
+				main.moneyUseup();
 			}
 			
 		}else{
