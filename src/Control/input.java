@@ -61,7 +61,7 @@ public class input implements ActionListener{
 			
 		}else{
 			main.dayReset();
-			main.endGame(study.getMark());
+			main.endGame(study.getKnowledge(),study.getExamSkill());
 		}
 	}
 }

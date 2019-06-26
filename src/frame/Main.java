@@ -872,7 +872,7 @@ public class Main {
 		
 	}
 	
-	public void endGame(int[] mark){
+	public void endGame(int[] knowledge,int[] examSkill){
 		dayPanel.setVisible(false);
 		mainTextPanel.setVisible(false);
 		dataPanel.setVisible(false);
@@ -886,7 +886,7 @@ public class Main {
 		energyLevelPanel.setVisible(false);
 		dayResetPanel.setVisible(false);
 		
-		endGame.resultSetup(mark);
+		endGame.resultSetup(knowledge,examSkill);
 	}
 
 	public int[] getStudySubject() {

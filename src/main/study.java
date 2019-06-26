@@ -40,6 +40,14 @@ public class study {
 	public int[] getMark() {
 		return mark;
 	}
+	
+	public int[]getKnowledge(){
+		return knowledge;
+	}
+	
+	public int[]getExamSkill(){
+		return examSkill;
+	}
 
 	public void setMark(int mark[]) {
 		this.mark = mark;

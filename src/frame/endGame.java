@@ -128,7 +128,7 @@ public class endGame {
 	
 	}
 	
-	public void resultSetup(int[] mark){
+	public void resultSetup(int[] knowledge,int[] examSkill){
 		
 		main.con.add(resultPanel);
 		main.con.add(mainTextPanel);
@@ -138,17 +138,17 @@ public class endGame {
 		mainTextPanel.setVisible(true);
 		restartPanel.setVisible(true);
 		
-		displayGrade(result.gradeCalculate(mark));
+		displayGrade(result.gradeCalculate(knowledge,examSkill));
 	}
 	
-	public void displayGrade(int[] grade){
+	public void displayGrade(String[] grade){
 		
-		chinResult.setText(""+grade[0]);
-		engResult.setText(""+grade[1]);
-		mathResult.setText(""+grade[2]);
-		lsResult.setText(""+grade[3]);
-		sub1Result.setText(""+grade[4]);
-		sub2Result.setText(""+grade[5]);
+		chinResult.setText(grade[0]);
+		engResult.setText(grade[1]);
+		mathResult.setText(grade[2]);
+		lsResult.setText(grade[3]);
+		sub1Result.setText(grade[4]);
+		sub2Result.setText(grade[5]);
 		
 	}
 	
