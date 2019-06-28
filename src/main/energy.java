@@ -6,7 +6,7 @@ public class energy {
 
 	public int energyUse(int[] studySub){
 		
-		if (energyValue > 0 || energyValue < 100){
+		if (energyValue >= 0 && energyValue <= 100){
 			
 			for(int i = 0;i<studySub.length;i++){
 				
@@ -14,9 +14,21 @@ public class energy {
 					
 					energyValue -= 5;
 					
+					if(energyValue < 0){
+						
+						energyValue = 0;
+						
+					}
+					
 				}else{
 					
 					energyValue += 5;
+					
+					if(energyValue > 100){
+						
+						energyValue = 100;
+						
+					}
 					
 				}
 			}
