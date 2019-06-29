@@ -14,11 +14,12 @@ public class input implements ActionListener{
 	
 	int day,chin,eng,math,ls,sub1,sub2,energyValue,moneyValue;
 	int[] mark, studySubject, choices;
-	boolean timeup, energyUseup;
+	boolean timeup, energyUseup,moneyUseup;
 	
 	public input(frame.Main m){
 		
 		main = m;
+
 	}
 	
 	
@@ -39,7 +40,7 @@ public class input implements ActionListener{
 			
 			for(int i=0; i<main.getStudySubject().length; i++){
 				
-				study.mark_cal(studySubject[i],choices[i]);
+				study.mark_cal(studySubject[i],choices[i],energy.checkExhaust());
 			}
 			
 			mark = study.getMark();
@@ -56,11 +57,23 @@ public class input implements ActionListener{
 			
 			moneyValue = money.getMoney();
 			
+			moneyUseup = money.getMoneyuseup();
+			
 			main.valueSetup(day,chin,eng,math,ls,sub1,sub2,moneyValue);
 			
 			main.changeEnergyBar(energyValue);
 			
 			study.setMoneyValue(0);
+			
+			if(moneyUseup){
+				
+				
+				main.moneyUseup(true);
+				
+			}else{
+				
+				main.moneyUseup(false);
+			}
 			
 			main.dayReset();
 			
@@ -69,13 +82,10 @@ public class input implements ActionListener{
 				main.energyUseup();
 			}
 			
-			if(money.getMoneyuseup()){
-				
-				main.moneyUseup();
-			}
+		
 			
 		}else{
-			main.dayReset();
+			
 			main.endGame(study.getKnowledge(),study.getExamSkill());
 		}
 	}

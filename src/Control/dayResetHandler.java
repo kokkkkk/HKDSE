@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 public class dayResetHandler implements ActionListener {
 	
 	frame.Main main;
-
+	
 	public dayResetHandler(frame.Main m){
 		
 		main = m;
@@ -18,4 +18,6 @@ public class dayResetHandler implements ActionListener {
 		main.dayReset();
 		
 	}
+	
+	
 }

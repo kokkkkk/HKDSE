@@ -37,6 +37,7 @@ public class Main {
 	int day, chin, eng, math, ls, sub1, sub2, money;
 	private int[] studySubject = {0,0,0};
 	private int[] choices = {0,0,0};
+	boolean moneyUseup;
 	
 	Basic.initial initial = new Basic.initial();
 	Control.choiceHandler choiceHandler = new Control.choiceHandler(this);
@@ -847,19 +848,30 @@ public class Main {
 			a_breakButton.setEnabled(true);
 			n_breakButton.setEnabled(true);
 			
+		}
+		if(moneyUseup || day == 1){
+				
+				m_tutorialButton.setEnabled(false);
+				a_tutorialButton.setEnabled(false);
+				n_tutorialButton.setEnabled(false);
+				
 		}else{
+				
+				m_tutorialButton.setEnabled(true);
+				a_tutorialButton.setEnabled(true);
+				n_tutorialButton.setEnabled(true);
+		}
 			
 			m_revisionButton.setEnabled(true);
 			m_doPaperButton.setEnabled(true);
-			m_tutorialButton.setEnabled(true);
 			m_breakButton.setEnabled(true);
+			
 			a_revisionButton.setEnabled(true);
 			a_doPaperButton.setEnabled(true);
-			a_tutorialButton.setEnabled(true);
 			a_breakButton.setEnabled(true);
+			
 			n_revisionButton.setEnabled(true);
 			n_doPaperButton.setEnabled(true);
-			n_tutorialButton.setEnabled(true);
 			n_breakButton.setEnabled(true);
 			
 			mSubjectPanel.setVisible(false);
@@ -886,8 +898,6 @@ public class Main {
 			n_ls.setEnabled(true);
 			n_sub1.setEnabled(true);
 			n_sub2.setEnabled(true);
-		}
-		
 		
 	}
 	
@@ -919,6 +929,9 @@ public class Main {
 		m_choicePanel.setVisible(false);
 		a_choicePanel.setVisible(false);
 		n_choicePanel.setVisible(false);
+		mSubjectPanel.setVisible(false);
+		aSubjectPanel.setVisible(false);
+		nSubjectPanel.setVisible(false);
 		mPanel.setVisible(false);
 		aPanel.setVisible(false);
 		nPanel.setVisible(false);
@@ -942,11 +955,9 @@ public class Main {
 		this.studySubject = studySubject;
 	}
 	
-	public void moneyUseup(){
+	public void moneyUseup(boolean useup){
 		
-		m_tutorialButton.setEnabled(false);
-		a_tutorialButton.setEnabled(false);
-		n_tutorialButton.setEnabled(false);
+		moneyUseup = useup;
 		
 	}
 }

@@ -3,6 +3,8 @@ package main;
 public class energy {
 	
 	int energyValue = 100;
+	int energyUseupDay = 0;
+	boolean exhaust = false;
 
 	public int energyUse(int[] studySub){
 		
@@ -14,15 +16,24 @@ public class energy {
 					
 					energyValue -= 5;
 					
-					if(energyValue < 0){
+					if(energyValue <= 0){
 						
 						energyValue = 0;
+						energyUseupDay++;
+						System.out.println(energyUseupDay);
 						
+					}
+						
+					if(energyUseupDay == 3){
+							
+						System.out.println("exhaust");
+						exhaust = true;
+							
 					}
 					
 				}else{
 					
-					energyValue += 5;
+					energyValue += 30;
 					
 					if(energyValue > 100){
 						
@@ -49,6 +60,11 @@ public class energy {
 			return true;
 		}
 	
+	}
+	
+	public boolean checkExhaust(){
+		
+		return exhaust;
 	}
 	
 	public int getEnergyValue(){

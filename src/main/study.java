@@ -12,28 +12,39 @@ public class study {
 	int[] examSkill = initial.examSkill;
 	int iniValue = initial.iniValue;
 	int moneyValue = 0;
+	int exhaustConstant = 0;
 	
-	public void mark_cal(int sub, int choice){
+	public void mark_cal(int sub, int choice, boolean exhaust){
+		
+		if(exhaust){
+			
+			exhaustConstant = iniValue;
+		}
 		
 		switch(choice){
 		
 		case 1:
-			knowledge[sub] += iniValue*rand.nextInt(4);
+			knowledge[sub] += iniValue*rand.nextInt(4)- exhaustConstant;
 			break;
 			
 		case 2:
-			examSkill[sub] += iniValue*rand.nextInt(4);
+			examSkill[sub] += iniValue*rand.nextInt(4)- exhaustConstant;
 			break;
 			
 		case 3:
 			moneyValue ++;
-			knowledge[sub] += iniValue*rand.nextInt(4);
-			examSkill[sub] += iniValue*rand.nextInt(4);
+			knowledge[sub] += iniValue*rand.nextInt(4)- exhaustConstant;
+			examSkill[sub] += iniValue*rand.nextInt(4)- exhaustConstant;
 			break;
 			
 		}
 		
 		getMark()[sub] = (knowledge[sub]+examSkill[sub])/2;
+		
+		if(getMark()[sub]<= 0){
+			
+			getMark()[sub] = 0;
+		}
 		
 	}
 	
