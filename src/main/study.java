@@ -12,32 +12,61 @@ public class study {
 	int[] examSkill = initial.examSkill;
 	int iniValue = initial.iniValue;
 	int moneyValue = 0;
-	int exhaustConstant = 0;
+	int exhaustConstant = iniValue;
+	int tempSub = 0;
+	int studySameSub = 0;
+	boolean tired;
 	
 	public void mark_cal(int sub, int choice, boolean exhaust){
 		
-		if(exhaust){
-			
-			exhaustConstant = iniValue;
-		}
+		checkSameSub(sub);
 		
-		switch(choice){
-		
-		case 1:
-			knowledge[sub] += iniValue*rand.nextInt(4)- exhaustConstant;
-			break;
+		if(exhaust || tired){
 			
-		case 2:
-			examSkill[sub] += iniValue*rand.nextInt(4)- exhaustConstant;
-			break;
+			if(exhaustConstant != 0){
+				
+				exhaustConstant --;
+			}
 			
-		case 3:
-			moneyValue ++;
-			knowledge[sub] += iniValue*rand.nextInt(4)- exhaustConstant;
-			examSkill[sub] += iniValue*rand.nextInt(4)- exhaustConstant;
-			break;
+			switch(choice){
 			
+			case 1:
+				knowledge[sub] +=  exhaustConstant;
+				break;
+				
+			case 2:
+				examSkill[sub] += exhaustConstant;
+				break;
+				
+			case 3:
+				moneyValue ++;
+				knowledge[sub] += exhaustConstant;
+				examSkill[sub] += exhaustConstant;
+				break;
+				
+			}
+			
+		}else{
+			
+			switch(choice){
+			
+			case 1:
+				knowledge[sub] += iniValue*rand.nextInt(4);
+				break;
+				
+			case 2:
+				examSkill[sub] += iniValue*rand.nextInt(4);
+				break;
+				
+			case 3:
+				moneyValue ++;
+				knowledge[sub] += iniValue*rand.nextInt(4);
+				examSkill[sub] += iniValue*rand.nextInt(4);
+				break;
+				
+			}
 		}
+	
 		
 		getMark()[sub] = (knowledge[sub]+examSkill[sub])/2;
 		
@@ -80,6 +109,32 @@ public class study {
 	public void setMoneyValue(int value){
 		
 		moneyValue = value;
+		
+	}
+	
+	public void checkSameSub(int sub){
+		
+		if (tempSub == 0 ){
+			
+			tempSub = sub;
+			
+		}else if(tempSub == sub){
+			
+			studySameSub++;
+			
+			if(studySameSub >= 2){
+				System.out.println("tired");
+				tired = true;
+			}
+			
+		}else{
+			
+			tempSub = sub;
+			studySameSub = 0;
+			
+			tired = false;
+		
+		}
 		
 	}
 }
