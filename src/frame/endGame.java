@@ -12,9 +12,9 @@ import javax.swing.SwingConstants;
 public class endGame {
 
 	frame.Main main;
-	JPanel mainTextPanel,resultPanel,restartPanel;
+	JPanel mainTextPanel,resultPanel,restartPanel,universityPanel;
 	JLabel chinName,engName,mathName,lsName,sub1Name,sub2Name,chinResult,engResult,mathResult,lsResult,sub1Result,
-	sub2Result;
+	sub2Result,universityLabel,universityResult;
 	JButton restartButton;
 	
 	main.result result = new main.result();
@@ -27,14 +27,18 @@ public class endGame {
 		restartHandler = new Control.restartHandler(main,this);
 		
 		mainTextPanel = new JPanel();
-		mainTextPanel.setBounds(100,80,590,400);
+		mainTextPanel.setBounds(100,30,590,400);
 		mainTextPanel.setBackground(Color.red);
 		
 		resultPanel = new JPanel();
-		resultPanel.setBounds(100,80,590,400);
+		resultPanel.setBounds(100,30,590,400);
 		resultPanel.setLayout(new GridLayout(2,6));
 		resultPanel.setBackground(Color.blue);
 		resultPanel.setBorder(BorderFactory.createLineBorder(Color.green));
+		
+		universityPanel = new JPanel();
+		universityPanel.setBounds(100,450,590,50);
+		universityPanel.setBackground(Color.blue);
 		
 		restartPanel = new JPanel();
 		restartPanel.setBounds(350,500,120,50);
@@ -100,6 +104,14 @@ public class endGame {
 		sub2Result.setForeground(Color.white);
 		sub2Result.setBorder(BorderFactory.createLineBorder(Color.green));
 		
+		universityLabel = new JLabel("Chance to university :");
+		universityLabel.setFont(main.normalFont);
+		universityLabel.setForeground(Color.white);
+		
+		universityResult = new JLabel("");
+		universityResult.setFont(main.normalFont);
+		universityResult.setForeground(Color.white);
+		
 		restartButton = new JButton("restart");
 		restartButton.setBackground(Color.black);
 		restartButton.setForeground(Color.white);
@@ -120,11 +132,15 @@ public class endGame {
 		resultPanel.add(sub1Result);
 		resultPanel.add(sub2Result);
 		
+		universityPanel.add(universityLabel);
+		universityPanel.add(universityResult);
+		
 		restartPanel.add(restartButton);
 
 		resultPanel.setVisible(false);
 		mainTextPanel.setVisible(false);
 		restartPanel.setVisible(false);
+		universityPanel.setVisible(false);
 	
 	}
 	
@@ -133,15 +149,17 @@ public class endGame {
 		main.con.add(resultPanel);
 		main.con.add(mainTextPanel);
 		main.con.add(restartPanel);
+		main.con.add(universityPanel);
 		
 		resultPanel.setVisible(true);
 		mainTextPanel.setVisible(true);
 		restartPanel.setVisible(true);
+		universityPanel.setVisible(true);
 		
-		displayGrade(result.gradeCalculate(knowledge,examSkill));
+		displayGrade(result.gradeCalculate(knowledge,examSkill),result.universityChance());
 	}
 	
-	public void displayGrade(String[] grade){
+	public void displayGrade(String[] grade, boolean universityChance){
 		
 		chinResult.setText(grade[0]);
 		engResult.setText(grade[1]);
@@ -149,6 +167,14 @@ public class endGame {
 		lsResult.setText(grade[3]);
 		sub1Result.setText(grade[4]);
 		sub2Result.setText(grade[5]);
+		
+		if(universityChance){
+			universityResult.setText("Yes");
+			
+		}else{
+			universityResult.setText("No");
+			
+		}
 		
 	}
 	
