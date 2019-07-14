@@ -19,10 +19,11 @@ public class Main {
 	public Container con;
 	
 	JPanel dayPanel, mainTextPanel,dataPanel,adddayPanel,m_choicePanel,a_choicePanel,n_choicePanel,mPanel,aPanel,
-	nPanel,mSubjectPanel,aSubjectPanel,nSubjectPanel,energyLevelPanel,dayResetPanel,moneyPanel;
+	nPanel,mSubjectPanel,aSubjectPanel,nSubjectPanel,energyLevelPanel,dayResetPanel,moneyPanel,energyStatusPanel;
 	
 	JLabel dayLabel, dayNumber,dataName1,dataName2,dataName3,dataName4,dataName5,dataName6,dataNum1,dataNum2,
-	dataNum3,dataNum4,dataNum5,dataNum6,mLabel,aLabel,nLabel,energyLevelLabel,moneyLabel,moneyValueLabel;
+	dataNum3,dataNum4,dataNum5,dataNum6,mLabel,aLabel,nLabel,energyLevelLabel,moneyLabel,moneyValueLabel,
+	energyStatusLabel;
 	
 	JButton dayAdd, m_chin,m_eng,m_math,m_ls,m_sub1,m_sub2,a_chin,a_eng,a_math,a_ls,a_sub1,a_sub2,n_chin,n_eng,
 	n_math,n_ls,n_sub1,n_sub2,dayReset,m_revisionButton,m_doPaperButton,m_tutorialButton,m_breakButton,
@@ -69,6 +70,10 @@ public class Main {
 		energyLevelPanel = new JPanel();
 		energyLevelPanel.setBounds(400,20,200,50);
 		energyLevelPanel.setBackground(Color.red);
+		
+		energyStatusPanel = new JPanel();
+		energyStatusPanel.setBounds(330,20,70,50);
+		energyStatusPanel.setBackground(Color.blue);
 		
 		moneyPanel = new JPanel();
 		moneyPanel.setBounds(10,20,200,40);
@@ -144,6 +149,10 @@ public class Main {
 		energyLevelLabel = new JLabel("Energy",SwingConstants.CENTER);
 		energyLevelLabel.setFont(normalFont);
 		energyLevelLabel.setForeground(Color.white);
+		
+		energyStatusLabel = new JLabel();
+		energyStatusLabel.setFont(normalFont);
+		energyStatusLabel.setForeground(Color.white);
 		
 		dayNumber = new JLabel();
 		dayNumber.setFont(normalFont);
@@ -477,6 +486,8 @@ public class Main {
 		moneyPanel.add(moneyLabel);
 		moneyPanel.add(moneyValueLabel);
 		
+		energyStatusPanel.add(energyStatusLabel);
+		
 		energyLevelPanel.add(energyLevelLabel);
 		energyLevelPanel.add(energyBar);
 		
@@ -553,6 +564,7 @@ public class Main {
 		con.add(adddayPanel);
 		con.add(dayResetPanel);
 		con.add(energyLevelPanel);
+		con.add(energyStatusPanel);
 		
 		window.setVisible(true);
 		
@@ -907,18 +919,63 @@ public class Main {
 		
 	}
 	
-	public void energyUseup(){
+	public void energyUseup(boolean tired, boolean exhaust, boolean sameSubTired){
 		
-		m_revisionButton.setEnabled(false);
-		m_doPaperButton.setEnabled(false);
-		m_tutorialButton.setEnabled(false);
-		a_revisionButton.setEnabled(false);
-		a_doPaperButton.setEnabled(false);
-		a_tutorialButton.setEnabled(false);
-		n_revisionButton.setEnabled(false);
-		n_doPaperButton.setEnabled(false);
-		n_tutorialButton.setEnabled(false);
-		
+		if(exhaust) {
+			
+			energyStatusLabel.setText("Exhaust");
+			
+			if(tired) {
+				
+				m_revisionButton.setEnabled(false);
+				m_doPaperButton.setEnabled(false);
+				m_tutorialButton.setEnabled(false);
+				a_revisionButton.setEnabled(false);
+				a_doPaperButton.setEnabled(false);
+				a_tutorialButton.setEnabled(false);
+				n_revisionButton.setEnabled(false);
+				n_doPaperButton.setEnabled(false);
+				n_tutorialButton.setEnabled(false);
+				
+			}
+			
+		}else if(sameSubTired) {
+			
+			energyStatusLabel.setText("Tired");
+			
+			if(tired) {
+				
+				m_revisionButton.setEnabled(false);
+				m_doPaperButton.setEnabled(false);
+				m_tutorialButton.setEnabled(false);
+				a_revisionButton.setEnabled(false);
+				a_doPaperButton.setEnabled(false);
+				a_tutorialButton.setEnabled(false);
+				n_revisionButton.setEnabled(false);
+				n_doPaperButton.setEnabled(false);
+				n_tutorialButton.setEnabled(false);
+				
+			}
+			
+		}else if(tired) {
+			
+			energyStatusLabel.setText("Tired");
+			
+			m_revisionButton.setEnabled(false);
+			m_doPaperButton.setEnabled(false);
+			m_tutorialButton.setEnabled(false);
+			a_revisionButton.setEnabled(false);
+			a_doPaperButton.setEnabled(false);
+			a_tutorialButton.setEnabled(false);
+			n_revisionButton.setEnabled(false);
+			n_doPaperButton.setEnabled(false);
+			n_tutorialButton.setEnabled(false);
+			
+		}else {
+			
+			energyStatusLabel.setText("");
+		}
+	
 	}
 	
 	public void endGame(int[] knowledge,int[] examSkill){
@@ -935,6 +992,7 @@ public class Main {
 		mPanel.setVisible(false);
 		aPanel.setVisible(false);
 		nPanel.setVisible(false);
+		energyStatusPanel.setVisible(false);
 		energyLevelPanel.setVisible(false);
 		dayResetPanel.setVisible(false);
 		moneyPanel.setVisible(false);

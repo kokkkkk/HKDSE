@@ -137,4 +137,10 @@ public class study {
 		}
 		
 	}
+	
+	public boolean getTired() {
+		
+		return tired;
+		
+	}
 }

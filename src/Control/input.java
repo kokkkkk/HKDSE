@@ -14,7 +14,7 @@ public class input implements ActionListener{
 	
 	int day,chin,eng,math,ls,sub1,sub2,energyValue,moneyValue;
 	int[] mark, studySubject, choices;
-	boolean timeup, energyUseup,moneyUseup;
+	boolean timeup, energyUseup,moneyUseup,sameSubTired;
 	
 	public input(frame.Main m){
 		
@@ -65,6 +65,8 @@ public class input implements ActionListener{
 			
 			study.setMoneyValue(0);
 			
+			sameSubTired = study.getTired();
+			
 			if(moneyUseup){
 				
 				
@@ -77,12 +79,7 @@ public class input implements ActionListener{
 			
 			main.dayReset();
 			
-			if(energyUseup){
-				
-				main.energyUseup();
-			}
-			
-		
+			main.energyUseup(energyUseup,energy.checkExhaust(),sameSubTired);
 			
 		}else{
 			
