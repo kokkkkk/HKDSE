@@ -9,6 +9,7 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.SwingConstants;
@@ -16,7 +17,8 @@ import javax.swing.SwingConstants;
 public class Main {
 	
 	public JFrame window;
-	public Container con;
+	
+	public JLayeredPane con;
 	
 	JPanel dayPanel, mainTextPanel,dataPanel,adddayPanel,m_choicePanel,a_choicePanel,n_choicePanel,mPanel,aPanel,
 	nPanel,mSubjectPanel,aSubjectPanel,nSubjectPanel,energyLevelPanel,dayResetPanel,moneyPanel,energyStatusPanel;
@@ -61,7 +63,9 @@ public class Main {
 		window.getContentPane().setBackground(Color.black);
 		window.setLayout(null); //customize layout not use default layout
 		
-		con = window.getContentPane();
+		//con = window.getContentPane();
+		
+		con = window.getLayeredPane();
 		
 		dayPanel = new JPanel();
 		dayPanel.setBounds(650,20,100,40);
