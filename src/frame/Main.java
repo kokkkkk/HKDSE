@@ -25,7 +25,7 @@ public class Main {
 	
 	JLabel dayLabel, dayNumber,dataName1,dataName2,dataName3,dataName4,dataName5,dataName6,dataNum1,dataNum2,
 	dataNum3,dataNum4,dataNum5,dataNum6,mLabel,aLabel,nLabel,energyLevelLabel,moneyLabel,moneyValueLabel,
-	energyStatusLabel;
+	energyStatusLabel,moneyStatusLabel;
 	
 	JButton dayAdd, m_chin,m_eng,m_math,m_ls,m_sub1,m_sub2,a_chin,a_eng,a_math,a_ls,a_sub1,a_sub2,n_chin,n_eng,
 	n_math,n_ls,n_sub1,n_sub2,dayReset,m_revisionButton,m_doPaperButton,m_tutorialButton,m_breakButton,
@@ -80,7 +80,7 @@ public class Main {
 		energyStatusPanel.setBackground(Color.blue);
 		
 		moneyPanel = new JPanel();
-		moneyPanel.setBounds(10,20,200,40);
+		moneyPanel.setBounds(10,20,250,40);
 		moneyPanel.setBackground(Color.red);
 		
 		mainTextPanel = new JPanel();
@@ -149,6 +149,10 @@ public class Main {
 		moneyLabel = new JLabel("Money: ");
 		moneyLabel.setFont(normalFont);
 		moneyLabel.setForeground(Color.white);
+		
+		moneyStatusLabel = new JLabel();
+		moneyStatusLabel.setFont(normalFont);
+		moneyStatusLabel.setForeground(Color.black);
 		
 		energyLevelLabel = new JLabel("Energy",SwingConstants.CENTER);
 		energyLevelLabel.setFont(normalFont);
@@ -489,6 +493,7 @@ public class Main {
 		
 		moneyPanel.add(moneyLabel);
 		moneyPanel.add(moneyValueLabel);
+		moneyPanel.add(moneyStatusLabel);
 		
 		energyStatusPanel.add(energyStatusLabel);
 		
@@ -866,12 +871,16 @@ public class Main {
 			
 		}
 		if(moneyUseup || day == 1){
+			
+				moneyStatusLabel.setText("Money Use up");
 				
 				m_tutorialButton.setEnabled(false);
 				a_tutorialButton.setEnabled(false);
 				n_tutorialButton.setEnabled(false);
 				
-		}else{
+		}else{	
+				
+				moneyStatusLabel.setText("");
 				
 				m_tutorialButton.setEnabled(true);
 				a_tutorialButton.setEnabled(true);
