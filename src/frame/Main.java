@@ -49,10 +49,10 @@ public class Main {
 	main.study study = new main.study();
 	main.result result = new main.result();
 	frame.endGame endGame = new endGame(this);
+	frame.title title = new title(this);
 	
 	public static void main(String[] args) {
 		new Main();
-
 	}
 	
 	public Main(){
@@ -586,6 +586,9 @@ public class Main {
 		n_tutorialButton.setEnabled(false);
 		
 		valueSetup(initial.day, initial.Chin, initial.Eng, initial.Math, initial.ls, initial.sub_1 , initial.sub_2);
+	
+		clearFrame();
+		title.titleSetup();
 	}
 	
 	public void valueSetup(int dayValue, int chinValue, int engValue, int mathValue, int lsValue, int sub1Value, int sub2Value){
@@ -992,6 +995,15 @@ public class Main {
 	}
 	
 	public void endGame(int[] knowledge,int[] examSkill){
+		
+		clearFrame();
+		
+		endGame.resultSetup(knowledge,examSkill);
+		
+	}
+	
+	public void clearFrame(){
+		
 		dayPanel.setVisible(false);
 		mainTextPanel.setVisible(false);
 		dataPanel.setVisible(false);
@@ -1009,8 +1021,6 @@ public class Main {
 		energyLevelPanel.setVisible(false);
 		dayResetPanel.setVisible(false);
 		moneyPanel.setVisible(false);
-		
-		endGame.resultSetup(knowledge,examSkill);
 		
 	}
 
