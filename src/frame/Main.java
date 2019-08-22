@@ -873,9 +873,16 @@ public class Main {
 			n_breakButton.setEnabled(true);
 			
 		}
+		
+		if(moneyUseup && day != 1) {
+			
+			moneyStatusLabel.setText("Money Use up");
+			
+		}
+		
 		if(moneyUseup || day == 1){
 			
-				moneyStatusLabel.setText("Money Use up");
+				
 				
 				m_tutorialButton.setEnabled(false);
 				a_tutorialButton.setEnabled(false);
@@ -1021,6 +1028,28 @@ public class Main {
 		energyLevelPanel.setVisible(false);
 		dayResetPanel.setVisible(false);
 		moneyPanel.setVisible(false);
+		
+	}
+	
+	public void frameSetup() {
+		
+		dayPanel.setVisible(true);
+		mainTextPanel.setVisible(true);
+		dataPanel.setVisible(true);
+		adddayPanel.setVisible(true);
+		m_choicePanel.setVisible(true);
+		a_choicePanel.setVisible(true);
+		n_choicePanel.setVisible(true);
+		mSubjectPanel.setVisible(true);
+		aSubjectPanel.setVisible(true);
+		nSubjectPanel.setVisible(true);
+		mPanel.setVisible(true);
+		aPanel.setVisible(true);
+		nPanel.setVisible(true);
+		energyStatusPanel.setVisible(true);
+		energyLevelPanel.setVisible(true);
+		dayResetPanel.setVisible(true);
+		moneyPanel.setVisible(true);
 		
 	}
 
