@@ -11,6 +11,7 @@ public class input implements ActionListener{
 	main.study study = new main.study();
 	main.energy energy = new main.energy();
 	main.money money = new main.money();
+	main.daySchedule daySchedule = new main.daySchedule();
 	
 	int day,chin,eng,math,ls,sub1,sub2,energyValue,moneyValue;
 	int[] mark, studySubject, choices;
@@ -50,6 +51,8 @@ public class input implements ActionListener{
 			ls = mark[4];
 			sub1 = mark[5];
 			sub2 = mark[6];
+			
+			daySchedule.getData(studySubject, mark, choices);
 			
 			money.addMoney();
 			
