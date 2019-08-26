@@ -1,10 +1,12 @@
 package frame;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.util.concurrent.TimeUnit;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -12,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
+import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
 public class Main {
@@ -21,16 +24,19 @@ public class Main {
 	public JLayeredPane con;
 	
 	JPanel dayPanel, mainTextPanel,dataPanel,adddayPanel,m_choicePanel,a_choicePanel,n_choicePanel,mPanel,aPanel,
-	nPanel,mSubjectPanel,aSubjectPanel,nSubjectPanel,energyLevelPanel,dayResetPanel,moneyPanel,energyStatusPanel;
+	nPanel,mSubjectPanel,aSubjectPanel,nSubjectPanel,energyLevelPanel,dayResetPanel,moneyPanel,energyStatusPanel,
+	daySchedulePanel;
 	
 	JLabel dayLabel, dayNumber,dataName1,dataName2,dataName3,dataName4,dataName5,dataName6,dataNum1,dataNum2,
 	dataNum3,dataNum4,dataNum5,dataNum6,mLabel,aLabel,nLabel,energyLevelLabel,moneyLabel,moneyValueLabel,
-	energyStatusLabel,moneyStatusLabel;
+	energyStatusLabel,moneyStatusLabel,dayScheduleTitle;
+	
+	JTextArea daySchedule;
 	
 	JButton dayAdd, m_chin,m_eng,m_math,m_ls,m_sub1,m_sub2,a_chin,a_eng,a_math,a_ls,a_sub1,a_sub2,n_chin,n_eng,
 	n_math,n_ls,n_sub1,n_sub2,dayReset,m_revisionButton,m_doPaperButton,m_tutorialButton,m_breakButton,
 	a_revisionButton,a_doPaperButton,a_tutorialButton,a_breakButton,n_revisionButton,n_doPaperButton,
-	n_tutorialButton,n_breakButton;
+	n_tutorialButton,n_breakButton,dayScheduleExitButton;
 	
 	JProgressBar energyBar;
 	
@@ -46,6 +52,7 @@ public class Main {
 	Control.choiceHandler choiceHandler = new Control.choiceHandler(this);
 	Control.input input = new Control.input(this);
 	Control.dayResetHandler dayResetHandler = new Control.dayResetHandler(this);
+	Control.dayScheduleHandler dayScheduleHandler = new Control.dayScheduleHandler(this);
 	main.study study = new main.study();
 	main.result result = new main.result();
 	frame.endGame endGame = new endGame(this);
@@ -66,6 +73,8 @@ public class Main {
 		//con = window.getContentPane();
 		
 		con = window.getLayeredPane();
+		
+		//Main Pane---------------------------------------------------------->
 		
 		dayPanel = new JPanel();
 		dayPanel.setBounds(650,20,100,40);
@@ -557,6 +566,44 @@ public class Main {
 		nSubjectPanel.add(n_sub1);
 		nSubjectPanel.add(n_sub2);
 		
+		//Main Pane<---------------------------------------------------------
+		
+		//Day Schedule Pane------------------------------------------------->
+		
+		daySchedulePanel = new JPanel();
+		daySchedulePanel.setBounds(100,100,590,400);
+		daySchedulePanel.setBackground(Color.red);
+		daySchedulePanel.setForeground(Color.white);
+		daySchedulePanel.setLayout(new BorderLayout());
+		
+		dayScheduleTitle = new JLabel("Day Schedule", SwingConstants.CENTER );
+		dayScheduleTitle.setFont(normalFont);
+		dayScheduleTitle.setForeground(Color.white);
+		
+		daySchedule = new JTextArea("");
+		daySchedule.setBackground(Color.black);
+		daySchedule.setForeground(Color.white);
+		daySchedule.setFont(normalFont);
+		daySchedule.setLineWrap(true);
+		daySchedule.setEditable(false);
+		
+		dayScheduleExitButton = new JButton("Exit");
+		dayScheduleExitButton.setBackground(Color.black);
+		dayScheduleExitButton.setForeground(Color.white);
+		dayScheduleExitButton.setFont(normalFont);
+		dayScheduleExitButton.setFocusPainted(false);
+		dayScheduleExitButton.setLocation(285, 350);
+		dayScheduleExitButton.setActionCommand("exit");
+		dayScheduleExitButton.addActionListener(dayScheduleHandler); 
+		
+		daySchedulePanel.add(dayScheduleTitle, BorderLayout.NORTH);
+		daySchedulePanel.add(daySchedule, BorderLayout.CENTER);
+		daySchedulePanel.add(dayScheduleExitButton, BorderLayout.PAGE_END);
+		
+		//Day Schedule Pane<------------------------------------------------
+		
+		con.add(daySchedulePanel,new Integer(1));
+		
 		con.add(dayPanel);
 		con.add(moneyPanel);
 		con.add(mPanel);
@@ -584,6 +631,8 @@ public class Main {
 		m_tutorialButton.setEnabled(false);
 		a_tutorialButton.setEnabled(false);
 		n_tutorialButton.setEnabled(false);
+		
+		daySchedulePanel.setVisible(false);
 		
 		valueSetup(initial.day, initial.Chin, initial.Eng, initial.Math, initial.ls, initial.sub_1 , initial.sub_2);
 	
@@ -1028,6 +1077,7 @@ public class Main {
 		energyLevelPanel.setVisible(false);
 		dayResetPanel.setVisible(false);
 		moneyPanel.setVisible(false);
+		daySchedulePanel.setVisible(false);
 		
 	}
 	
@@ -1050,6 +1100,26 @@ public class Main {
 		energyLevelPanel.setVisible(true);
 		dayResetPanel.setVisible(true);
 		moneyPanel.setVisible(true);
+		
+	}
+	
+	public void dayScheduleSetup(String[] schedule) {
+		
+		daySchedule.setText("");
+		
+		daySchedulePanel.setVisible(true);
+		
+		for(int i = 0; i<schedule.length; i++) {
+			
+			daySchedule.append(schedule[i]+"\n");
+				
+		}
+		
+	}
+	
+	public void clearDaySchedule() {
+		
+		daySchedulePanel.setVisible(false);
 		
 	}
 

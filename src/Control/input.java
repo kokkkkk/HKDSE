@@ -54,6 +54,8 @@ public class input implements ActionListener{
 			
 			daySchedule.getData(studySubject, mark, choices);
 			
+			main.dayScheduleSetup(daySchedule.getSchedule());
+			
 			money.addMoney();
 			
 			money.lostMoney(study.getMoneyValue());
