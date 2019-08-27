@@ -7,16 +7,20 @@ public class daySchedule {
 	int[] sub = {0,0,0};
 	int[] mark = {0,0,0};
 	int[] choices = {0,0,0};
+	
+	Boolean moneyUseup, exhaust, sameSubTired;
+	
 	String scheduleText = "";
 	String[] fullSchedule;
 	
-	public void getData(int[] getSub, int[] getMark, int[] getchoices) {
+	public void getData(int[] getSub, int[] getMark, int[] getchoices, Boolean money, Boolean exh, Boolean sameSub) {
 		
 		sub = getSub;
-		
 		mark = getMark;
-		
 		choices = getchoices;
+		moneyUseup = money;
+		exhaust = exh;
+		sameSubTired = sameSub;
 		
 		setSchedule();
 		
@@ -117,6 +121,27 @@ public class daySchedule {
 				}
 				
 			}
+			
+		}
+		
+		if(moneyUseup) {
+			
+			System.out.println("Borrowed Money");
+			scheduleText += "Borrowed money from others.\n";
+			
+		}
+		
+		if(exhaust) {
+			
+			System.out.println("Exhaust");
+			scheduleText += "Exhaust. Life is no hope.\n";
+			
+		}
+		
+		if(sameSubTired) {
+			
+			System.out.println("SameSubTired");
+			scheduleText += "Tired because study the same subject.\n";
 			
 		}
 		

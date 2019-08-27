@@ -6,8 +6,13 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.concurrent.TimeUnit;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -16,6 +21,7 @@ import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
+import javax.swing.Timer;
 
 public class Main {
 	
@@ -43,10 +49,11 @@ public class Main {
 	Font normalFont = new Font("Times New Roman", Font.PLAIN,21);
 	Font smallFont = new Font("Times New Roman", Font.PLAIN,17);
 	
-	int day, chin, eng, math, ls, sub1, sub2, money;
+	int day, chin, eng, math, ls, sub1, sub2, money, showSchedule;
 	private int[] studySubject = {0,0,0};
 	private int[] choices = {0,0,0};
-	boolean moneyUseup;
+	boolean moneyUseup,showAllSchedule;
+	Timer tmr;
 	
 	Basic.initial initial = new Basic.initial();
 	Control.choiceHandler choiceHandler = new Control.choiceHandler(this);
@@ -574,6 +581,7 @@ public class Main {
 		daySchedulePanel.setBounds(100,100,590,400);
 		daySchedulePanel.setBackground(Color.red);
 		daySchedulePanel.setForeground(Color.white);
+		daySchedulePanel.setBorder(BorderFactory.createMatteBorder(5, 5, 5, 5, Color.white));
 		daySchedulePanel.setLayout(new BorderLayout());
 		
 		dayScheduleTitle = new JLabel("Day Schedule", SwingConstants.CENTER );
@@ -586,6 +594,7 @@ public class Main {
 		daySchedule.setFont(normalFont);
 		daySchedule.setLineWrap(true);
 		daySchedule.setEditable(false);
+		daySchedule.addMouseListener(mouse);
 		
 		dayScheduleExitButton = new JButton("Exit");
 		dayScheduleExitButton.setBackground(Color.black);
@@ -1109,11 +1118,46 @@ public class Main {
 		
 		daySchedulePanel.setVisible(true);
 		
+		showAllSchedule = false;
+		
+		showSchedule = 0;
+		
+		
+		tmr = new Timer(1000, (ActionListener) new ActionListener() {
+		    @Override
+		    
+		    public void actionPerformed(ActionEvent e) {
+		    	if(showSchedule<schedule.length && showAllSchedule != true) {
+		    		
+		    		daySchedule.append(schedule[showSchedule]+"\n");
+		    		
+		    	}else if(showAllSchedule == true) {
+		    		
+		    		tmr.stop();
+		    		
+		    		for(int i = showSchedule; i<schedule.length; i++) {
+		    		
+		    		daySchedule.append(schedule[i]+"\n");
+		    		
+		    		}
+		    		
+		    	}else {
+		    		
+		    		tmr.stop();
+		    		
+		    	}
+		    	
+		    	showSchedule++;
+		    	
+		    }
+		
+		});
+		
 		for(int i = 0; i<schedule.length; i++) {
+    		
+				tmr.start();
 			
-			daySchedule.append(schedule[i]+"\n");
-				
-		}
+    	}
 		
 	}
 	
@@ -1140,4 +1184,39 @@ public class Main {
 		moneyUseup = useup;
 		
 	}
+	
+	MouseListener mouse =  new MouseListener() {
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			showAllSchedule = true;
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+	    };
 }

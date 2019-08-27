@@ -52,10 +52,6 @@ public class input implements ActionListener{
 			sub1 = mark[5];
 			sub2 = mark[6];
 			
-			daySchedule.getData(studySubject, mark, choices);
-			
-			main.dayScheduleSetup(daySchedule.getSchedule());
-			
 			money.addMoney();
 			
 			money.lostMoney(study.getMoneyValue());
@@ -81,6 +77,10 @@ public class input implements ActionListener{
 				
 				main.moneyUseup(false);
 			}
+			
+			daySchedule.getData(studySubject, mark, choices, moneyUseup ,energy.checkExhaust(),sameSubTired);
+			
+			main.dayScheduleSetup(daySchedule.getSchedule());
 			
 			main.dayReset();
 			
