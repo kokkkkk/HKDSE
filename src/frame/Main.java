@@ -31,7 +31,7 @@ public class Main {
 	
 	JPanel dayPanel, mainTextPanel,dataPanel,adddayPanel,m_choicePanel,a_choicePanel,n_choicePanel,mPanel,aPanel,
 	nPanel,mSubjectPanel,aSubjectPanel,nSubjectPanel,energyLevelPanel,dayResetPanel,moneyPanel,energyStatusPanel,
-	daySchedulePanel;
+	daySchedulePanel,menuButtonPanel,menuPanel;
 	
 	JLabel dayLabel, dayNumber,dataName1,dataName2,dataName3,dataName4,dataName5,dataName6,dataNum1,dataNum2,
 	dataNum3,dataNum4,dataNum5,dataNum6,mLabel,aLabel,nLabel,energyLevelLabel,moneyLabel,moneyValueLabel,
@@ -42,12 +42,14 @@ public class Main {
 	JButton dayAdd, m_chin,m_eng,m_math,m_ls,m_sub1,m_sub2,a_chin,a_eng,a_math,a_ls,a_sub1,a_sub2,n_chin,n_eng,
 	n_math,n_ls,n_sub1,n_sub2,dayReset,m_revisionButton,m_doPaperButton,m_tutorialButton,m_breakButton,
 	a_revisionButton,a_doPaperButton,a_tutorialButton,a_breakButton,n_revisionButton,n_doPaperButton,
-	n_tutorialButton,n_breakButton,dayScheduleExitButton;
+	n_tutorialButton,n_breakButton,dayScheduleExitButton,menuButton,menuSaveButton,menuBackToTitleButton,
+	menuBackButton;
 	
 	JProgressBar energyBar;
 	
 	Font normalFont = new Font("Times New Roman", Font.PLAIN,21);
 	Font smallFont = new Font("Times New Roman", Font.PLAIN,17);
+	Font VerysmallFont = new Font("Times New Roman", Font.PLAIN,9);
 	
 	int day, chin, eng, math, ls, sub1, sub2, money, showSchedule;
 	private int[] studySubject = {0,0,0};
@@ -60,6 +62,8 @@ public class Main {
 	Control.input input = new Control.input(this);
 	Control.dayResetHandler dayResetHandler = new Control.dayResetHandler(this);
 	Control.dayScheduleHandler dayScheduleHandler = new Control.dayScheduleHandler(this);
+	Control.menuHandler menuHandler = new Control.menuHandler(this);
+	
 	main.study study = new main.study();
 	main.result result = new main.result();
 	frame.endGame endGame = new endGame(this);
@@ -157,6 +161,11 @@ public class Main {
 		nPanel = new JPanel();
 		nPanel.setBounds(160,360,590,30);
 		nPanel.setBackground(Color.green);
+		
+		menuButtonPanel = new JPanel();
+		menuButtonPanel.setBounds(700,520,60,40);
+		menuButtonPanel.setLayout(new GridLayout(1,6));
+		menuButtonPanel.setBackground(Color.blue);
 		
 		dayLabel = new JLabel("Day: ");
 		dayLabel.setFont(normalFont);
@@ -500,6 +509,14 @@ public class Main {
 		n_sub2.setActionCommand("n_sub2");
 		n_sub2.addActionListener(choiceHandler); //when click, call the class
 		
+		menuButton = new JButton("Menu");
+		menuButton.setBackground(Color.white);
+		menuButton.setForeground(Color.black);
+		menuButton.setFont(VerysmallFont);
+		menuButton.setFocusPainted(false);
+		menuButton.setActionCommand("openMenu");
+		menuButton.addActionListener(menuHandler);
+		
 		energyBar = new JProgressBar();
 		energyBar.setPreferredSize(new Dimension(200,50));
 		energyBar.setValue(100);
@@ -573,6 +590,8 @@ public class Main {
 		nSubjectPanel.add(n_sub1);
 		nSubjectPanel.add(n_sub2);
 		
+		menuButtonPanel.add(menuButton);
+		
 		//Main Pane<---------------------------------------------------------
 		
 		//Day Schedule Pane------------------------------------------------->
@@ -601,7 +620,6 @@ public class Main {
 		dayScheduleExitButton.setForeground(Color.white);
 		dayScheduleExitButton.setFont(normalFont);
 		dayScheduleExitButton.setFocusPainted(false);
-		dayScheduleExitButton.setLocation(285, 350);
 		dayScheduleExitButton.setActionCommand("exit");
 		dayScheduleExitButton.addActionListener(dayScheduleHandler); 
 		
@@ -612,6 +630,44 @@ public class Main {
 		//Day Schedule Pane<------------------------------------------------
 		
 		con.add(daySchedulePanel,new Integer(1));
+		
+		//Menu Pane--------------------------------------------------------->
+		
+		menuPanel = new JPanel();
+		menuPanel.setBounds(100,100,590,400);
+		menuPanel.setLayout(new GridLayout(3,1));
+		menuPanel.setBackground(Color.blue);
+		
+		menuSaveButton = new JButton("Save");
+		menuSaveButton.setBackground(Color.black);
+		menuSaveButton.setForeground(Color.white);
+		menuSaveButton.setFont(normalFont);
+		menuSaveButton.setFocusPainted(false);
+		menuSaveButton.setActionCommand("save");
+		menuSaveButton.addActionListener(menuHandler);
+		
+		menuBackToTitleButton = new JButton("Back to title");
+		menuBackToTitleButton.setBackground(Color.black);
+		menuBackToTitleButton.setForeground(Color.white);
+		menuBackToTitleButton.setFont(normalFont);
+		menuBackToTitleButton.setFocusPainted(false);
+		menuBackToTitleButton.setActionCommand("backToTitle");
+		menuBackToTitleButton.addActionListener(menuHandler);
+		
+		menuBackButton = new JButton("Back");
+		menuBackButton.setBackground(Color.black);
+		menuBackButton.setForeground(Color.white);
+		menuBackButton.setFont(normalFont);
+		menuBackButton.setFocusPainted(false);
+		menuBackButton.setActionCommand("back");
+		menuBackButton.addActionListener(menuHandler);
+		
+		menuPanel.add(menuSaveButton);
+		menuPanel.add(menuBackToTitleButton);
+		menuPanel.add(menuBackButton);
+		
+		//Menu Pane<---------------------------------------------------------
+		con.add(menuPanel);
 		
 		con.add(dayPanel);
 		con.add(moneyPanel);
@@ -630,6 +686,7 @@ public class Main {
 		con.add(dayResetPanel);
 		con.add(energyLevelPanel);
 		con.add(energyStatusPanel);
+		con.add(menuButtonPanel);
 		
 		window.setVisible(true);
 		
@@ -642,6 +699,7 @@ public class Main {
 		n_tutorialButton.setEnabled(false);
 		
 		daySchedulePanel.setVisible(false);
+		menuPanel.setVisible(false);
 		
 		valueSetup(initial.day, initial.Chin, initial.Eng, initial.Math, initial.ls, initial.sub_1 , initial.sub_2);
 	
@@ -1086,7 +1144,9 @@ public class Main {
 		energyLevelPanel.setVisible(false);
 		dayResetPanel.setVisible(false);
 		moneyPanel.setVisible(false);
+		menuButtonPanel.setVisible(false);
 		daySchedulePanel.setVisible(false);
+		menuPanel.setVisible(false);
 		
 	}
 	
@@ -1109,6 +1169,7 @@ public class Main {
 		energyLevelPanel.setVisible(true);
 		dayResetPanel.setVisible(true);
 		moneyPanel.setVisible(true);
+		menuButtonPanel.setVisible(true);
 		
 	}
 	
@@ -1164,6 +1225,17 @@ public class Main {
 	public void clearDaySchedule() {
 		
 		daySchedulePanel.setVisible(false);
+		
+	}
+	
+	public void setMenu() {
+		
+		menuPanel.setVisible(true);
+	}
+	
+	public void clearMenu() {
+		
+		menuPanel.setVisible(false);
 		
 	}
 

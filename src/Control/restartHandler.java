@@ -24,8 +24,8 @@ public class restartHandler implements ActionListener {
 	
 	public void actionPerformed(ActionEvent event){
 		
-		frame.Main main = new frame.Main();
-		frame.endGame endGame = new frame.endGame(this.main);
+		frame.Main m = new frame.Main();
+		main.window.dispose();
 		
 	}
 }
