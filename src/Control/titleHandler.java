@@ -18,10 +18,22 @@ public class titleHandler implements ActionListener {
 	
 	public void actionPerformed(ActionEvent event){
 		
-		title.clearFrame();
-
-		main.frameSetup();
+		String action = event.getActionCommand();
 		
+		switch(action) {
+		case "new":
+			title.clearFrame();
+			main.frameSetup();
+			break;
+			
+		case "continue":
+			break;
+			
+		case "exit":
+			System.exit(0);
+			break;
+		}
+
 	}
 }
 

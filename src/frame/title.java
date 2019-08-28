@@ -43,6 +43,7 @@ public class title {
 		newGameButton.setForeground(Color.white);
 		newGameButton.setFont(main.normalFont);
 		newGameButton.setFocusPainted(false);
+		newGameButton.setActionCommand("new");
 		newGameButton.addActionListener(titleHandler);
 		
 		continueButton = new JButton("Continue");
@@ -50,6 +51,7 @@ public class title {
 		continueButton.setForeground(Color.white);
 		continueButton.setFont(main.normalFont);
 		continueButton.setFocusPainted(false);
+		continueButton.setActionCommand("continue");
 		continueButton.addActionListener(titleHandler);
 		
 		exitButton = new JButton("Exit");
@@ -57,6 +59,7 @@ public class title {
 		exitButton.setForeground(Color.white);
 		exitButton.setFont(main.normalFont);
 		exitButton.setFocusPainted(false);
+		exitButton.setActionCommand("exit");
 		exitButton.addActionListener(titleHandler);
 		
 		title.add(titleName);
