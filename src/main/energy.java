@@ -2,9 +2,9 @@ package main;
 
 public class energy {
 	
-	int energyValue = 100;
-	int energyUseupDay = 0;
-	boolean exhaust = false;
+	int energyValue = Basic.initial.energyValue;
+	int energyUseupDay = Basic.initial.energyUseupDay;
+	boolean exhaust = Basic.initial.exhaust;
 
 	public int energyUse(int[] studySub){
 		

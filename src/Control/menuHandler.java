@@ -5,12 +5,15 @@ import java.awt.event.ActionListener;
 
 public class menuHandler implements ActionListener {
 	
-	frame.Main main;
+	frame.Game game;
+	frame.title title;
 	
-	public menuHandler(frame.Main m) {
+	main.SaveLoad sL = new main.SaveLoad();
+	
+	public menuHandler(frame.Game g, frame.title tit) {
 		
-		main = m;
-		
+		game = g;
+		title = tit;
 	}
 
 	@Override
@@ -20,16 +23,19 @@ public class menuHandler implements ActionListener {
 		
 		switch(action) {
 		case "openMenu":
-			main.setMenu();
+			game.setMenu();
 			break;
 		case "save":
+			sL.saveData();
+			game.menuSave(0);
 			break;
 		case "backToTitle":
-			main.window.dispose();
-			frame.Main m = new frame.Main();
+			title.window.dispose();
+			new frame.title();
 			break;
 		case "back":
-			main.clearMenu();
+			game.clearMenu();
+			game.menuSave(1);
 			break;
 			
 		}

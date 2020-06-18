@@ -3,14 +3,13 @@ package Control;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import frame.Game;
+
 public class titleHandler implements ActionListener {
 	
-	frame.Main main;
 	frame.title title;
 
-	public titleHandler(frame.Main m, frame.title tit){
-		
-		main = m;
+	public titleHandler(frame.title tit){
 		
 		title = tit;
 		
@@ -23,10 +22,12 @@ public class titleHandler implements ActionListener {
 		switch(action) {
 		case "new":
 			title.clearFrame();
-			main.frameSetup();
+			new frame.Game(title,0);
 			break;
 			
 		case "continue":
+			title.clearFrame();
+			new frame.Game(title,1);
 			break;
 			
 		case "exit":

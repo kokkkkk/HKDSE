@@ -2,12 +2,11 @@ package Control;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Scanner;
 
 public class input implements ActionListener{
 	
 	Time._control time = new Time._control();
-	frame.Main main;
+	frame.Game game;
 	main.study study = new main.study();
 	main.energy energy = new main.energy();
 	main.money money = new main.money();
@@ -17,9 +16,9 @@ public class input implements ActionListener{
 	int[] mark, studySubject, choices;
 	boolean timeup, energyUseup,moneyUseup,sameSubTired;
 	
-	public input(frame.Main m){
+	public input(frame.Game g){
 		
-		main = m;
+		game = g;
 
 	}
 	
@@ -31,15 +30,15 @@ public class input implements ActionListener{
 			time.increase();
 			day = time.getDay();
 			
-			studySubject = main.getStudySubject();
+			studySubject = game.getStudySubject();
 			
-			choices = main.getChoices();
+			choices = game.getChoices();
 			
 			energyValue = energy.energyUse(studySubject);
 			
 			energyUseup = energy.checkEnergyUseup();
 			
-			for(int i=0; i<main.getStudySubject().length; i++){
+			for(int i=0; i<game.getStudySubject().length; i++){
 				
 				study.mark_cal(studySubject[i],choices[i],energy.checkExhaust());
 			}
@@ -54,41 +53,41 @@ public class input implements ActionListener{
 			
 			money.addMoney();
 			
-			money.lostMoney(study.getMoneyValue());
+			money.lostMoney(study.gettutorial());
 			
 			moneyValue = money.getMoney();
 			
 			moneyUseup = money.getMoneyuseup();
 			
-			main.valueSetup(day,chin,eng,math,ls,sub1,sub2,moneyValue);
+			game.valueSetup(day,chin,eng,math,ls,sub1,sub2,moneyValue);
 			
-			main.changeEnergyBar(energyValue);
+			game.changeEnergyBar(energyValue);
 			
-			study.setMoneyValue(0);
+			study.settutorial(0);
 			
 			sameSubTired = study.getTired();
 			
 			if(moneyUseup){
 				
 				
-				main.moneyUseup(true);
+				game.moneyUseup(true);
 				
 			}else{
 				
-				main.moneyUseup(false);
+				game.moneyUseup(false);
 			}
 			
 			daySchedule.getData(studySubject, mark, choices, moneyUseup ,energy.checkExhaust(),sameSubTired);
 			
-			main.dayScheduleSetup(daySchedule.getSchedule());
+			game.dayScheduleSetup(daySchedule.getSchedule());
 			
-			main.dayReset();
+			game.dayReset();
 			
-			main.energyUseup(energyUseup,energy.checkExhaust(),sameSubTired);
+			game.energyUseup(energyUseup,energy.checkExhaust(),sameSubTired);
 			
 		}else{
 			
-			main.endGame(study.getKnowledge(),study.getExamSkill());
+			game.endGame(study.getKnowledge(),study.getExamSkill());
 		}
 	}
 }

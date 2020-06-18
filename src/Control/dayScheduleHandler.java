@@ -5,11 +5,11 @@ import java.awt.event.ActionListener;
 
 public class dayScheduleHandler implements ActionListener {
 	
-	frame.Main main;
+	frame.Game game;
 	
-	public dayScheduleHandler(frame.Main m) {
+	public dayScheduleHandler(frame.Game g) {
 		
-		main = m;
+		game = g;
 		
 	}
 	
@@ -19,7 +19,7 @@ public class dayScheduleHandler implements ActionListener {
 			
 		switch(action) {
 		case "exit":
-			main.clearDaySchedule();
+			game.clearDaySchedule();
 			break;
 		
 		}

@@ -5,25 +5,45 @@ import java.awt.Font;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
-public class title {
+public class title{
 	
-	frame.Main main;
+	
+	public JFrame window;
+	
+	public JLayeredPane con;
+	
+	Font normalFont = new Font("Times New Roman", Font.PLAIN,21);
+	Font smallFont = new Font("Times New Roman", Font.PLAIN,17);
+	Font VerysmallFont = new Font("Times New Roman", Font.PLAIN,9);
+	
 	JPanel title, choices;
 	JLabel titleName;
 	JButton newGameButton,continueButton,exitButton;
+	
+	frame.Game game;
 	
 	Control.titleHandler titleHandler;
 	
 	Font titleFont = new Font("Times New Roman", Font.PLAIN,30);
 	
-	public title(frame.Main m){
+	public title(){
 		
-		main = m;
+		window = new JFrame();
+		window.setSize(800, 600);
+		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.getContentPane().setBackground(Color.black);
+		window.setLayout(null); //customize layout not use default layout
 		
-		titleHandler = new Control.titleHandler(main,this);
+		//con = window.getContentPane();
+		
+		con = window.getLayeredPane();
+		
+		titleHandler = new Control.titleHandler(this);
 		
 		title = new JPanel();
 		title.setBounds(100,30,600,100);
@@ -41,7 +61,7 @@ public class title {
 		newGameButton = new JButton("New Game");
 		newGameButton.setBackground(Color.black);
 		newGameButton.setForeground(Color.white);
-		newGameButton.setFont(main.normalFont);
+		newGameButton.setFont(normalFont);
 		newGameButton.setFocusPainted(false);
 		newGameButton.setActionCommand("new");
 		newGameButton.addActionListener(titleHandler);
@@ -49,7 +69,7 @@ public class title {
 		continueButton = new JButton("Continue");
 		continueButton.setBackground(Color.black);
 		continueButton.setForeground(Color.white);
-		continueButton.setFont(main.normalFont);
+		continueButton.setFont(normalFont);
 		continueButton.setFocusPainted(false);
 		continueButton.setActionCommand("continue");
 		continueButton.addActionListener(titleHandler);
@@ -57,7 +77,7 @@ public class title {
 		exitButton = new JButton("Exit");
 		exitButton.setBackground(Color.black);
 		exitButton.setForeground(Color.white);
-		exitButton.setFont(main.normalFont);
+		exitButton.setFont(normalFont);
 		exitButton.setFocusPainted(false);
 		exitButton.setActionCommand("exit");
 		exitButton.addActionListener(titleHandler);
@@ -66,14 +86,21 @@ public class title {
 		choices.add(newGameButton);
 		choices.add(continueButton);
 		choices.add(exitButton);
+		
+		titleSetup();
+		
+		window.setVisible(true);
 	
+	}
+	
+	public static void main(String[] args) {
+		new title();
 	}
 	
 	public void titleSetup(){
 		
-		
-		main.con.add(title);
-		main.con.add(choices);
+		con.add(title);
+		con.add(choices);
 		
 		title.setVisible(true);
 		choices.setVisible(true);

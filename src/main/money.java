@@ -2,14 +2,14 @@ package main;
 
 import java.util.Random;
 
+import Basic.initial;
+
 public class money {
 	Random rand = new Random();
 	
-	Basic.initial initial = new Basic.initial();
-	
 	int moneyValue = rand.nextInt(200)+1;
 	int addAmount;
-	boolean moneyUseup = false;
+	boolean moneyUseup = initial.moneyUseup;
 
 	public money(){
 		
@@ -21,6 +21,7 @@ public class money {
 		
 		moneyValue = moneyValue + addAmount;
 		
+		initial.moneyValue = moneyValue;
 	}
 	
 	public void lostMoney(int times){
@@ -30,6 +31,7 @@ public class money {
 			moneyValue -= 100;
 		}
 		
+		initial.moneyValue = moneyValue;
 	}
 	
 	public int getMoney(){
@@ -47,6 +49,8 @@ public class money {
 			
 			moneyUseup = false;
 		}
+		
+		initial.moneyUseup = moneyUseup;
 		
 		return moneyUseup;
 	}

@@ -9,10 +9,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-public class endGame {
+public class endGame{
 
-	frame.Main main;
-	JPanel mainTextPanel,resultPanel,restartPanel,universityPanel;
+	frame.title title;
+	JPanel gameTextPanel,resultPanel,restartPanel,universityPanel;
 	JLabel chinName,engName,mathName,lsName,sub1Name,sub2Name,chinResult,engResult,mathResult,lsResult,sub1Result,
 	sub2Result,universityLabel,universityResult;
 	JButton restartButton;
@@ -20,15 +20,15 @@ public class endGame {
 	main.result result = new main.result();
 	Control.restartHandler restartHandler;
 	
-	public endGame(frame.Main m){
+	public endGame(frame.title tit){
 		
-		main = m;
+		title = tit;
 		
-		restartHandler = new Control.restartHandler(main,this);
+		restartHandler = new Control.restartHandler(title,this);
 		
-		mainTextPanel = new JPanel();
-		mainTextPanel.setBounds(100,30,590,400);
-		mainTextPanel.setBackground(Color.red);
+		gameTextPanel = new JPanel();
+		gameTextPanel.setBounds(100,30,590,400);
+		gameTextPanel.setBackground(Color.red);
 		
 		resultPanel = new JPanel();
 		resultPanel.setBounds(100,30,590,400);
@@ -45,77 +45,77 @@ public class endGame {
 		restartPanel.setBackground(Color.blue);
 		
 		chinName = new JLabel("Chin",SwingConstants.CENTER);
-		chinName.setFont(main.normalFont);
+		chinName.setFont(title.normalFont);
 		chinName.setForeground(Color.white);
 		chinName.setBorder(BorderFactory.createLineBorder(Color.green));
 		
 		engName = new JLabel("Eng",SwingConstants.CENTER);
-		engName.setFont(main.normalFont);
+		engName.setFont(title.normalFont);
 		engName.setForeground(Color.white);
 		engName.setBorder(BorderFactory.createLineBorder(Color.green));
 		
 		mathName = new JLabel("Math",SwingConstants.CENTER);
-		mathName.setFont(main.normalFont);
+		mathName.setFont(title.normalFont);
 		mathName.setForeground(Color.white);
 		mathName.setBorder(BorderFactory.createLineBorder(Color.green));
 		
 		lsName = new JLabel("LS",SwingConstants.CENTER);
-		lsName.setFont(main.normalFont);
+		lsName.setFont(title.normalFont);
 		lsName.setForeground(Color.white);
 		lsName.setBorder(BorderFactory.createLineBorder(Color.green));
 		
 		sub1Name = new JLabel("Sub1",SwingConstants.CENTER);
-		sub1Name.setFont(main.normalFont);
+		sub1Name.setFont(title.normalFont);
 		sub1Name.setForeground(Color.white);
 		sub1Name.setBorder(BorderFactory.createLineBorder(Color.green));
 		
 		sub2Name = new JLabel("Sub2",SwingConstants.CENTER);
-		sub2Name.setFont(main.normalFont);
+		sub2Name.setFont(title.normalFont);
 		sub2Name.setForeground(Color.white);
 		sub2Name.setBorder(BorderFactory.createLineBorder(Color.green));
 		
 		chinResult = new JLabel("",SwingConstants.CENTER);
-		chinResult.setFont(main.normalFont);
+		chinResult.setFont(title.normalFont);
 		chinResult.setForeground(Color.white);
 		chinResult.setBorder(BorderFactory.createLineBorder(Color.green));
 		
 		engResult = new JLabel("",SwingConstants.CENTER);
-		engResult.setFont(main.normalFont);
+		engResult.setFont(title.normalFont);
 		engResult.setForeground(Color.white);
 		engResult.setBorder(BorderFactory.createLineBorder(Color.green));
 		
 		mathResult = new JLabel("",SwingConstants.CENTER);
-		mathResult.setFont(main.normalFont);
+		mathResult.setFont(title.normalFont);
 		mathResult.setForeground(Color.white);
 		mathResult.setBorder(BorderFactory.createLineBorder(Color.green));
 		
 		lsResult = new JLabel("",SwingConstants.CENTER);
-		lsResult.setFont(main.normalFont);
+		lsResult.setFont(title.normalFont);
 		lsResult.setForeground(Color.white);
 		lsResult.setBorder(BorderFactory.createLineBorder(Color.green));
 		
 		sub1Result = new JLabel("",SwingConstants.CENTER);
-		sub1Result.setFont(main.normalFont);
+		sub1Result.setFont(title.normalFont);
 		sub1Result.setForeground(Color.white);
 		sub1Result.setBorder(BorderFactory.createLineBorder(Color.green));
 		
 		sub2Result = new JLabel("",SwingConstants.CENTER);
-		sub2Result.setFont(main.normalFont);
+		sub2Result.setFont(title.normalFont);
 		sub2Result.setForeground(Color.white);
 		sub2Result.setBorder(BorderFactory.createLineBorder(Color.green));
 		
 		universityLabel = new JLabel("Chance to university :");
-		universityLabel.setFont(main.normalFont);
+		universityLabel.setFont(title.normalFont);
 		universityLabel.setForeground(Color.white);
 		
 		universityResult = new JLabel("");
-		universityResult.setFont(main.normalFont);
+		universityResult.setFont(title.normalFont);
 		universityResult.setForeground(Color.white);
 		
 		restartButton = new JButton("restart");
 		restartButton.setBackground(Color.black);
 		restartButton.setForeground(Color.white);
-		restartButton.setFont(main.normalFont);
+		restartButton.setFont(title.normalFont);
 		restartButton.setFocusPainted(false);
 		restartButton.addActionListener(restartHandler); //when click, call the class
 		
@@ -138,7 +138,7 @@ public class endGame {
 		restartPanel.add(restartButton);
 
 		resultPanel.setVisible(false);
-		mainTextPanel.setVisible(false);
+		gameTextPanel.setVisible(false);
 		restartPanel.setVisible(false);
 		universityPanel.setVisible(false);
 	
@@ -146,13 +146,13 @@ public class endGame {
 	
 	public void resultSetup(int[] knowledge,int[] examSkill){
 		
-		main.con.add(resultPanel);
-		main.con.add(mainTextPanel);
-		main.con.add(restartPanel);
-		main.con.add(universityPanel);
+		title.con.add(resultPanel);
+		title.con.add(gameTextPanel);
+		title.con.add(restartPanel);
+		title.con.add(universityPanel);
 		
 		resultPanel.setVisible(true);
-		mainTextPanel.setVisible(true);
+		gameTextPanel.setVisible(true);
 		restartPanel.setVisible(true);
 		universityPanel.setVisible(true);
 		

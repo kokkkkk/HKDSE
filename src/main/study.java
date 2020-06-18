@@ -2,20 +2,21 @@ package main;
 
 import java.util.Random;
 
-public class study {
-	Basic.initial initial = new Basic.initial();
-	main.money money = new main.money();
+import Basic.initial;
+
+
+public class study{
 	
 	Random rand = new Random();
 	private int mark[] = initial.study;
 	int[] knowledge = initial.knowledge;
 	int[] examSkill = initial.examSkill;
 	int iniValue = initial.iniValue;
-	int moneyValue = 0;
+	int tutorial = 0;
 	int exhaustConstant = iniValue;
+	boolean tired = initial.tired;
 	int tempSub = 0;
 	int studySameSub = 0;
-	boolean tired;
 	
 	public void mark_cal(int sub, int choice, boolean exhaust){
 		
@@ -39,7 +40,7 @@ public class study {
 				break;
 				
 			case 3:
-				moneyValue ++;
+				tutorial ++;
 				knowledge[sub] += exhaustConstant;
 				examSkill[sub] += exhaustConstant;
 				break;
@@ -59,7 +60,7 @@ public class study {
 				break;
 				
 			case 3:
-				moneyValue ++;
+				tutorial ++;
 				knowledge[sub] += iniValue*rand.nextInt(4);
 				examSkill[sub] += iniValue*rand.nextInt(4);
 				break;
@@ -97,18 +98,19 @@ public class study {
 		return examSkill;
 	}
 	
-	public int getMoneyValue(){
+	public int gettutorial(){
 		
-		return moneyValue;
+		return tutorial;
 	}
 	
 	public void setMark(int mark[]) {
 		this.mark = mark;
+	
 	}
 	
-	public void setMoneyValue(int value){
+	public void settutorial(int value){
 		
-		moneyValue = value;
+		tutorial = value;
 		
 	}
 	

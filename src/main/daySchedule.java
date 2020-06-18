@@ -2,8 +2,6 @@ package main;
 
 public class daySchedule {
 	
-	Basic.initial ini = new Basic.initial();
-	
 	int[] sub = {0,0,0};
 	int[] mark = {0,0,0};
 	int[] choices = {0,0,0};
@@ -53,8 +51,8 @@ public class daySchedule {
 				
 				switch(i) {
 				case 0: 
-					System.out.println("Morning :" + ini.subject[sub[i]]);
-					scheduleText += "Morning :" + ini.subject[sub[i]]+"\n";
+					System.out.println("Morning :" + Basic.initial.subject[sub[i]]);
+					scheduleText += "Morning :" + Basic.initial.subject[sub[i]]+"\n";
 					
 					switch(choices[i]) {
 					case 1:
@@ -71,12 +69,12 @@ public class daySchedule {
 						break;
 					}
 					
-					System.out.println(ini.subject[sub[i]] + " 's Mark: " + mark[sub[i]]);
-					scheduleText += ini.subject[sub[i]] + " 's Mark: " + mark[sub[i]] + "\n";
+					System.out.println(Basic.initial.subject[sub[i]] + " 's Mark: " + mark[sub[i]]);
+					scheduleText += Basic.initial.subject[sub[i]] + " 's Mark: " + mark[sub[i]] + "\n";
 					break;
 				case 1: 
-					System.out.println("Afternoon :" + ini.subject[sub[i]]);
-					scheduleText += "Afternoon :" + ini.subject[sub[i]] + "\n";
+					System.out.println("Afternoon :" + Basic.initial.subject[sub[i]]);
+					scheduleText += "Afternoon :" + Basic.initial.subject[sub[i]] + "\n";
 					
 					switch(choices[i]) {
 					case 1:
@@ -93,12 +91,12 @@ public class daySchedule {
 						break;
 					}
 					
-					System.out.println(ini.subject[sub[i]] + " 's Mark: " + mark[sub[i]]);
-					scheduleText += ini.subject[sub[i]] + " 's Mark: " + mark[sub[i]] + "\n";
+					System.out.println(Basic.initial.subject[sub[i]] + " 's Mark: " + mark[sub[i]]);
+					scheduleText += Basic.initial.subject[sub[i]] + " 's Mark: " + mark[sub[i]] + "\n";
 					break;
 				case 2: 
-					System.out.println("Night :" + ini.subject[sub[i]]);
-					scheduleText += "Night :" + ini.subject[sub[i]] + "\n";
+					System.out.println("Night :" + Basic.initial.subject[sub[i]]);
+					scheduleText += "Night :" + Basic.initial.subject[sub[i]] + "\n";
 					
 					switch(choices[i]) {
 					case 1:
@@ -115,8 +113,8 @@ public class daySchedule {
 						break;
 					}
 					
-					System.out.println(ini.subject[sub[i]] + " 's Mark: " + mark[sub[i]]);
-					scheduleText += ini.subject[sub[i]] + " 's Mark: " + mark[sub[i]] + "\n";
+					System.out.println(Basic.initial.subject[sub[i]] + " 's Mark: " + mark[sub[i]]);
+					scheduleText += Basic.initial.subject[sub[i]] + " 's Mark: " + mark[sub[i]] + "\n";
 					break;
 				}
 				
