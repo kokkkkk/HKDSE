@@ -26,6 +26,7 @@ public class title{
 	JButton newGameButton,continueButton,exitButton;
 	
 	frame.Game game;
+	main.SaveLoad saveLoad = new main.SaveLoad();
 	
 	Control.titleHandler titleHandler;
 	
@@ -101,6 +102,10 @@ public class title{
 		
 		con.add(title);
 		con.add(choices);
+		
+		if(!saveLoad.checkFileExist()){
+			continueButton.setEnabled(false);
+		}
 		
 		title.setVisible(true);
 		choices.setVisible(true);
