@@ -32,7 +32,7 @@ public class daySchedule {
 		
 		for(int i = 0; i<sub.length; i++) {
 			
-			if (choices[i] == 0) {
+			if (choices[i] == 0 || sub[i] == 0) {
 				
 				switch(i) {
 				case 0: 
