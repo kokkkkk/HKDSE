@@ -28,6 +28,7 @@ public class title{
 	JButton newGameButton,continueButton,exitButton;
 	
 	frame.game game;
+
 	main.saveLoad saveLoad = new saveLoad();
 	
 	Control.titleHandler titleHandler;
