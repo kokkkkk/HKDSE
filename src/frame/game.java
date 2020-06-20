@@ -8,8 +8,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.BufferedReader;
-import java.io.FileReader;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -49,7 +47,8 @@ public class game {
 	boolean moneyUseup,showAllSchedule;
 	Timer tmr;
 	
-	frame.endGame endgame; 
+	frame.endGame endGame; 
+
 	frame.title title;
 	
 	Control.choiceHandler choiceHandler;
@@ -66,9 +65,11 @@ public class game {
 		
 		start(i);
 		
+		endGame = new endGame(title);
 		menuHandler = new Control.menuHandler(this,title);
 		choiceHandler = new Control.choiceHandler(this);
-		input = new Control.input(this,tit);
+		input = new Control.input(this);
+
 		dayResetHandler = new Control.dayResetHandler(this);
 		dayScheduleHandler = new Control.dayScheduleHandler(this);
 		
@@ -1100,6 +1101,15 @@ public class game {
 			energyStatusLabel.setText("");
 		}
 	
+	}
+	
+
+	public void endGame(int[] knowledge,int[] examSkill){
+		
+		clearFrame();
+		
+		endGame.resultSetup(knowledge,examSkill);
+		
 	}
 	
 	public void clearFrame(){

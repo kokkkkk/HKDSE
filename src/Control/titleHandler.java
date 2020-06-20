@@ -22,12 +22,16 @@ public class titleHandler implements ActionListener {
 		switch(action) {
 		case "new":
 			title.clearFrame();
-			new frame.game(title,0);
+        
+			new game(title,0);
+
 			break;
 			
 		case "continue":
 			title.clearFrame();
-			new frame.game(title,1);
+
+			new game(title,1);
+
 			break;
 			
 		case "exit":

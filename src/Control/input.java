@@ -7,8 +7,10 @@ public class input implements ActionListener{
 	
 	Time._control time = new Time._control();
 	frame.game game;
+  
 	frame.title title;
 	frame.examFrame examFrame;
+
 	main.study study = new main.study();
 	main.energy energy = new main.energy();
 	main.money money = new main.money();

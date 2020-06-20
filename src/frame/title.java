@@ -1,5 +1,7 @@
 package frame;
 
+import main.saveLoad;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -26,7 +28,8 @@ public class title{
 	JButton newGameButton,continueButton,exitButton;
 	
 	frame.game game;
-	main.saveLoad saveLoad = new main.saveLoad();
+
+	main.saveLoad saveLoad = new saveLoad();
 	
 	Control.titleHandler titleHandler;
 	

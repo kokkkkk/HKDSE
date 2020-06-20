@@ -1,5 +1,7 @@
 package Control;
 
+import main.saveLoad;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -8,7 +10,7 @@ public class menuHandler implements ActionListener {
 	frame.game game;
 	frame.title title;
 	
-	main.saveLoad sL = new main.saveLoad();
+	saveLoad sL = new saveLoad();
 	
 	public menuHandler(frame.game g, frame.title tit) {
 		
