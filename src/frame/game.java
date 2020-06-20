@@ -68,7 +68,7 @@ public class game {
 		endGame = new endGame(title);
 		menuHandler = new Control.menuHandler(this,title);
 		choiceHandler = new Control.choiceHandler(this);
-		input = new Control.input(this);
+		input = new Control.input(this,title);
 
 		dayResetHandler = new Control.dayResetHandler(this);
 		dayScheduleHandler = new Control.dayScheduleHandler(this);

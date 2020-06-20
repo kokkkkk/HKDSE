@@ -42,6 +42,7 @@ public class examFrame {
 		examText.setFont(title.normalFont);
 		examText.setLineWrap(true);
 		examText.setEditable(false);
+		examText.addMouseListener(mouse);
 			
 		gameTextPanel.add(examText);
 
