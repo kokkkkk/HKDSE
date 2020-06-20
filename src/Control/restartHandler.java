@@ -21,7 +21,6 @@ public class restartHandler implements ActionListener {
 	
 	public void actionPerformed(ActionEvent event){
 		title.window.dispose();
-		Basic.initial.valueReset();
 		new frame.title();
 		
 	}

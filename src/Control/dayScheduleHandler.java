@@ -19,6 +19,7 @@ public class dayScheduleHandler implements ActionListener {
 			
 		switch(action) {
 		case "exit":
+			game.addday(1);
 			game.clearDaySchedule();
 			break;
 		

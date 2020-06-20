@@ -19,11 +19,14 @@ public class input implements ActionListener{
 	public input(frame.Game g){
 		
 		game = g;
-
+		
 	}
 	
 	
 	public void actionPerformed(ActionEvent event){
+		
+		game.addday(0);
+		
 		timeup = time.getTimeup();
 		
 		if( timeup == false){
@@ -80,6 +83,7 @@ public class input implements ActionListener{
 			daySchedule.getData(studySubject, mark, choices, moneyUseup ,energy.checkExhaust(),sameSubTired);
 			
 			game.dayScheduleSetup(daySchedule.getSchedule());
+			daySchedule.resetSchedule();
 			
 			game.dayReset();
 			

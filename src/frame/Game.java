@@ -1192,6 +1192,8 @@ public class Game {
 		
 		daySchedule.setText("");
 		
+		dayScheduleExitButton.setEnabled(false);
+		
 		daySchedulePanel.setVisible(true);
 		
 		showAllSchedule = false;
@@ -1209,18 +1211,20 @@ public class Game {
 		    		
 		    	}else if(showAllSchedule == true) {
 		    		
-		    		tmr.stop();
-		    		
 		    		for(int i = showSchedule; i<schedule.length; i++) {
 		    		
-		    		daySchedule.append(schedule[i]+"\n");
+		    			daySchedule.append(schedule[i]+"\n");
 		    		
 		    		}
+		    		
+		    		tmr.stop();
+		    		
+		    		dayScheduleExitButton.setEnabled(true);
 		    		
 		    	}else {
 		    		
 		    		tmr.stop();
-		    		
+		    		dayScheduleExitButton.setEnabled(true);
 		    	}
 		    	
 		    	showSchedule++;
@@ -1229,12 +1233,8 @@ public class Game {
 		
 		});
 		
-		for(int i = 0; i<schedule.length; i++) {
-    		
-				tmr.start();
+		tmr.start();
 			
-    	}
-		
 	}
 	
 	public void menuSave(int i){
@@ -1280,6 +1280,15 @@ public class Game {
 		
 		moneyUseup = useup;
 		
+	}
+	
+	public void addday(int i){
+		if(i==0){
+			dayAdd.setEnabled(false);
+			//dayScheduleExitButton.setEnabled(false);
+		}else{
+			dayAdd.setEnabled(true);
+		}
 	}
 	
 	MouseListener mouse =  new MouseListener() {

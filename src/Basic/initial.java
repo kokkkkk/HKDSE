@@ -30,11 +30,6 @@ public class initial {
 	//Used by main.money class
 	public static boolean moneyUseup = false;
 	
-	//For value reset
-	private static int[] o_study = {0,0,0,0,0,0,0};
-	private static int[] o_knowledge = {0,0,0,0,0,0,0};
-	private static int[] o_examSkill = {0,0,0,0,0,0,0};
-	
 	
 	public static void valueSetup(int dayValue, int money, int[] studyValue, int[] knowledgeValue, int[]examSkillValue){
 		day = dayValue;
@@ -64,10 +59,14 @@ public class initial {
 		sub_2 = 0; // Subject 2
 		iniValue = rand.nextInt(11)+1;
 		moneyValue = 0;
-		study = o_study; //null, chin, eng, math, ls, sub1, sub2
-		knowledge = o_knowledge;
-		examSkill = o_examSkill;
 		
+		for(int i = 0; i<study.length;i++){
+			study[i] = 0;
+			knowledge[i] = 0;
+			examSkill[i] = 0;
+		}
+		
+		//Used by main.energy class
 		energyValue = 100;
 		energyUseupDay = 0;
 		exhaust = false;

@@ -149,11 +149,15 @@ public class daySchedule {
 	
 	public String[] getSchedule() {
 		
-		fullSchedule = scheduleText.split("\n", -1);
+		fullSchedule = scheduleText.split("\n");
 		
 		return fullSchedule;
 		
 	}
 	
+	public void resetSchedule(){
+		fullSchedule = new String[0];
+		scheduleText = "";
+	}
 
 }
