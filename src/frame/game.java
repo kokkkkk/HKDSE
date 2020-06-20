@@ -21,9 +21,9 @@ import javax.swing.SwingConstants;
 import javax.swing.Timer;
 
 import Basic.initial;
-import main.SaveLoad;
+import main.saveLoad;
 
-public class Game {
+public class game {
 	
 	JPanel dayPanel, mainTextPanel,dataPanel,adddayPanel,m_choicePanel,a_choicePanel,n_choicePanel,mPanel,aPanel,
 	nPanel,mSubjectPanel,aSubjectPanel,nSubjectPanel,energyLevelPanel,dayResetPanel,moneyPanel,energyStatusPanel,
@@ -49,7 +49,7 @@ public class Game {
 	boolean moneyUseup,showAllSchedule;
 	Timer tmr;
 	
-	frame.endGame endGame; 
+	frame.endGame endgame; 
 	frame.title title;
 	
 	Control.choiceHandler choiceHandler;
@@ -58,18 +58,17 @@ public class Game {
 	Control.dayScheduleHandler dayScheduleHandler;
 	Control.menuHandler menuHandler;
 	
-	main.SaveLoad saveLoad  = new SaveLoad();
+	main.saveLoad saveLoad  = new saveLoad();
 	
-	public Game(frame.title tit, int i){
+	public game(frame.title tit, int i){
 		
 		title = tit;
 		
 		start(i);
 		
-		endGame = new endGame(title);
 		menuHandler = new Control.menuHandler(this,title);
 		choiceHandler = new Control.choiceHandler(this);
-		input = new Control.input(this);
+		input = new Control.input(this,tit);
 		dayResetHandler = new Control.dayResetHandler(this);
 		dayScheduleHandler = new Control.dayScheduleHandler(this);
 		
@@ -1101,14 +1100,6 @@ public class Game {
 			energyStatusLabel.setText("");
 		}
 	
-	}
-	
-	public void endGame(int[] knowledge,int[] examSkill){
-		
-		clearFrame();
-		
-		endGame.resultSetup(knowledge,examSkill);
-		
 	}
 	
 	public void clearFrame(){

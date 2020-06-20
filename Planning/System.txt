@@ -30,3 +30,10 @@ Exam:
 	Normal: not affected
 	Easy        : skill*1.5
 	Very easy: knowledge*1.5 skill+20
+
+Progress: Github
+
+Random Event:
+	-Increase subject's mark
+	-Remind user specific elements e.g Energy,Money
+	-Tired,exhaust

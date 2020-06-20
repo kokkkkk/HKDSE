@@ -5,9 +5,9 @@ import java.awt.event.ActionListener;
 
 public class dayScheduleHandler implements ActionListener {
 	
-	frame.Game game;
+	frame.game game;
 	
-	public dayScheduleHandler(frame.Game g) {
+	public dayScheduleHandler(frame.game g) {
 		
 		game = g;
 		

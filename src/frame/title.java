@@ -25,8 +25,8 @@ public class title{
 	JLabel titleName;
 	JButton newGameButton,continueButton,exitButton;
 	
-	frame.Game game;
-	main.SaveLoad saveLoad = new main.SaveLoad();
+	frame.game game;
+	main.saveLoad saveLoad = new main.saveLoad();
 	
 	Control.titleHandler titleHandler;
 	

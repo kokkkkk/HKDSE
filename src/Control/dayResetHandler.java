@@ -5,9 +5,9 @@ import java.awt.event.ActionListener;
 
 public class dayResetHandler implements ActionListener {
 	
-	frame.Game game;
+	frame.game game;
 	
-	public dayResetHandler(frame.Game g){
+	public dayResetHandler(frame.game g){
 		
 		game = g;
 		
