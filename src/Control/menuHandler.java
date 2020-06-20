@@ -1,16 +1,18 @@
 package Control;
 
+import main.saveLoad;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class menuHandler implements ActionListener {
 	
-	frame.Game game;
+	frame.game game;
 	frame.title title;
 	
-	main.SaveLoad sL = new main.SaveLoad();
+	saveLoad sL = new saveLoad();
 	
-	public menuHandler(frame.Game g, frame.title tit) {
+	public menuHandler(frame.game g, frame.title tit) {
 		
 		game = g;
 		title = tit;

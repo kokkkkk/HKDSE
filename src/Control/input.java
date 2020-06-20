@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 public class input implements ActionListener{
 	
 	Time._control time = new Time._control();
-	frame.Game game;
+	frame.game game;
 	main.study study = new main.study();
 	main.energy energy = new main.energy();
 	main.money money = new main.money();
@@ -16,7 +16,7 @@ public class input implements ActionListener{
 	int[] mark, studySubject, choices;
 	boolean timeup, energyUseup,moneyUseup,sameSubTired;
 	
-	public input(frame.Game g){
+	public input(frame.game g){
 		
 		game = g;
 		

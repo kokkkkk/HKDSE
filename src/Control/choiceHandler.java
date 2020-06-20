@@ -4,9 +4,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class choiceHandler implements ActionListener{
-	frame.Game game;
+	frame.game game;
 	
-	public choiceHandler(frame.Game g){
+	public choiceHandler(frame.game g){
 		game = g;
 	}
 	

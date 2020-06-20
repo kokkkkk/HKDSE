@@ -8,7 +8,7 @@ import java.io.FileWriter;
 
 import Basic.initial;
 
-public class SaveLoad {
+public class saveLoad {
 	
 	public void loadData(){
 		

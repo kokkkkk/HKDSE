@@ -8,8 +8,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.BufferedReader;
-import java.io.FileReader;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -21,9 +19,9 @@ import javax.swing.SwingConstants;
 import javax.swing.Timer;
 
 import Basic.initial;
-import main.SaveLoad;
+import main.saveLoad;
 
-public class Game {
+public class game {
 	
 	JPanel dayPanel, mainTextPanel,dataPanel,adddayPanel,m_choicePanel,a_choicePanel,n_choicePanel,mPanel,aPanel,
 	nPanel,mSubjectPanel,aSubjectPanel,nSubjectPanel,energyLevelPanel,dayResetPanel,moneyPanel,energyStatusPanel,
@@ -58,9 +56,9 @@ public class Game {
 	Control.dayScheduleHandler dayScheduleHandler;
 	Control.menuHandler menuHandler;
 	
-	main.SaveLoad saveLoad  = new SaveLoad();
+	main.saveLoad saveLoad  = new saveLoad();
 	
-	public Game(frame.title tit, int i){
+	public game(frame.title tit, int i){
 		
 		title = tit;
 		
