@@ -1,11 +1,15 @@
 package main;
 
+import Basic.initial;
+
 public class result {
 	int[] knowledge,examSkill;
 	boolean universityChance;
 	
 	String[] grade = {"0","0","0","0","0","0"};
 	int[] gradeNum = {0,0,0,0,0,0};
+	
+	int learningVariable = initial.iniValue;
 	
 	main.study study = new main.study();
 	
@@ -23,10 +27,10 @@ public class result {
 		
 		for(int i=0;i<grade.length;i++){
 			
-			if(knowledge[i+1]>=90 && examSkill[i+1]>90){
+			if(knowledge[i+1]>=90 && examSkill[i+1]>90 && learningVariable > 8){
 				grade[i] = "5**";
 				gradeNum[i] = 7;
-			}else if(knowledge[i+1]>=85 && examSkill[i+1]>=85){
+			}else if(knowledge[i+1]>=85 && examSkill[i+1]>=85 && learningVariable > 6){
 				grade[i] = "5*";
 				gradeNum[i] = 6;
 			}else if(knowledge[i+1]>=80 && examSkill[i+1]>=70){

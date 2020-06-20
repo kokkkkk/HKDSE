@@ -31,10 +31,12 @@ public class initial {
 	public static boolean moneyUseup = false;
 	
 	
-	public static void valueSetup(int dayValue, int money, int[] studyValue, int[] knowledgeValue, int[]examSkillValue){
+	public static void valueSetup(int dayValue, int money,int ini,int[] studyValue, int[] knowledgeValue, int[]examSkillValue){
 		day = dayValue;
 		
 		moneyValue = money;
+		
+		iniValue = ini;
 	
 		study = studyValue;
 		knowledge = knowledgeValue;
