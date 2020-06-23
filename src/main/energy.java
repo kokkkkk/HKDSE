@@ -1,5 +1,7 @@
 package main;
 
+import Basic.initial;
+
 public class energy {
 	
 	int energyValue = Basic.initial.energyValue;
@@ -45,6 +47,7 @@ public class energy {
 			}
 		}
 		
+		initial.energy_update(energyValue, energyUseupDay, exhaust);
 		return energyValue;
 		
 	}

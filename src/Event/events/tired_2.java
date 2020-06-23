@@ -1,26 +1,26 @@
 package Event.events;
 
+import Event.eventInterface;
 import frame.eventFrame;
 
-public class tired_1 implements Event.eventInterface{
-	
+public class tired_2 implements eventInterface{
 	boolean trig = false;
+	String text[] = {"Tired_2"};
 
 	@Override
 	public boolean trigger() {
-		// TODO Auto-generated method stub
+		
 		return trig;
 	}
 
 	@Override
 	public void execution(eventFrame eventFrame) {
-		// TODO Auto-generated method stub
-		
+		eventFrame.setText(text);
 	}
 
 	@Override
 	public void result() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 

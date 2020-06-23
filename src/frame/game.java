@@ -958,6 +958,8 @@ public class game {
 	
 	public void dayReset(){
 		
+		frameSetup();
+		
 		for(int i=0; i<studySubject.length;i++){
 			studySubject[i] = 0;
 			
@@ -1185,7 +1187,7 @@ public class game {
 		dataNum5.setText(""+sub1);
 		dataNum6.setText(""+sub2);
 		moneyValueLabel.setText(""+money);
-		
+
 	}
 	
 	
@@ -1226,6 +1228,7 @@ public class game {
 		    		
 		    		tmr.stop();
 		    		dayScheduleExitButton.setEnabled(true);
+
 		    	}
 		    	
 		    	showSchedule++;
@@ -1289,6 +1292,7 @@ public class game {
 			//dayScheduleExitButton.setEnabled(false);
 		}else{
 			dayAdd.setEnabled(true);
+			input.eventCheck();
 		}
 	}
 	

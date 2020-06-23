@@ -6,15 +6,18 @@ import java.awt.event.ActionListener;
 public class input implements ActionListener{
 	
 	Time._control time = new Time._control();
+	
 	frame.game game;
-  
 	frame.title title;
 	frame.examFrame examFrame;
+	frame.eventFrame eventFrame;
 
 	main.study study = new main.study();
 	main.energy energy = new main.energy();
 	main.money money = new main.money();
 	main.daySchedule daySchedule = new main.daySchedule();
+
+	Event.eventHandler eventHandler;
 	
 	int day,chin,eng,math,ls,sub1,sub2,energyValue,moneyValue;
 	int[] mark, studySubject, choices;
@@ -26,6 +29,9 @@ public class input implements ActionListener{
 		title = tit;
 		
 		examFrame = new frame.examFrame(title);
+		eventFrame = new frame.eventFrame(tit, g);
+		
+		eventHandler = new Event.eventHandler(eventFrame);
 	}
 	
 	
@@ -91,13 +97,16 @@ public class input implements ActionListener{
 			game.dayScheduleSetup(daySchedule.getSchedule());
 			daySchedule.resetSchedule();
 			
-			game.dayReset();
-			
 			game.energyUseup(energyUseup,energy.checkExhaust(),sameSubTired);
 			
 		}else{
 			game.clearFrame();
 			examFrame.examSetup(study.getKnowledge(),study.getExamSkill());
 		}
+	}
+	
+	public void eventCheck(){
+		
+		eventHandler.update();
 	}
 }

@@ -51,6 +51,18 @@ public class initial {
 
 	}
 	
+	//Used by main.energy class
+	public static void energy_update(int energy, int useup, boolean ex){
+		energyValue = energy;
+		energyUseupDay = useup;
+		exhaust = ex;
+	}
+	
+	//Used by main.study class
+	public static void study_update(boolean t){
+		tired = t;
+	}
+	
 	public static void valueReset(){
 		day = 1;
 		Chin = 0; //Chinese

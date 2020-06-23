@@ -137,7 +137,7 @@ public class study{
 			tired = false;
 		
 		}
-		
+		initial.study_update(tired);
 	}
 	
 	public boolean getTired() {
