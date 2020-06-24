@@ -23,27 +23,23 @@ import main.saveLoad;
 
 public class game {
 
-	enum Subject {
-		CHIN,
-		ENG,
-		MATH,
-		LS,
-		SUB1,
-		SUB2
-	}
+
+	int subjectCount = 6;
+	int actionCount = 4;
 
 	enum Action {
 		REVISION,
-		DO_PAPER,
+		PASTPAPER,
 		TUTORIAL,
 		BREAK
 	}
 
-	JButton[] morningSubjects = new JButton[Subject.values().length], afternoonSubjects = new JButton[Subject.values().length], nightSubjects = new JButton[Subject.values().length];
+	JButton[] morningSubjects = new JButton[subjectCount], afternoonSubjects = new JButton[subjectCount], nightSubjects = new JButton[subjectCount];
 	String[] subjectNames = {"Chin", "Eng", "Math", "LS", "Sub1", "Sub2"};
 
-	JButton[] morningActions = new JButton[Action.values().length], afternoonActions = new JButton[Action.values().length], nightActions = new JButton[Action.values().length];
+	JButton[] morningActions = new JButton[actionCount], afternoonActions = new JButton[actionCount], nightActions = new JButton[actionCount];
 	String[] actionNames = {"Revision", "Do Past Paper", "Go tutorial", "Break"};
+	String[] actionCommand = {"revision", "doPaper", "tutorial", "break"};
 
 	JPanel dayPanel, mainTextPanel,dataPanel,adddayPanel,m_choicePanel,a_choicePanel,n_choicePanel,mPanel,aPanel,
 	nPanel,mSubjectPanel,aSubjectPanel,nSubjectPanel,energyLevelPanel,dayResetPanel,moneyPanel,energyStatusPanel,
@@ -286,7 +282,14 @@ public class game {
 		dayReset.setFont(title.normalFont);
 		dayReset.setFocusPainted(false);
 		dayReset.addActionListener(dayResetHandler); //when click, call the class
-		
+
+		for (int index = 0; index < morningActions.length; index++) {
+			morningActions[index] = createActionJButton(actionNames[index], "m_" + actionCommand[index], index == Action.PASTPAPER.ordinal(), choiceHandler);
+			afternoonActions[index] = createActionJButton(actionNames[index], "a_" + actionCommand[index], index == Action.PASTPAPER.ordinal(), choiceHandler);
+			nightActions[index] = createActionJButton(actionNames[index], "n_" + actionCommand[index], index == Action.PASTPAPER.ordinal(), choiceHandler);
+		}
+
+		/*
 		m_revisionButton = new JButton("Revision");
 		m_revisionButton.setBackground(Color.black);
 		m_revisionButton.setForeground(Color.white);
@@ -381,7 +384,7 @@ public class game {
 		n_breakButton.setFont(title.normalFont);
 		n_breakButton.setFocusPainted(false);
 		n_breakButton.setActionCommand("n_break");
-		n_breakButton.addActionListener(choiceHandler); //when click, call the class
+		n_breakButton.addActionListener(choiceHandler); //when click, call the class*/
 
 		for (int index = 0; index < morningSubjects.length; index++) {
 			morningSubjects[index] = createSubjectJButton(subjectNames[index], "m_" + subjectNames[index].toLowerCase(), choiceHandler);
@@ -433,7 +436,14 @@ public class game {
 		mPanel.add(mLabel);
 		aPanel.add(aLabel);
 		nPanel.add(nLabel);
-		
+
+		for (int index = 0; index < morningActions.length; index++) {
+			m_choicePanel.add(morningActions[index]);
+			a_choicePanel.add(afternoonActions[index]);
+			n_choicePanel.add(nightActions[index]);
+		}
+
+/*
 		m_choicePanel.add(m_revisionButton);
 		m_choicePanel.add(m_doPaperButton);
 		m_choicePanel.add(m_tutorialButton);
@@ -448,6 +458,7 @@ public class game {
 		n_choicePanel.add(n_doPaperButton);
 		n_choicePanel.add(n_tutorialButton);
 		n_choicePanel.add(n_breakButton);
+*/
 
 		for (int index = 0; index < morningSubjects.length; index++) {
 			mSubjectPanel.add(morningSubjects[index]);
@@ -556,10 +567,12 @@ public class game {
 		mSubjectPanel.setVisible(false);
 		aSubjectPanel.setVisible(false);
 		nSubjectPanel.setVisible(false);
-		
-		m_tutorialButton.setEnabled(false);
+
+		togglePartialActions(Action.TUTORIAL, false);
+
+		/*m_tutorialButton.setEnabled(false);
 		a_tutorialButton.setEnabled(false);
-		n_tutorialButton.setEnabled(false);
+		n_tutorialButton.setEnabled(false);*/
 		
 		daySchedulePanel.setVisible(false);
 		menuPanel.setVisible(false);
@@ -571,14 +584,30 @@ public class game {
 	}
 	
 	private JButton createSubjectJButton(String identifier, String command, ActionListener actionListener) {
-		JButton create = new JButton(identifier);	//n_sub2 = new JButton("Sub2");
+		JButton create = new JButton(identifier);
 
 		create.setBackground(Color.black);
 		create.setForeground(Color.white);
 		create.setFont(title.normalFont);
 		create.setFocusPainted(false);
-		create.setActionCommand(command);	//n_sub2.setActionCommand("n_sub2");
-		create.addActionListener(actionListener);	//n_sub2.addActionListener(choiceHandler); //when click, call the class
+		create.setActionCommand(command);
+		create.addActionListener(actionListener);	//when click, call the class
+		return create;
+	}
+
+	private JButton createActionJButton(String identifier, String command, Boolean isFontSmall, ActionListener actionListener) {
+		JButton create = new JButton(identifier);
+
+		create.setBackground(Color.black);
+		create.setForeground(Color.white);
+		if (isFontSmall) {
+			create.setFont(title.smallFont);
+		} else {
+			create.setFont(title.normalFont);
+		}
+		create.setFocusPainted(false);
+		create.setActionCommand(command);
+		create.addActionListener(actionListener);	//when click, call the class
 		return create;
 	}
 	
@@ -632,10 +661,9 @@ public class game {
 			break;
 			
 		case 4:
-			m_revisionButton.setEnabled(false);
-			m_doPaperButton.setEnabled(false);
-			m_tutorialButton.setEnabled(false);
-			
+			for (int index = 0; index < Action.values().length - 1; index++) {
+				morningActions[index].setEnabled(false);
+			}
 		}
 	}
 	
@@ -650,10 +678,9 @@ public class game {
 			break;
 			
 		case 4:
-			a_revisionButton.setEnabled(false);
-			a_doPaperButton.setEnabled(false);
-			a_tutorialButton.setEnabled(false);
-			
+			for (int index = 0; index < Action.values().length - 1; index++) {
+				afternoonActions[index].setEnabled(false);
+			}
 		}
 	}
 	
@@ -669,10 +696,9 @@ public class game {
 			break;
 			
 		case 4:
-			n_revisionButton.setEnabled(false);
-			n_doPaperButton.setEnabled(false);
-			n_tutorialButton.setEnabled(false);
-			
+			for (int index = 0; index < Action.values().length - 1; index++) {
+				nightActions[index].setEnabled(false);
+			}
 		}
 		
 	}
@@ -739,13 +765,11 @@ public class game {
 		m_choicePanel.setVisible(true);
 		a_choicePanel.setVisible(true);
 		n_choicePanel.setVisible(true);
-		
+
+		toggleAllActions(true);
+
 		if(energyBar.getValue() <= 0){
-			
-			m_breakButton.setEnabled(true);
-			a_breakButton.setEnabled(true);
-			n_breakButton.setEnabled(true);
-			
+			togglePartialActions(Action.BREAK, true);
 		}
 		
 		if(moneyUseup && day != 1) {
@@ -753,67 +777,35 @@ public class game {
 			moneyStatusLabel.setText("Money Use up");
 			
 		}
-		
+
 		if(moneyUseup || day == 1){
-			
-				
-				
-				m_tutorialButton.setEnabled(false);
-				a_tutorialButton.setEnabled(false);
-				n_tutorialButton.setEnabled(false);
-				
-		}else{	
-				
+			togglePartialActions(Action.TUTORIAL, false);
+		}else{
 				moneyStatusLabel.setText("");
-				
-				m_tutorialButton.setEnabled(true);
-				a_tutorialButton.setEnabled(true);
-				n_tutorialButton.setEnabled(true);
+				togglePartialActions(Action.TUTORIAL, true);
 		}
-			
-			m_revisionButton.setEnabled(true);
+
+/*			m_revisionButton.setEnabled(true);
 			m_doPaperButton.setEnabled(true);
 			m_breakButton.setEnabled(true);
-			
+
 			a_revisionButton.setEnabled(true);
 			a_doPaperButton.setEnabled(true);
 			a_breakButton.setEnabled(true);
-			
+
 			n_revisionButton.setEnabled(true);
 			n_doPaperButton.setEnabled(true);
-			n_breakButton.setEnabled(true);
+			n_breakButton.setEnabled(true);*/
 			
 			mSubjectPanel.setVisible(false);
 			aSubjectPanel.setVisible(false);
 			nSubjectPanel.setVisible(false);
 
 		for (int index = 0; index < morningSubjects.length; index++) {
-			(morningSubjects[index]).setEnabled(true);
-			(afternoonSubjects[index]).setEnabled(true);
-			(nightSubjects[index]).setEnabled(true);
+			morningSubjects[index].setEnabled(true);
+			afternoonSubjects[index].setEnabled(true);
+			nightSubjects[index].setEnabled(true);
 		}
-
-			/*m_chin.setEnabled(true);
-			m_eng.setEnabled(true);
-			m_math.setEnabled(true);
-			m_ls.setEnabled(true);
-			m_sub1.setEnabled(true);
-			m_sub2.setEnabled(true);
-
-			a_chin.setEnabled(true);
-			a_eng.setEnabled(true);
-			a_math.setEnabled(true);
-			a_ls.setEnabled(true);
-			a_sub1.setEnabled(true);
-			a_sub2.setEnabled(true);
-
-			n_chin.setEnabled(true);
-			n_eng.setEnabled(true);
-			n_math.setEnabled(true);
-			n_ls.setEnabled(true);
-			n_sub1.setEnabled(true);
-			n_sub2.setEnabled(true);
-		*/
 	}
 	
 	public void changeEnergyBar(int energyValue){
@@ -823,7 +815,19 @@ public class game {
 	}
 	
 	public void energyUseup(boolean tired, boolean exhaust, boolean sameSubTired){
-		
+		if (exhaust) {
+			energyStatusLabel.setText("Exhaust");
+		} else if (sameSubTired || tired) {
+			energyStatusLabel.setText("Tired");
+		} else {
+			energyStatusLabel.setText("");
+		}
+
+		if (tired) {
+			toggleAllActions(false);
+			togglePartialActions(Action.BREAK, true);
+		}
+		/*
 		if(exhaust) {
 			
 			energyStatusLabel.setText("Exhaust");
@@ -863,8 +867,11 @@ public class game {
 		}else if(tired) {
 			
 			energyStatusLabel.setText("Tired");
-			
-			m_revisionButton.setEnabled(false);
+
+			toggleAllActions(false);
+			togglePartialActions(Action.BREAK, true);
+
+			*//*m_revisionButton.setEnabled(false);
 			m_doPaperButton.setEnabled(false);
 			m_tutorialButton.setEnabled(false);
 			a_revisionButton.setEnabled(false);
@@ -872,13 +879,28 @@ public class game {
 			a_tutorialButton.setEnabled(false);
 			n_revisionButton.setEnabled(false);
 			n_doPaperButton.setEnabled(false);
-			n_tutorialButton.setEnabled(false);
+			n_tutorialButton.setEnabled(false);*//*
 			
 		}else {
 			
 			energyStatusLabel.setText("");
+		}*/
+	}
+
+	private void toggleAllActions(Boolean isEnable) {
+		for (int index = 0; index < morningActions.length; index++) {
+			morningActions[index].setEnabled(isEnable);
+			afternoonActions[index].setEnabled(isEnable);
+			nightActions[index].setEnabled(isEnable);
 		}
-	
+	}
+
+	private void togglePartialActions(Action action, Boolean isEnable) {
+		int index = action.ordinal();
+
+		morningActions[index].setEnabled(isEnable);
+		afternoonActions[index].setEnabled(isEnable);
+		nightActions[index].setEnabled(isEnable);
 	}
 	
 
