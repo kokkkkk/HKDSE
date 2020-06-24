@@ -289,103 +289,6 @@ public class game {
 			nightActions[index] = createActionJButton(actionNames[index], "n_" + actionCommand[index], index == Action.PASTPAPER.ordinal(), choiceHandler);
 		}
 
-		/*
-		m_revisionButton = new JButton("Revision");
-		m_revisionButton.setBackground(Color.black);
-		m_revisionButton.setForeground(Color.white);
-		m_revisionButton.setFont(title.normalFont);
-		m_revisionButton.setFocusPainted(false);
-		m_revisionButton.setActionCommand("m_revision");
-		m_revisionButton.addActionListener(choiceHandler); //when click, call the class
-		
-		m_doPaperButton = new JButton("Do Past Paper");
-		m_doPaperButton.setBackground(Color.black);
-		m_doPaperButton.setForeground(Color.white);
-		m_doPaperButton.setFont(title.smallFont);
-		m_doPaperButton.setFocusPainted(false);
-		m_doPaperButton.setActionCommand("m_doPaper");
-		m_doPaperButton.addActionListener(choiceHandler); //when click, call the class
-		
-		m_tutorialButton = new JButton("Go tutorial");
-		m_tutorialButton.setBackground(Color.black);
-		m_tutorialButton.setForeground(Color.white);
-		m_tutorialButton.setFont(title.normalFont);
-		m_tutorialButton.setFocusPainted(false);
-		m_tutorialButton.setActionCommand("m_tutorial");
-		m_tutorialButton.addActionListener(choiceHandler); //when click, call the class
-		
-		m_breakButton = new JButton("Break");
-		m_breakButton.setBackground(Color.black);
-		m_breakButton.setForeground(Color.white);
-		m_breakButton.setFont(title.normalFont);
-		m_breakButton.setFocusPainted(false);
-		m_breakButton.setActionCommand("m_break");
-		m_breakButton.addActionListener(choiceHandler); //when click, call the class
-		
-		a_revisionButton = new JButton("Revision");
-		a_revisionButton.setBackground(Color.black);
-		a_revisionButton.setForeground(Color.white);
-		a_revisionButton.setFont(title.normalFont);
-		a_revisionButton.setFocusPainted(false);
-		a_revisionButton.setActionCommand("a_revision");
-		a_revisionButton.addActionListener(choiceHandler); //when click, call the class
-		
-		a_doPaperButton = new JButton("Do Past Paper");
-		a_doPaperButton.setBackground(Color.black);
-		a_doPaperButton.setForeground(Color.white);
-		a_doPaperButton.setFont(title.smallFont);
-		a_doPaperButton.setFocusPainted(false);
-		a_doPaperButton.setActionCommand("a_doPaper");
-		a_doPaperButton.addActionListener(choiceHandler); //when click, call the class
-		
-		a_tutorialButton = new JButton("Go tutorial");
-		a_tutorialButton.setBackground(Color.black);
-		a_tutorialButton.setForeground(Color.white);
-		a_tutorialButton.setFont(title.normalFont);
-		a_tutorialButton.setFocusPainted(false);
-		a_tutorialButton.setActionCommand("a_tutorial");
-		a_tutorialButton.addActionListener(choiceHandler); //when click, call the class
-		
-		a_breakButton = new JButton("Break");
-		a_breakButton.setBackground(Color.black);
-		a_breakButton.setForeground(Color.white);
-		a_breakButton.setFont(title.normalFont);
-		a_breakButton.setFocusPainted(false);
-		a_breakButton.setActionCommand("a_break");
-		a_breakButton.addActionListener(choiceHandler); //when click, call the class
-		
-		n_revisionButton = new JButton("Revision");
-		n_revisionButton.setBackground(Color.black);
-		n_revisionButton.setForeground(Color.white);
-		n_revisionButton.setFont(title.normalFont);
-		n_revisionButton.setFocusPainted(false);
-		n_revisionButton.setActionCommand("n_revision");
-		n_revisionButton.addActionListener(choiceHandler); //when click, call the class
-		
-		n_doPaperButton = new JButton("Do Past Paper");
-		n_doPaperButton.setBackground(Color.black);
-		n_doPaperButton.setForeground(Color.white);
-		n_doPaperButton.setFont(title.smallFont);
-		n_doPaperButton.setFocusPainted(false);
-		n_doPaperButton.setActionCommand("n_doPaper");
-		n_doPaperButton.addActionListener(choiceHandler); //when click, call the class
-		
-		n_tutorialButton = new JButton("Go tutorial");
-		n_tutorialButton.setBackground(Color.black);
-		n_tutorialButton.setForeground(Color.white);
-		n_tutorialButton.setFont(title.normalFont);
-		n_tutorialButton.setFocusPainted(false);
-		n_tutorialButton.setActionCommand("n_tutorial");
-		n_tutorialButton.addActionListener(choiceHandler); //when click, call the class
-		
-		n_breakButton = new JButton("Break");
-		n_breakButton.setBackground(Color.black);
-		n_breakButton.setForeground(Color.white);
-		n_breakButton.setFont(title.normalFont);
-		n_breakButton.setFocusPainted(false);
-		n_breakButton.setActionCommand("n_break");
-		n_breakButton.addActionListener(choiceHandler); //when click, call the class*/
-
 		for (int index = 0; index < morningSubjects.length; index++) {
 			morningSubjects[index] = createSubjectJButton(subjectNames[index], "m_" + subjectNames[index].toLowerCase(), choiceHandler);
 			afternoonSubjects[index] = createSubjectJButton(subjectNames[index], "a_" + subjectNames[index].toLowerCase(), choiceHandler);
@@ -442,23 +345,6 @@ public class game {
 			a_choicePanel.add(afternoonActions[index]);
 			n_choicePanel.add(nightActions[index]);
 		}
-
-/*
-		m_choicePanel.add(m_revisionButton);
-		m_choicePanel.add(m_doPaperButton);
-		m_choicePanel.add(m_tutorialButton);
-		m_choicePanel.add(m_breakButton);
-		
-		a_choicePanel.add(a_revisionButton);
-		a_choicePanel.add(a_doPaperButton);
-		a_choicePanel.add(a_tutorialButton);
-		a_choicePanel.add(a_breakButton);
-		
-		n_choicePanel.add(n_revisionButton);
-		n_choicePanel.add(n_doPaperButton);
-		n_choicePanel.add(n_tutorialButton);
-		n_choicePanel.add(n_breakButton);
-*/
 
 		for (int index = 0; index < morningSubjects.length; index++) {
 			mSubjectPanel.add(morningSubjects[index]);
@@ -570,10 +456,6 @@ public class game {
 
 		togglePartialActions(Action.TUTORIAL, false);
 
-		/*m_tutorialButton.setEnabled(false);
-		a_tutorialButton.setEnabled(false);
-		n_tutorialButton.setEnabled(false);*/
-		
 		daySchedulePanel.setVisible(false);
 		menuPanel.setVisible(false);
 		
@@ -827,64 +709,7 @@ public class game {
 			toggleAllActions(false);
 			togglePartialActions(Action.BREAK, true);
 		}
-		/*
-		if(exhaust) {
-			
-			energyStatusLabel.setText("Exhaust");
-			
-			if(tired) {
-				
-				m_revisionButton.setEnabled(false);
-				m_doPaperButton.setEnabled(false);
-				m_tutorialButton.setEnabled(false);
-				a_revisionButton.setEnabled(false);
-				a_doPaperButton.setEnabled(false);
-				a_tutorialButton.setEnabled(false);
-				n_revisionButton.setEnabled(false);
-				n_doPaperButton.setEnabled(false);
-				n_tutorialButton.setEnabled(false);
-				
-			}
-			
-		}else if(sameSubTired) {
-			
-			energyStatusLabel.setText("Tired");
-			
-			if(tired) {
-				
-				m_revisionButton.setEnabled(false);
-				m_doPaperButton.setEnabled(false);
-				m_tutorialButton.setEnabled(false);
-				a_revisionButton.setEnabled(false);
-				a_doPaperButton.setEnabled(false);
-				a_tutorialButton.setEnabled(false);
-				n_revisionButton.setEnabled(false);
-				n_doPaperButton.setEnabled(false);
-				n_tutorialButton.setEnabled(false);
-				
-			}
-			
-		}else if(tired) {
-			
-			energyStatusLabel.setText("Tired");
 
-			toggleAllActions(false);
-			togglePartialActions(Action.BREAK, true);
-
-			*//*m_revisionButton.setEnabled(false);
-			m_doPaperButton.setEnabled(false);
-			m_tutorialButton.setEnabled(false);
-			a_revisionButton.setEnabled(false);
-			a_doPaperButton.setEnabled(false);
-			a_tutorialButton.setEnabled(false);
-			n_revisionButton.setEnabled(false);
-			n_doPaperButton.setEnabled(false);
-			n_tutorialButton.setEnabled(false);*//*
-			
-		}else {
-			
-			energyStatusLabel.setText("");
-		}*/
 	}
 
 	private void toggleAllActions(Boolean isEnable) {
@@ -1087,7 +912,6 @@ public class game {
 	public void addday(int i){
 		if(i==0){
 			dayAdd.setEnabled(false);
-			//dayScheduleExitButton.setEnabled(false);
 		}else{
 			dayAdd.setEnabled(true);
 			input.eventCheck();
