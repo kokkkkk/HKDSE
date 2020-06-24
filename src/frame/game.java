@@ -22,7 +22,29 @@ import Basic.initial;
 import main.saveLoad;
 
 public class game {
-	
+
+	enum Subject {
+		CHIN,
+		ENG,
+		MATH,
+		LS,
+		SUB1,
+		SUB2
+	}
+
+	enum Action {
+		REVISION,
+		DO_PAPER,
+		TUTORIAL,
+		BREAK
+	}
+
+	JButton[] morningSubjects = new JButton[Subject.values().length], afternoonSubjects = new JButton[Subject.values().length], nightSubjects = new JButton[Subject.values().length];
+	String[] subjectNames = {"Chin", "Eng", "Math", "LS", "Sub1", "Sub2"};
+
+	JButton[] morningActions = new JButton[Action.values().length], afternoonActions = new JButton[Action.values().length], nightActions = new JButton[Action.values().length];
+	String[] actionNames = {"Revision", "Do Past Paper", "Go tutorial", "Break"};
+
 	JPanel dayPanel, mainTextPanel,dataPanel,adddayPanel,m_choicePanel,a_choicePanel,n_choicePanel,mPanel,aPanel,
 	nPanel,mSubjectPanel,aSubjectPanel,nSubjectPanel,energyLevelPanel,dayResetPanel,moneyPanel,energyStatusPanel,
 	daySchedulePanel,menuButtonPanel,menuPanel;
@@ -33,11 +55,15 @@ public class game {
 	
 	JTextArea daySchedule;
 	
-	JButton dayAdd, m_chin,m_eng,m_math,m_ls,m_sub1,m_sub2,a_chin,a_eng,a_math,a_ls,a_sub1,a_sub2,n_chin,n_eng,
-	n_math,n_ls,n_sub1,n_sub2,dayReset,m_revisionButton,m_doPaperButton,m_tutorialButton,m_breakButton,
-	a_revisionButton,a_doPaperButton,a_tutorialButton,a_breakButton,n_revisionButton,n_doPaperButton,
-	n_tutorialButton,n_breakButton,dayScheduleExitButton,menuButton,menuSaveButton,menuBackToTitleButton,
-	menuBackButton;
+	JButton dayAdd,
+			m_chin,m_eng,m_math,m_ls,m_sub1,m_sub2,
+			a_chin,a_eng,a_math,a_ls,a_sub1,a_sub2,
+			n_chin,n_eng,n_math,n_ls,n_sub1,n_sub2,
+			dayReset,
+			m_revisionButton,m_doPaperButton,m_tutorialButton,m_breakButton,
+			a_revisionButton,a_doPaperButton,a_tutorialButton,a_breakButton,
+			n_revisionButton,n_doPaperButton,n_tutorialButton,n_breakButton,
+			dayScheduleExitButton,menuButton,menuSaveButton,menuBackToTitleButton,menuBackButton;
 	
 	JProgressBar energyBar;
 	
@@ -154,7 +180,9 @@ public class game {
 		menuButtonPanel.setBounds(700,520,60,40);
 		menuButtonPanel.setLayout(new GridLayout(1,6));
 		menuButtonPanel.setBackground(Color.blue);
-		
+
+		// labels
+
 		dayLabel = new JLabel("Day: ");
 		dayLabel.setFont(title.normalFont);
 		dayLabel.setForeground(Color.white);
@@ -242,7 +270,9 @@ public class game {
 		nLabel = new JLabel("Night");
 		nLabel.setFont(title.normalFont);
 		nLabel.setForeground(Color.white);
-		
+
+		// buttons
+
 		dayAdd = new JButton("Add day");
 		dayAdd.setBackground(Color.black);
 		dayAdd.setForeground(Color.white);
@@ -352,150 +382,12 @@ public class game {
 		n_breakButton.setFocusPainted(false);
 		n_breakButton.setActionCommand("n_break");
 		n_breakButton.addActionListener(choiceHandler); //when click, call the class
-		
-		m_chin = new JButton("Chin");
-		m_chin.setBackground(Color.black);
-		m_chin.setForeground(Color.white);
-		m_chin.setFont(title.normalFont);
-		m_chin.setFocusPainted(false);
-		m_chin.setActionCommand("m_chin");
-		m_chin.addActionListener(choiceHandler); //when click, call the class
-		
-		m_eng = new JButton("Eng");
-		m_eng.setBackground(Color.black);
-		m_eng.setForeground(Color.white);
-		m_eng.setFont(title.normalFont);
-		m_eng.setFocusPainted(false);
-		m_eng.setActionCommand("m_eng");
-		m_eng.addActionListener(choiceHandler); //when click, call the class
-		
-		m_math = new JButton("Math");
-		m_math.setBackground(Color.black);
-		m_math.setForeground(Color.white);
-		m_math.setFont(title.normalFont);
-		m_math.setFocusPainted(false);
-		m_math.setActionCommand("m_math");
-		m_math.addActionListener(choiceHandler); //when click, call the class
-		
-		m_ls = new JButton("LS");
-		m_ls.setBackground(Color.black);
-		m_ls.setForeground(Color.white);
-		m_ls.setFont(title.normalFont);
-		m_ls.setFocusPainted(false);
-		m_ls.setActionCommand("m_ls");
-		m_ls.addActionListener(choiceHandler); //when click, call the class
-		
-		m_sub1 = new JButton("Sub1");
-		m_sub1.setBackground(Color.black);
-		m_sub1.setForeground(Color.white);
-		m_sub1.setFont(title.normalFont);
-		m_sub1.setFocusPainted(false);
-		m_sub1.setActionCommand("m_sub1");
-		m_sub1.addActionListener(choiceHandler); //when click, call the class
-		
-		m_sub2 = new JButton("Sub2");
-		m_sub2.setBackground(Color.black);
-		m_sub2.setForeground(Color.white);
-		m_sub2.setFont(title.normalFont);
-		m_sub2.setFocusPainted(false);
-		m_sub2.setActionCommand("m_sub2");
-		m_sub2.addActionListener(choiceHandler); //when click, call the class
-		
-		a_chin = new JButton("Chin");
-		a_chin.setBackground(Color.black);
-		a_chin.setForeground(Color.white);
-		a_chin.setFont(title.normalFont);
-		a_chin.setFocusPainted(false);
-		a_chin.setActionCommand("a_chin");
-		a_chin.addActionListener(choiceHandler); //when click, call the class
-		
-		a_eng = new JButton("Eng");
-		a_eng.setBackground(Color.black);
-		a_eng.setForeground(Color.white);
-		a_eng.setFont(title.normalFont);
-		a_eng.setFocusPainted(false);
-		a_eng.setActionCommand("a_eng");
-		a_eng.addActionListener(choiceHandler); //when click, call the class
-		
-		a_math = new JButton("Math");
-		a_math.setBackground(Color.black);
-		a_math.setForeground(Color.white);
-		a_math.setFont(title.normalFont);
-		a_math.setFocusPainted(false);
-		a_math.setActionCommand("a_math");
-		a_math.addActionListener(choiceHandler); //when click, call the class
-		
-		a_ls = new JButton("LS");
-		a_ls.setBackground(Color.black);
-		a_ls.setForeground(Color.white);
-		a_ls.setFont(title.normalFont);
-		a_ls.setFocusPainted(false);
-		a_ls.setActionCommand("a_ls");
-		a_ls.addActionListener(choiceHandler); //when click, call the class
-		
-		a_sub1 = new JButton("Sub1");
-		a_sub1.setBackground(Color.black);
-		a_sub1.setForeground(Color.white);
-		a_sub1.setFont(title.normalFont);
-		a_sub1.setFocusPainted(false);
-		a_sub1.setActionCommand("a_sub1");
-		a_sub1.addActionListener(choiceHandler); //when click, call the class
-		
-		a_sub2 = new JButton("Sub2");
-		a_sub2.setBackground(Color.black);
-		a_sub2.setForeground(Color.white);
-		a_sub2.setFont(title.normalFont);
-		a_sub2.setFocusPainted(false);
-		a_sub2.setActionCommand("a_sub2");
-		a_sub2.addActionListener(choiceHandler); //when click, call the class
-		
-		n_chin = new JButton("Chin");
-		n_chin.setBackground(Color.black);
-		n_chin.setForeground(Color.white);
-		n_chin.setFont(title.normalFont);
-		n_chin.setFocusPainted(false);
-		n_chin.setActionCommand("n_chin");
-		n_chin.addActionListener(choiceHandler); //when click, call the class
-		
-		n_eng = new JButton("Eng");
-		n_eng.setBackground(Color.black);
-		n_eng.setForeground(Color.white);
-		n_eng.setFont(title.normalFont);
-		n_eng.setFocusPainted(false);
-		n_eng.setActionCommand("n_eng");
-		n_eng.addActionListener(choiceHandler); //when click, call the class
-		
-		n_math = new JButton("Math");
-		n_math.setBackground(Color.black);
-		n_math.setForeground(Color.white);
-		n_math.setFont(title.normalFont);
-		n_math.setFocusPainted(false);
-		n_math.setActionCommand("n_math");
-		n_math.addActionListener(choiceHandler); //when click, call the class
-		
-		n_ls = new JButton("LS");
-		n_ls.setBackground(Color.black);
-		n_ls.setForeground(Color.white);
-		n_ls.setFont(title.normalFont);
-		n_ls.setFocusPainted(false);
-		n_ls.setActionCommand("n_ls");
-		n_ls.addActionListener(choiceHandler); //when click, call the class
-		
-		n_sub1 = new JButton("Sub1");
-		n_sub1.setBackground(Color.black);
-		n_sub1.setForeground(Color.white);
-		n_sub1.setFont(title.normalFont);
-		n_sub1.setFocusPainted(false);
-		n_sub1.setActionCommand("n_sub1");
-		n_sub1.addActionListener(choiceHandler); //when click, call the class
-		
-		n_sub2 = new JButton("Sub2");
-		n_sub2.setBackground(Color.black);
-		n_sub2.setForeground(Color.white);
-		n_sub2.setFont(title.normalFont);
-		n_sub2.setFocusPainted(false);
-		n_sub2.setActionCommand("n_sub2");
-		n_sub2.addActionListener(choiceHandler); //when click, call the class
+
+		for (int index = 0; index < morningSubjects.length; index++) {
+			morningSubjects[index] = createSubjectJButton(subjectNames[index], "m_" + subjectNames[index].toLowerCase(), choiceHandler);
+			afternoonSubjects[index] = createSubjectJButton(subjectNames[index], "a_" + subjectNames[index].toLowerCase(), choiceHandler);
+			nightSubjects[index] = createSubjectJButton(subjectNames[index], "n_" + subjectNames[index].toLowerCase(), choiceHandler);
+		}
 		
 		menuButton = new JButton("Menu");
 		menuButton.setBackground(Color.white);
@@ -556,28 +448,13 @@ public class game {
 		n_choicePanel.add(n_doPaperButton);
 		n_choicePanel.add(n_tutorialButton);
 		n_choicePanel.add(n_breakButton);
-		
-		mSubjectPanel.add(m_chin);
-		mSubjectPanel.add(m_eng);
-		mSubjectPanel.add(m_math);
-		mSubjectPanel.add(m_ls);
-		mSubjectPanel.add(m_sub1);
-		mSubjectPanel.add(m_sub2);
-		
-		aSubjectPanel.add(a_chin);
-		aSubjectPanel.add(a_eng);
-		aSubjectPanel.add(a_math);
-		aSubjectPanel.add(a_ls);
-		aSubjectPanel.add(a_sub1);
-		aSubjectPanel.add(a_sub2);
-		
-		nSubjectPanel.add(n_chin);
-		nSubjectPanel.add(n_eng);
-		nSubjectPanel.add(n_math);
-		nSubjectPanel.add(n_ls);
-		nSubjectPanel.add(n_sub1);
-		nSubjectPanel.add(n_sub2);
-		
+
+		for (int index = 0; index < morningSubjects.length; index++) {
+			mSubjectPanel.add(morningSubjects[index]);
+			aSubjectPanel.add(afternoonSubjects[index]);
+			nSubjectPanel.add(nightSubjects[index]);
+		}
+
 		menuButtonPanel.add(menuButton);
 		
 		//Main Pane<---------------------------------------------------------
@@ -691,6 +568,18 @@ public class game {
 		clearFrame();
 		frameSetup();
 
+	}
+	
+	private JButton createSubjectJButton(String identifier, String command, ActionListener actionListener) {
+		JButton create = new JButton(identifier);	//n_sub2 = new JButton("Sub2");
+
+		create.setBackground(Color.black);
+		create.setForeground(Color.white);
+		create.setFont(title.normalFont);
+		create.setFocusPainted(false);
+		create.setActionCommand(command);	//n_sub2.setActionCommand("n_sub2");
+		create.addActionListener(actionListener);	//n_sub2.addActionListener(choiceHandler); //when click, call the class
+		return create;
 	}
 	
 	public void valueSetup(int dayValue, int chinValue, int engValue, int mathValue, int lsValue, int sub1Value, int sub2Value){
@@ -813,147 +702,28 @@ public class game {
 	
 	public void morningAction(int sub){
 		getStudySubject()[0] = sub;
-		switch(sub){
-		case 1 :
-			m_eng.setEnabled(false);
-			m_math.setEnabled(false);
-			m_ls.setEnabled(false);
-			m_sub1.setEnabled(false);
-			m_sub2.setEnabled(false);
-			break;
-		case 2:
-			m_chin.setEnabled(false);
-			m_math.setEnabled(false);
-			m_ls.setEnabled(false);
-			m_sub1.setEnabled(false);
-			m_sub2.setEnabled(false);
-			break;
-		case 3:
-			m_chin.setEnabled(false);
-			m_eng.setEnabled(false);
-			m_ls.setEnabled(false);
-			m_sub1.setEnabled(false);
-			m_sub2.setEnabled(false);
-			break;
-		case 4:
-			m_chin.setEnabled(false);
-			m_math.setEnabled(false);
-			m_eng.setEnabled(false);
-			m_sub1.setEnabled(false);
-			m_sub2.setEnabled(false);
-			break;
-		case 5:
-			m_chin.setEnabled(false);
-			m_math.setEnabled(false);
-			m_ls.setEnabled(false);
-			m_eng.setEnabled(false);
-			m_sub2.setEnabled(false);
-			break;
-		case 6:
-			m_chin.setEnabled(false);
-			m_math.setEnabled(false);
-			m_ls.setEnabled(false);
-			m_sub1.setEnabled(false);
-			m_eng.setEnabled(false);
-			break;
+
+		for (JButton button : morningSubjects) {
+			button.setEnabled(false);
 		}
+		morningSubjects[sub-1].setEnabled(true);
 	}
 	
 	public void afternoonAction(int sub){
 		getStudySubject()[1] = sub;
-		
-		switch(sub){
-		case 1 :
-			a_eng.setEnabled(false);
-			a_math.setEnabled(false);
-			a_ls.setEnabled(false);
-			a_sub1.setEnabled(false);
-			a_sub2.setEnabled(false);
-			break;
-		case 2:
-			a_chin.setEnabled(false);
-			a_math.setEnabled(false);
-			a_ls.setEnabled(false);
-			a_sub1.setEnabled(false);
-			a_sub2.setEnabled(false);
-			break;
-		case 3:
-			a_chin.setEnabled(false);
-			a_eng.setEnabled(false);
-			a_ls.setEnabled(false);
-			a_sub1.setEnabled(false);
-			a_sub2.setEnabled(false);
-			break;
-		case 4:
-			a_chin.setEnabled(false);
-			a_math.setEnabled(false);
-			a_eng.setEnabled(false);
-			a_sub1.setEnabled(false);
-			a_sub2.setEnabled(false);
-			break;
-		case 5:
-			a_chin.setEnabled(false);
-			a_math.setEnabled(false);
-			a_ls.setEnabled(false);
-			a_eng.setEnabled(false);
-			a_sub2.setEnabled(false);
-			break;
-		case 6:
-			a_chin.setEnabled(false);
-			a_math.setEnabled(false);
-			a_ls.setEnabled(false);
-			a_sub1.setEnabled(false);
-			a_eng.setEnabled(false);
-			break;
+
+		for (JButton button : afternoonSubjects) {
+			button.setEnabled(false);
 		}
+		afternoonSubjects[sub-1].setEnabled(true);
 	}
 	
 	public void nightAction(int sub){
 		getStudySubject()[2] = sub;
-		switch(sub){
-		case 1 :
-			n_eng.setEnabled(false);
-			n_math.setEnabled(false);
-			n_ls.setEnabled(false);
-			n_sub1.setEnabled(false);
-			n_sub2.setEnabled(false);
-			break;
-		case 2:
-			n_chin.setEnabled(false);
-			n_math.setEnabled(false);
-			n_ls.setEnabled(false);
-			n_sub1.setEnabled(false);
-			n_sub2.setEnabled(false);
-			break;
-		case 3:
-			n_chin.setEnabled(false);
-			n_eng.setEnabled(false);
-			n_ls.setEnabled(false);
-			n_sub1.setEnabled(false);
-			n_sub2.setEnabled(false);
-			break;
-		case 4:
-			n_chin.setEnabled(false);
-			n_math.setEnabled(false);
-			n_eng.setEnabled(false);
-			n_sub1.setEnabled(false);
-			n_sub2.setEnabled(false);
-			break;
-		case 5:
-			n_chin.setEnabled(false);
-			n_math.setEnabled(false);
-			n_ls.setEnabled(false);
-			n_eng.setEnabled(false);
-			n_sub2.setEnabled(false);
-			break;
-		case 6:
-			n_chin.setEnabled(false);
-			n_math.setEnabled(false);
-			n_ls.setEnabled(false);
-			n_sub1.setEnabled(false);
-			n_eng.setEnabled(false);
-			break;
+		for (JButton button : nightSubjects) {
+			button.setEnabled(false);
 		}
+		nightSubjects[sub-1].setEnabled(true);
 	}
 	
 	public void dayReset(){
@@ -1016,28 +786,34 @@ public class game {
 			mSubjectPanel.setVisible(false);
 			aSubjectPanel.setVisible(false);
 			nSubjectPanel.setVisible(false);
-			
-			m_chin.setEnabled(true);
+
+		for (int index = 0; index < morningSubjects.length; index++) {
+			(morningSubjects[index]).setEnabled(true);
+			(afternoonSubjects[index]).setEnabled(true);
+			(nightSubjects[index]).setEnabled(true);
+		}
+
+			/*m_chin.setEnabled(true);
 			m_eng.setEnabled(true);
 			m_math.setEnabled(true);
 			m_ls.setEnabled(true);
 			m_sub1.setEnabled(true);
 			m_sub2.setEnabled(true);
-			
+
 			a_chin.setEnabled(true);
 			a_eng.setEnabled(true);
 			a_math.setEnabled(true);
 			a_ls.setEnabled(true);
 			a_sub1.setEnabled(true);
 			a_sub2.setEnabled(true);
-			
+
 			n_chin.setEnabled(true);
 			n_eng.setEnabled(true);
 			n_math.setEnabled(true);
 			n_ls.setEnabled(true);
 			n_sub1.setEnabled(true);
 			n_sub2.setEnabled(true);
-		
+		*/
 	}
 	
 	public void changeEnergyBar(int energyValue){
