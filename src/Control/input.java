@@ -29,9 +29,6 @@ public class input implements ActionListener{
 		title = tit;
 		
 		examFrame = new frame.examFrame(title);
-		eventFrame = new frame.eventFrame(tit, g);
-		
-		eventHandler = new Event.eventHandler(eventFrame);
 	}
 	
 	
@@ -107,6 +104,7 @@ public class input implements ActionListener{
 	
 	public void eventCheck(){
 		
+		eventHandler = new Event.eventHandler(new frame.eventFrame(title,game));
 		eventHandler.update();
 	}
 }
