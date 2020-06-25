@@ -1,27 +1,24 @@
 package Event.events;
 
-import frame.eventFrame;
-
 public class tired_1 implements Event.eventInterface{
+
+	@Override
+	public String getname() {
+
+		return "tired_1";
+	}
+
+	@Override
+	public int getid() {
+		
+		return 1;
+	}
+
+	@Override
+	public void result(int i) {
+		// TODO Auto-generated method stub
+		
+	}
 	
-	boolean trig = false;
-
-	@Override
-	public boolean trigger() {
-		// TODO Auto-generated method stub
-		return trig;
-	}
-
-	@Override
-	public void execution(eventFrame eventFrame) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void result() {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 }

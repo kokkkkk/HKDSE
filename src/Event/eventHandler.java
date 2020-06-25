@@ -5,12 +5,17 @@ import java.util.Random;
 import Basic.initial;
 import Event.events.*;
 import frame.eventFrame;
+import frame.game;
+import frame.title;
 
 public class eventHandler {
 	
-	eventFrame eventFrame;
+	game game;
+	title title;
 	
 	Random rand = new Random();
+	
+	boolean exe = false;
 	
 	int day;
 	int moneyValue;
@@ -31,11 +36,13 @@ public class eventHandler {
 	boolean moneyUseup;
 	
 	/*Instantiate event class*/
+	generalEvent generalEvent;
 	tired_1 tired_1 = new tired_1();
 	tired_2 tired_2 = new tired_2();
 	
-	public eventHandler(eventFrame eventFrame){
-		this.eventFrame = eventFrame;
+	public eventHandler(game g, title tit){
+		title = tit;
+		game = g;
 	}
 	
 	public void update(){
@@ -61,18 +68,28 @@ public class eventHandler {
 	}
 	
 	private void dispatcher(){
+		exe = false;
 		
 		if(tired){
-			if(!tired_2.trigger()){
-				execute(tired_2);
+			if(true){
+				execute(new generalEvent(tired_2));
+			}else{
+				if(random(10)){
+					execute(new generalEvent(tired_1));
+				}
 			}
+			
+		}
+		
+		if(!exe){
+			game.dayReset();
 		}
 		
 	}
 	
-	private void execute(Object o){
-		eventFrame.eventSetup();
-		((eventInterface) o).execution(eventFrame);
+	private void execute(generalEvent o){
+		exe = true;
+		o.execution(new eventFrame(title,game));
 	}
 	
 	private boolean random(int ranValue){

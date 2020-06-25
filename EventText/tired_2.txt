@@ -1,3 +1,6 @@
+[Text]
 Classmate: Hello, are you okay?
 You seem so tired.
 I am afraid that you may get exhaust if you tired for so many time.
+[Text]
+end

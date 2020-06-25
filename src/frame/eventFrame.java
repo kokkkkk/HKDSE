@@ -3,14 +3,13 @@ package frame;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-public class eventFrame {
+public class eventFrame{
 	
 	frame.title title;
 	frame.game game;
@@ -21,6 +20,16 @@ public class eventFrame {
 	int event = 0;
 	int count = 0;
 	
+	boolean eventEnd = false;
+	
+	public boolean isEventEnd() {
+		return eventEnd;
+	}
+
+	public void setEventEnd(boolean eventEnd) {
+		this.eventEnd = eventEnd;
+	}
+
 	String[] text;
 		
 	public void setText(String[] text) {
@@ -36,19 +45,16 @@ public class eventFrame {
 		gameTextPanel.setLayout(null);
 		gameTextPanel.setBounds(20,20,740,520);
 		gameTextPanel.setBackground(Color.blue);
-		gameTextPanel.addMouseListener(mouse);
 	
 		eventPhotoPanel = new JPanel();
 		eventPhotoPanel.setBounds(0,0,740,380);
 		eventPhotoPanel.setBackground(Color.red);
-		eventPhotoPanel.addMouseListener(mouse);
 		
 		eventTextPanel = new JPanel();
 		eventTextPanel.setBounds(0,380,740,140);
 		eventTextPanel.setAutoscrolls(true);
 		eventTextPanel.setLayout(new GridLayout(1,1));
 		eventTextPanel.setBackground(Color.blue);
-		eventTextPanel.addMouseListener(mouse);
 		
 		eventText = new JTextArea();
 		eventText.setBounds(0,420,740,100);
@@ -57,7 +63,6 @@ public class eventFrame {
 		eventText.setFont(title.normalFont);
 		eventText.setLineWrap(true);
 		eventText.setEditable(false);
-		eventText.addMouseListener(mouse);
 			
 		eventTextPanel.add(eventText);
 		
@@ -68,11 +73,16 @@ public class eventFrame {
 		
 	}
 		
-	public void eventSetup(){
+	public void eventSetup(MouseListener mouse){
 		
 		game.clearFrame();
 			
 		title.con.add(gameTextPanel);
+		
+		gameTextPanel.addMouseListener(mouse);
+		eventPhotoPanel.addMouseListener(mouse);
+		eventText.addMouseListener(mouse);
+		eventTextPanel.addMouseListener(mouse);
 			
 		gameTextPanel.setVisible(true);
 		
@@ -82,7 +92,7 @@ public class eventFrame {
 		gameTextPanel.setVisible(false);	
 	}
 	
-	private void showEvent(int event){
+	public void showEvent(int event){
 		if(count == 3){
 			eventText.setText("");
 			count = 0;
@@ -92,7 +102,8 @@ public class eventFrame {
 			eventText.append(text[event]+"\n");
 			count++;
 		}else{
-			eventEnd();
+			eventEnd = true;
+			
 		}
 
 	}
@@ -118,43 +129,16 @@ public class eventFrame {
 		eventTextPanel.add(buttonPanel);
 	}
 	
+	public void clearButton(){
+		buttonPanel.setVisible(false);
+		eventTextPanel.remove(buttonPanel);
+		eventTextPanel.setLayout(new GridLayout(1,1));
+	}
+	
 	public void eventEnd(){
 		clearFrame();
 		game.dayReset();
 	}
 	
-	MouseListener mouse =  new MouseListener() {
-
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			showEvent(event);
-			event++;
-			// TODO Auto-generated method stub
-				
-		}
-
-		@Override
-		public void mouseEntered(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-				
-		}
-
-		@Override
-		public void mouseExited(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-				
-		}
-
-		@Override
-		public void mousePressed(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-				
-		}
-
-		@Override
-		public void mouseReleased(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-				
-		}
-	};
+	
 }
