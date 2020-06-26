@@ -26,8 +26,6 @@ public class title{
 	JPanel title, choices;
 	JLabel titleName;
 	JButton newGameButton,continueButton,exitButton;
-	
-	frame.game game;
 
 	main.saveLoad saveLoad = new saveLoad();
 	
@@ -42,6 +40,7 @@ public class title{
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.getContentPane().setBackground(Color.black);
 		window.setLayout(null); //customize layout not use default layout
+		window.setFocusable(true);
 		
 		//con = window.getContentPane();
 		

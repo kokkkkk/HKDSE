@@ -19,6 +19,7 @@ import javax.swing.SwingConstants;
 import javax.swing.Timer;
 
 import Basic.initial;
+import Control.keyHandler;
 import main.saveLoad;
 
 public class game {
@@ -86,6 +87,8 @@ public class game {
 		title = tit;
 		
 		start(i);
+		
+		title.window.addKeyListener(new keyHandler(this));
 		
 		endGame = new endGame(title);
 		menuHandler = new Control.menuHandler(this,title);
