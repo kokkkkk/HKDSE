@@ -10,6 +10,8 @@ public class energy {
 
 	public int energyUse(int[] studySub){
 		
+		valueUpdate();
+		
 		if (energyValue >= 0 && energyValue <= 100){
 			
 			for(int i = 0;i<studySub.length;i++){
@@ -47,12 +49,21 @@ public class energy {
 			}
 		}
 		
-		initial.energy_update(energyValue, energyUseupDay, exhaust);
+		initial.energy_update(energyValue, energyUseupDay, exhaust, checkEnergyUseup());
 		return energyValue;
 		
 	}
 	
+	public void valueUpdate(){
+
+		energyValue = Basic.initial.energyValue;
+		energyUseupDay = Basic.initial.energyUseupDay;
+		exhaust = Basic.initial.exhaust;
+	}
+	
 	public boolean checkEnergyUseup(){
+		
+		valueUpdate();
 
 		if (energyValue > 0){
 			

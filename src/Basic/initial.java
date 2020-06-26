@@ -23,6 +23,7 @@ public class initial {
 	public static int energyValue = 100;
 	public static int energyUseupDay = 0;
 	public static boolean exhaust = false;
+	public static boolean energyUseup = false;
 	
 	//Used by main.study class
 	public static boolean tired = false;
@@ -52,10 +53,11 @@ public class initial {
 	}
 	
 	//Used by main.energy class
-	public static void energy_update(int energy, int useup, boolean ex){
+	public static void energy_update(int energy, int useup, boolean ex, boolean usedup ){
 		energyValue = energy;
 		energyUseupDay = useup;
 		exhaust = ex;
+		energyUseup = usedup;
 	}
 	
 	//Used by main.study class

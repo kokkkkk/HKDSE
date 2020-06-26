@@ -29,9 +29,10 @@ public class eventHandler {
 	int energyValue;
 	int energyUseupDay;
 	boolean exhaust;
+	boolean energyUseup;
 	
 	//Used by main.study class
-	boolean tired;
+	boolean sameSubtired;
 	
 	//Used by main.money class
 	boolean moneyUseup;
@@ -42,6 +43,7 @@ public class eventHandler {
 	generalEvent generalEvent;
 	tired_1 tired_1 = new tired_1();
 	tired_2 tired_2 = new tired_2();
+	tired_3 tired_3 = new tired_3();
 	
 	public eventHandler(game g, title tit){
 		title = tit;
@@ -60,9 +62,10 @@ public class eventHandler {
 		energyValue = initial.energyValue;
 		energyUseupDay = initial.energyUseupDay;
 		exhaust = initial.exhaust;
+		energyUseup = initial.energyUseup;
 		
 		//Used by main.study class
-		tired = initial.tired;
+		sameSubtired = initial.tired;
 		
 		//Used by main.money class
 		moneyUseup = initial.moneyUseup;
@@ -73,7 +76,17 @@ public class eventHandler {
 	private void dispatcher(){
 		exe = false;
 		
-		if(tired){
+		if(sameSubtired){
+			
+				if(!triggeredEvent.contains(tired_3.getid())){
+				
+				triggeredEvent.add(tired_3.getid());
+				execute(new generalEvent(tired_3));
+				
+				}
+				
+		}else if(energyUseup){
+			
 			if(!triggeredEvent.contains(tired_2.getid())){
 				
 				triggeredEvent.add(tired_2.getid());

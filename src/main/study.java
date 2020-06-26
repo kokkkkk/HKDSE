@@ -20,6 +20,8 @@ public class study{
 	
 	public void mark_cal(int sub, int choice, boolean exhaust){
 		
+		valueUpdate();
+		
 		checkSameSub(sub);
 		
 		if(exhaust || tired){
@@ -79,6 +81,8 @@ public class study{
 	}
 	
 	public void mark_show(){
+		valueUpdate();
+		
 		for(int i=1;i<getMark().length;i++){
 			System.out.println(initial.subject[i]+ ": "+ getMark()[i]);
 		}
@@ -105,7 +109,6 @@ public class study{
 	
 	public void setMark(int mark[]) {
 		this.mark = mark;
-	
 	}
 	
 	public void settutorial(int value){
@@ -144,5 +147,13 @@ public class study{
 		
 		return tired;
 		
+	}
+	
+	public void valueUpdate(){
+		mark = initial.study;
+		knowledge = initial.knowledge;
+		examSkill = initial.examSkill;
+		exhaustConstant = iniValue;
+		tired = initial.tired;
 	}
 }

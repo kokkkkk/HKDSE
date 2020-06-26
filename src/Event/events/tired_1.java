@@ -1,5 +1,7 @@
 package Event.events;
 
+import Basic.initial;
+
 public class tired_1 implements Event.eventInterface{
 
 	@Override
@@ -16,7 +18,14 @@ public class tired_1 implements Event.eventInterface{
 
 	@Override
 	public void result(int i) {
-		// TODO Auto-generated method stub
+		switch(i){
+		case 0:
+			initial.tired = false;
+			initial.energyValue += 10;
+			break;
+		case 1:
+			break;
+		}
 		
 	}
 	

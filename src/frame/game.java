@@ -20,6 +20,7 @@ import javax.swing.Timer;
 
 import Basic.initial;
 import main.saveLoad;
+import main.study;
 
 public class game {
 
@@ -634,7 +635,23 @@ public class game {
 		nightSubjects[sub-1].setEnabled(true);
 	}
 	
+	public void valueUpdate(){
+		day = initial.day;
+		chin = initial.Chin;
+		eng = initial.Eng;
+		math = initial.Math;
+		ls = initial.ls;
+		sub1 = initial.sub_1;
+		sub2 = initial.sub_2;
+		money = initial.moneyValue;
+		
+		changeEnergyBar(initial.energyValue);
+		energyUseup(initial.energyUseup, initial.exhaust,initial.tired);
+	}
+	
 	public void dayReset(){
+		
+		valueUpdate();
 		
 		frameSetup();
 		
@@ -666,18 +683,6 @@ public class game {
 				moneyStatusLabel.setText("");
 				togglePartialActions(Action.TUTORIAL, true);
 		}
-
-/*			m_revisionButton.setEnabled(true);
-			m_doPaperButton.setEnabled(true);
-			m_breakButton.setEnabled(true);
-
-			a_revisionButton.setEnabled(true);
-			a_doPaperButton.setEnabled(true);
-			a_breakButton.setEnabled(true);
-
-			n_revisionButton.setEnabled(true);
-			n_doPaperButton.setEnabled(true);
-			n_breakButton.setEnabled(true);*/
 			
 			mSubjectPanel.setVisible(false);
 			aSubjectPanel.setVisible(false);
