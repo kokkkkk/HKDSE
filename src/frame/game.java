@@ -642,6 +642,11 @@ public class game {
 	}
 	
 	public void dayReset(){
+		
+		if(initial.closeWindow){
+			title.window.dispose();
+			new frame.title();
+		}
 				
 		valueUpdate();
 		

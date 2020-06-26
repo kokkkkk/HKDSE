@@ -20,33 +20,39 @@ public class energy {
 					
 					energyValue -= 5;
 					
-					if(energyValue <= 0){
-						
-						energyValue = 0;
-						energyUseupDay++;
-						System.out.println(energyUseupDay);
-						
-					}
-						
-					if(energyUseupDay == 3){
-							
-						System.out.println("exhaust");
-						exhaust = true;
-							
-					}
-					
 				}else{
 					
 					energyValue += 30;
 					
-					if(energyValue > 100){
-						
-						energyValue = 100;
-						
-					}
-					
 				}
 			}
+			
+			if(energyValue <= 0){
+				
+				energyValue = 0;
+				energyUseupDay++;
+				System.out.println(energyUseupDay);
+				
+			}
+			
+			if(energyValue > 100){
+				
+				energyValue = 100;
+				
+			}
+				
+			if(energyUseupDay >= 3){
+				
+				if(energyUseupDay == 3){
+					System.out.println("exhaust");
+					exhaust = true;
+					energyUseupDay++;
+				}else{
+					energyUseupDay++;
+				}
+					
+			}	
+			
 		}
 		
 		initial.energy_update(energyValue, energyUseupDay, exhaust, energyValue <= 0);

@@ -45,6 +45,7 @@ public class eventHandler {
 	tired_2 tired_2 = new tired_2();
 	tired_3 tired_3 = new tired_3();
 	exhaust_1 exhaust_1 = new exhaust_1();
+	exhaust_2 exhaust_2 = new exhaust_2();
 	
 	public eventHandler(game g, title tit){
 		title = tit;
@@ -78,8 +79,10 @@ public class eventHandler {
 		exe = false;
 	
 		if(exhaust){
-			
-			if(random(10)){
+			if(initial.day == 30){
+				execute(new generalEvent(exhaust_2));
+				
+			}else if(random(10)){
 				execute(new generalEvent(exhaust_1));
 			}	
 				

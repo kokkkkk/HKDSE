@@ -31,6 +31,9 @@ public class initial {
 	//Used by main.money class
 	public static boolean moneyUseup = false;
 	
+	//Used for game restart
+	public static boolean closeWindow = false;
+	
 	
 	public static void valueSetup(int dayValue, int money,int ini,int[] studyValue, int[] knowledgeValue, int[]examSkillValue){
 		day = dayValue;
@@ -86,11 +89,15 @@ public class initial {
 		energyValue = 100;
 		energyUseupDay = 0;
 		exhaust = false;
+		energyUseup = false;
 		
 		//Used by main.study class
 		tired = false;
 		
 		//Used by main.money class
 		moneyUseup = false;
+		
+		//Used for game restart
+		closeWindow = false;
 	}
 }
