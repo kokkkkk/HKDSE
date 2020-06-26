@@ -46,9 +46,11 @@ public class exam{
 					examSkill[i] -= 5;
 					
 					text += "\nPerformance is affected";
+				}else{
+					
+					text += "\nBut Performance is not affected";
+					
 				}
-				
-				text += "\nBut Performance is not affected";
 				
 				break;
 				

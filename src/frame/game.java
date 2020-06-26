@@ -20,7 +20,6 @@ import javax.swing.Timer;
 
 import Basic.initial;
 import main.saveLoad;
-import main.study;
 
 public class game {
 
@@ -636,24 +635,19 @@ public class game {
 	}
 	
 	public void valueUpdate(){
-		day = initial.day;
-		chin = initial.Chin;
-		eng = initial.Eng;
-		math = initial.Math;
-		ls = initial.ls;
-		sub1 = initial.sub_1;
-		sub2 = initial.sub_2;
+	
 		money = initial.moneyValue;
+		moneyUseup = initial.moneyUseup;
 		
-		changeEnergyBar(initial.energyValue);
-		energyUseup(initial.energyUseup, initial.exhaust,initial.tired);
 	}
 	
 	public void dayReset(){
-		
+				
 		valueUpdate();
 		
 		frameSetup();
+		
+		changeEnergyBar(initial.energyValue);
 		
 		for(int i=0; i<studySubject.length;i++){
 			studySubject[i] = 0;
@@ -665,23 +659,23 @@ public class game {
 		a_choicePanel.setVisible(true);
 		n_choicePanel.setVisible(true);
 
-		toggleAllActions(true);
 
-		if(energyBar.getValue() <= 0){
-			togglePartialActions(Action.BREAK, true);
-		}
+		toggleAllActions(true);
 		
-		if(moneyUseup && day != 1) {
-			
-			moneyStatusLabel.setText("Money Use up");
-			
-		}
 
 		if(moneyUseup || day == 1){
 			togglePartialActions(Action.TUTORIAL, false);
 		}else{
 				moneyStatusLabel.setText("");
 				togglePartialActions(Action.TUTORIAL, true);
+		}
+		
+		energyUseup(initial.energyUseup, initial.exhaust, initial.tired);
+		
+		if(moneyUseup && day != 1) {
+			
+			moneyStatusLabel.setText("Money Use up");
+			
 		}
 			
 			mSubjectPanel.setVisible(false);
@@ -710,7 +704,7 @@ public class game {
 			energyStatusLabel.setText("");
 		}
 
-		if (tired) {
+		if (energyBar.getValue() <= 0) {
 			toggleAllActions(false);
 			togglePartialActions(Action.BREAK, true);
 		}

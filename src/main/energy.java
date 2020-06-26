@@ -49,7 +49,7 @@ public class energy {
 			}
 		}
 		
-		initial.energy_update(energyValue, energyUseupDay, exhaust, checkEnergyUseup());
+		initial.energy_update(energyValue, energyUseupDay, exhaust, energyValue <= 0);
 		return energyValue;
 		
 	}

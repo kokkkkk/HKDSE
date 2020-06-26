@@ -44,6 +44,7 @@ public class eventHandler {
 	tired_1 tired_1 = new tired_1();
 	tired_2 tired_2 = new tired_2();
 	tired_3 tired_3 = new tired_3();
+	exhaust_1 exhaust_1 = new exhaust_1();
 	
 	public eventHandler(game g, title tit){
 		title = tit;
@@ -75,16 +76,18 @@ public class eventHandler {
 	
 	private void dispatcher(){
 		exe = false;
-		
-		if(sameSubtired){
+	
+		if(exhaust){
 			
-				if(!triggeredEvent.contains(tired_3.getid())){
+			if(random(10)){
+				execute(new generalEvent(exhaust_1));
+			}	
 				
-				triggeredEvent.add(tired_3.getid());
-				execute(new generalEvent(tired_3));
-				
-				}
-				
+		}else if(sameSubtired && !triggeredEvent.contains(tired_3.getid())){
+			
+			triggeredEvent.add(tired_3.getid());
+			execute(new generalEvent(tired_3));
+			
 		}else if(energyUseup){
 			
 			if(!triggeredEvent.contains(tired_2.getid())){
@@ -97,7 +100,6 @@ public class eventHandler {
 					execute(new generalEvent(tired_1));
 				}
 			}
-			
 		}
 		
 		if(!exe){
@@ -113,7 +115,7 @@ public class eventHandler {
 	
 	private boolean random(int ranValue){
 		
-		if(rand.nextInt(ranValue)+1 == 5){
+		if(rand.nextInt(ranValue)+1 == 1){
 			return true;
 		}else{
 			return false;
