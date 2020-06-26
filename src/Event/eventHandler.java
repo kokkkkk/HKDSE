@@ -1,6 +1,7 @@
 package Event;
 
 import java.util.Random;
+import java.util.Vector;
 
 import Basic.initial;
 import Event.events.*;
@@ -34,6 +35,8 @@ public class eventHandler {
 	
 	//Used by main.money class
 	boolean moneyUseup;
+	
+	Vector<Integer> triggeredEvent = new Vector<>();
 	
 	/*Instantiate event class*/
 	generalEvent generalEvent;
@@ -71,8 +74,11 @@ public class eventHandler {
 		exe = false;
 		
 		if(tired){
-			if(true){
+			if(!triggeredEvent.contains(tired_2.getid())){
+				
+				triggeredEvent.add(tired_2.getid());
 				execute(new generalEvent(tired_2));
+				
 			}else{
 				if(random(10)){
 					execute(new generalEvent(tired_1));
