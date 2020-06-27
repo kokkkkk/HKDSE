@@ -14,10 +14,13 @@ public class money {
 	public money(){
 		
 		addAmount = moneyValue;
+		initial.moneyValue = moneyValue;
 		
 	}
 	
 	public void addMoney(){
+		
+		moneyValue = initial.moneyValue;
 		
 		moneyValue = moneyValue + addAmount;
 		
@@ -26,6 +29,8 @@ public class money {
 	
 	public void lostMoney(int times){
 		
+		moneyValue = initial.moneyValue;
+				
 		for(int i = 0;i<times;i++){
 			
 			moneyValue -= 100;
@@ -41,6 +46,8 @@ public class money {
 	}
 	
 	public boolean getMoneyuseup(){
+		
+		moneyUseup = initial.moneyUseup;
 		
 		if(moneyValue<=0){
 			

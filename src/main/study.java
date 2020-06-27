@@ -153,6 +153,7 @@ public class study{
 		mark = initial.study;
 		knowledge = initial.knowledge;
 		examSkill = initial.examSkill;
+		iniValue = initial.iniValue;
 		exhaustConstant = iniValue;
 		tired = initial.tired;
 	}

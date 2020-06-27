@@ -12,7 +12,7 @@ public class initial {
 	public static int ls = 0; //Mathematics
 	public static int sub_1 = 0; // Subject 1
 	public static int sub_2 = 0; // Subject 2
-	public static int iniValue = rand.nextInt(11)+1;
+	public static int iniValue = 0;
 	public static int moneyValue = rand.nextInt(200)+1;
 	public static int[] study = {0,0,0,0,0,0,0}; //null, chin, eng, math, ls, sub1, sub2
 	public static int[] knowledge = {0,0,0,0,0,0,0};
