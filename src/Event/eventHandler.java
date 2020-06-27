@@ -46,6 +46,9 @@ public class eventHandler {
 	tired_3 tired_3 = new tired_3();
 	exhaust_1 exhaust_1 = new exhaust_1();
 	exhaust_2 exhaust_2 = new exhaust_2();
+	energy_1 energy_1 = new energy_1();
+	
+	/*Instantiate event class*/
 	
 	public eventHandler(game g, title tit){
 		title = tit;
@@ -103,6 +106,9 @@ public class eventHandler {
 					execute(new generalEvent(tired_1));
 				}
 			}
+		}else if(initial.energyValue < 30  && !triggeredEvent.contains(energy_1.getid())){
+			triggeredEvent.add(energy_1.getid());
+			execute(new generalEvent(energy_1));
 		}
 		
 		if(!exe){
