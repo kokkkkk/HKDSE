@@ -41,12 +41,17 @@ public class eventHandler {
 	
 	/*Instantiate event class*/
 	generalEvent generalEvent;
+	
+	//Energy Class
 	tired_1 tired_1 = new tired_1();
 	tired_2 tired_2 = new tired_2();
 	tired_3 tired_3 = new tired_3();
 	exhaust_1 exhaust_1 = new exhaust_1();
 	exhaust_2 exhaust_2 = new exhaust_2();
 	energy_1 energy_1 = new energy_1();
+	
+	//Money Class
+	money_1 money_1 = new money_1();
 	
 	/*Instantiate event class*/
 	
@@ -81,8 +86,34 @@ public class eventHandler {
 	private void dispatcher(){
 		exe = false;
 	
+		checkEnergy();
+		checkMoney();
+		
+		if(!exe){
+			game.dayReset();
+		}
+		
+	}
+	
+	private void execute(generalEvent o){
+		exe = true;
+		o.execution(new eventFrame(title,game));
+	}
+	
+	private boolean random(int ranValue){
+		
+		if(rand.nextInt(ranValue)+1 == 1){
+			return true;
+		}else{
+			return false;
+		}
+		
+	}
+	
+	private void checkEnergy(){
+		
 		if(exhaust){
-			if(initial.day == 30){
+			if(day == 30){
 				execute(new generalEvent(exhaust_2));
 				
 			}else if(random(10)){
@@ -106,29 +137,15 @@ public class eventHandler {
 					execute(new generalEvent(tired_1));
 				}
 			}
-		}else if(initial.energyValue < 30  && !triggeredEvent.contains(energy_1.getid())){
+		}else if(energyValue < 30  && !triggeredEvent.contains(energy_1.getid())){
 			triggeredEvent.add(energy_1.getid());
 			execute(new generalEvent(energy_1));
 		}
-		
-		if(!exe){
-			game.dayReset();
-		}
-		
 	}
 	
-	private void execute(generalEvent o){
-		exe = true;
-		o.execution(new eventFrame(title,game));
-	}
-	
-	private boolean random(int ranValue){
-		
-		if(rand.nextInt(ranValue)+1 == 1){
-			return true;
-		}else{
-			return false;
+	private void checkMoney(){
+		if(moneyUseup){
+			execute(new generalEvent(money_1));
 		}
-		
 	}
 }
