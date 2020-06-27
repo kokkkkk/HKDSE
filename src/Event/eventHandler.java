@@ -52,6 +52,7 @@ public class eventHandler {
 	
 	//Money Class
 	money_1 money_1 = new money_1();
+	money_2 money_2 = new money_2();
 	
 	/*Instantiate event class*/
 	
@@ -145,7 +146,13 @@ public class eventHandler {
 	
 	private void checkMoney(){
 		if(moneyUseup){
+			
 			execute(new generalEvent(money_1));
+			
+		}else if(moneyValue < 100  && !triggeredEvent.contains(money_2.getid())){
+			
+			triggeredEvent.add(money_2.getid());
+			execute(new generalEvent(money_2));
 		}
 	}
 }
