@@ -9,6 +9,8 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
+import Basic.initial;
+
 public class eventFrame{
 	
 	frame.title title;
@@ -19,6 +21,8 @@ public class eventFrame{
 	
 	int event = 0;
 	int count = 0;
+	
+	int eventNum = 0;
 	
 	boolean eventEnd = false;
 	
@@ -36,10 +40,12 @@ public class eventFrame{
 		this.text = text;
 	}
 
-	public eventFrame(frame.title tit, frame.game g){
+	public eventFrame(frame.title tit, frame.game g, int eventNum){
 			
 		title = tit;
 		game = g;
+		
+		this.eventNum = eventNum;
 			
 		gameTextPanel = new JPanel();
 		gameTextPanel.setLayout(null);
@@ -136,8 +142,18 @@ public class eventFrame{
 	}
 	
 	public void eventEnd(){
-		clearFrame();
-		game.dayReset();
+		
+		System.out.println("initial: "+ initial.eventNum);
+		System.out.println("eventNum: "+ eventNum);
+		
+		if(eventNum == initial.eventNum){
+			clearFrame();
+			initial.eventNum = 0;
+			game.dayReset();
+		}else{
+			clearFrame();
+		}
+		
 	}
 	
 	

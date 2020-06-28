@@ -37,6 +37,8 @@ public class eventHandler {
 	//Used by main.money class
 	boolean moneyUseup;
 	
+	int eventNum = 0;
+	
 	Vector<Integer> triggeredEvent = new Vector<>();
 	
 	/*Instantiate event class*/
@@ -81,6 +83,8 @@ public class eventHandler {
 		//Used by main.money class
 		moneyUseup = initial.moneyUseup;
 		
+		eventNum = 0;
+		
 		dispatcher();
 	}
 	
@@ -98,7 +102,10 @@ public class eventHandler {
 	
 	private void execute(generalEvent o){
 		exe = true;
-		o.execution(new eventFrame(title,game));
+		eventNum++;
+		System.out.print(eventNum);
+		initial.eventNum++;
+		o.execution(new eventFrame(title,game,eventNum));
 	}
 	
 	private boolean random(int ranValue){

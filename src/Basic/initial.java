@@ -34,6 +34,9 @@ public class initial {
 	//Used for game restart
 	public static boolean closeWindow = false;
 	
+	//Used by Event.eventHandler class
+	public static int eventNum = 0;
+	
 	
 	public static void valueSetup(int dayValue, int money,int ini,int[] studyValue, int[] knowledgeValue, int[]examSkillValue){
 		day = dayValue;
