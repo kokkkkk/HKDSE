@@ -196,6 +196,7 @@ public class generalEvent{
 			eventFrame.setEventEnd(false);
 			evaluateText();
 		}else{
+			result(0);
 			text.clear();
 			buttonText.clear();
 			eventQueue.clear();

@@ -13,7 +13,7 @@ public class initial {
 	public static int sub_1 = 0; // Subject 1
 	public static int sub_2 = 0; // Subject 2
 	public static int iniValue = 0;
-	public static int moneyValue = rand.nextInt(200)+1;
+	public static int moneyValue = 0;
 	public static int[] study = {0,0,0,0,0,0,0}; //null, chin, eng, math, ls, sub1, sub2
 	public static int[] knowledge = {0,0,0,0,0,0,0};
 	public static int[] examSkill = {0,0,0,0,0,0,0};
@@ -80,7 +80,7 @@ public class initial {
 		sub_1 = 0; // Subject 1
 		sub_2 = 0; // Subject 2
 		iniValue = rand.nextInt(11)+1;
-		moneyValue = 0;
+		moneyValue =  rand.nextInt(200)+1;
 		
 		for(int i = 0; i<study.length;i++){
 			study[i] = 0;

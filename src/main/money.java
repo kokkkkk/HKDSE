@@ -7,7 +7,7 @@ import Basic.initial;
 public class money {
 	Random rand = new Random();
 	
-	int moneyValue = rand.nextInt(200)+1;
+	int moneyValue = initial.moneyValue;
 	int addAmount;
 	boolean moneyUseup = initial.moneyUseup;
 
@@ -41,6 +41,7 @@ public class money {
 	
 	public int getMoney(){
 		
+		moneyValue = initial.moneyValue;
 		return moneyValue;
 		
 	}

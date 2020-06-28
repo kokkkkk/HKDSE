@@ -103,7 +103,6 @@ public class eventHandler {
 	private void execute(generalEvent o){
 		exe = true;
 		eventNum++;
-		System.out.print(eventNum);
 		initial.eventNum++;
 		o.execution(new eventFrame(title,game,eventNum));
 	}

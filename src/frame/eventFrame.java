@@ -143,9 +143,6 @@ public class eventFrame{
 	
 	public void eventEnd(){
 		
-		System.out.println("initial: "+ initial.eventNum);
-		System.out.println("eventNum: "+ eventNum);
-		
 		if(eventNum == initial.eventNum){
 			clearFrame();
 			initial.eventNum = 0;
