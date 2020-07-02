@@ -222,7 +222,6 @@ public class adminFrame {
 				switch(command){
 				case "day":
 					day = v;
-					System.out.print("day!");
 					break;
 				case "iniValue":
 					iniValue = v;

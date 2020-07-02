@@ -133,6 +133,8 @@ public class eventFrame{
 		}
 	
 		eventTextPanel.add(buttonPanel);
+		eventTextPanel.revalidate();
+		eventTextPanel.repaint();
 	}
 	
 	public void clearButton(){

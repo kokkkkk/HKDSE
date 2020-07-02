@@ -56,6 +56,7 @@ public class eventHandler {
 	money_1 money_1 = new money_1();
 	money_2 money_2 = new money_2();
 	money_3 money_3 = new money_3();
+	money_4 money_4 = new money_4();
 	
 	/*Instantiate event class*/
 	
@@ -168,6 +169,13 @@ public class eventHandler {
 				execute(new generalEvent(money_3));
 			}
 			
+		}else if(moneyValue > 1000){
+			
+			if(random(5)){
+				
+				execute(new generalEvent(money_4));
+				
+			}
 			
 		}
 	}

@@ -78,6 +78,8 @@ public class study{
 			getMark()[sub] = 0;
 		}
 		
+		initial.valueSetup(initial.day, initial.moneyValue, initial.iniValue, mark, knowledge, examSkill);
+		
 	}
 	
 	public void mark_show(){

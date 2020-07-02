@@ -534,6 +534,27 @@ public class game {
 		moneyValueLabel.setText(""+moneyValue);
 	}
 	
+	public void valueSetup(){
+		day = initial.day;
+		chin = initial.Chin;
+		eng = initial.Eng;
+		math = initial.Math;
+		ls = initial.ls;
+		sub1 = initial.sub_1;
+		sub2 = initial.sub_2;
+		money = initial.moneyValue;
+		
+		dayNumber.setText(""+day);
+		dataNum1.setText(""+chin);
+		dataNum2.setText(""+eng);
+		dataNum3.setText(""+math);
+		dataNum4.setText(""+ls);
+		dataNum5.setText(""+sub1);
+		dataNum6.setText(""+sub2);
+		moneyValueLabel.setText(""+money);
+		
+	}
+	
 	public void morningChoice(int choice){
 		
 		switch(choice){
@@ -639,8 +660,9 @@ public class game {
 	
 	public void valueUpdate(){
 	
-		money = initial.moneyValue;
 		moneyUseup = initial.moneyUseup;
+		
+		valueSetup();
 		
 	}
 	

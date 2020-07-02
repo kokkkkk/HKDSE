@@ -196,7 +196,7 @@ public class generalEvent{
 			eventFrame.setEventEnd(false);
 			evaluateText();
 		}else{
-			result(0);
+			result(-1);
 			text.clear();
 			buttonText.clear();
 			eventQueue.clear();
@@ -212,9 +212,10 @@ public class generalEvent{
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			eventFrame.showEvent(event);
 			
 			if(eventText){
+				
+				eventFrame.showEvent(event);
 				
 				if(eventFrame.isEventEnd()){
 					

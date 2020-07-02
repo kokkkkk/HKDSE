@@ -1,0 +1,17 @@
+[Text]
+Classmate: Hello. I am free this afternoon.
+Do you want me to help you revision?
+But sure you know, it is not free.
+Only need to pay $600.
+How do you think about this?
+[Text]
+[Button]
+2
+Yes
+No
+Classmate: okay! Let me help you.
+System: All subject's value increase 20.
+[ButtonText]
+Classmate:Okay, never mind.
+[ButtonText]
+end
