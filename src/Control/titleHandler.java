@@ -3,7 +3,7 @@ package Control;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import frame.game;
+import frame.openingFrame;
 
 public class titleHandler implements ActionListener {
 	
@@ -23,14 +23,14 @@ public class titleHandler implements ActionListener {
 		case "new":
 			title.clearFrame();
         
-			new game(title,0);
+			new openingFrame(title,0);
 
 			break;
 			
 		case "continue":
 			title.clearFrame();
 
-			new game(title,1);
+			new openingFrame(title,1);
 
 			break;
 			
