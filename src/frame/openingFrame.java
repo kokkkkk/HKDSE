@@ -2,7 +2,6 @@ package frame;
 
 import java.awt.Color;
 import java.awt.GridLayout;
-import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.JPanel;
@@ -11,18 +10,15 @@ import javax.swing.JTextArea;
 
 public class openingFrame {
 	frame.title title;
-
-	main.opening opening = new main.opening();
 		
 	JPanel gameTextPanel, openingPhotoPanel, openingTextPanel;
 	JTextArea openingText;
 	
 	int i;
-	int event = 0;
 	
 	String[] text = {"opening"};
 		
-	public openingFrame(frame.title tit, int i){
+	public openingFrame(frame.title tit, int i,MouseListener mouse){
 			
 		title = tit;
 		this.i = i;
@@ -75,7 +71,7 @@ public class openingFrame {
 		gameTextPanel.setVisible(false);
 	}
 	
-	private void showOpening(int event){
+	public void showOpening(int event){
 		
 		if(event < text.length){
 			openingText.append(text[event]+"\n");
@@ -91,39 +87,6 @@ public class openingFrame {
 		clearFrame();
 		new game(title,i);
 	}
-		
-	MouseListener mouse =  new MouseListener() {
 
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			showOpening(event);
-			event++;
-			// TODO Auto-generated method stub
-				
-		}
 
-		@Override
-		public void mouseEntered(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-				
-		}
-
-		@Override
-		public void mouseExited(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-				
-		}
-
-		@Override
-		public void mousePressed(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-				
-		}
-
-		@Override
-		public void mouseReleased(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-				
-		}
-	};
 }

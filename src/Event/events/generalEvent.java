@@ -89,7 +89,7 @@ public class generalEvent{
 
 	public void readText(eventFrame eventFrame) {
 		String t ="";
-		String fileName = "./EventText/" + eventName + ".txt";
+		String fileName = "./script/eventText/" + eventName + ".txt";
 		
 		try {
 			
