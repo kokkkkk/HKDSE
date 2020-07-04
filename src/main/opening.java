@@ -73,6 +73,21 @@ public class opening {
 
 	}
 	
+	private void intro_end(){
+		String t = "I am studying "+ electives_select[0] + " and " +  electives_select[1] + "\n"; 
+		
+		t += readText("inroduction_end");
+		
+		text = t.split("\n");
+		
+		openingFrame.setText(text);
+		
+		textDisplay = true;
+		
+		eventQueue++;
+
+	}
+	
 	private void evaluate(){
 		if(moneyValue>=140){
 			rich = true;
@@ -133,6 +148,9 @@ public class opening {
 			addButton();
 			break;
 		case 2:
+			intro_end();
+			break;
+		case 3:
 			openingFrame.endOpening();
 			break;
 		}
@@ -156,6 +174,7 @@ public class opening {
 			
 			switch(action){
 			case "submit":
+				openingFrame.clearButton();
 				submitElective();
 				break;
 				
@@ -196,6 +215,7 @@ public class opening {
 					
 					opening = 0;
 					textDisplay = false;
+					openingFrame.setTextEnd(false);
 					executeAll();
 					
 				}else{
