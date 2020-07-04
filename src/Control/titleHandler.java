@@ -3,6 +3,8 @@ package Control;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import Basic.initial;
+import frame.game;
 import main.opening;
 
 public class titleHandler implements ActionListener {
@@ -22,6 +24,8 @@ public class titleHandler implements ActionListener {
 		switch(action) {
 		case "new":
 			title.clearFrame();
+			
+			 initial.valueReset();	
         
 			new opening(title,0);
 
@@ -30,7 +34,7 @@ public class titleHandler implements ActionListener {
 		case "continue":
 			title.clearFrame();
 
-			new opening(title,1);
+			new game(title,1);
 
 			break;
 			

@@ -80,7 +80,7 @@ public class initial {
 		sub_1 = 0; // Subject 1
 		sub_2 = 0; // Subject 2
 		iniValue = rand.nextInt(11)+1;
-		moneyValue =  rand.nextInt(200)+1;
+		moneyValue =  rand.nextInt(201)+1;
 		
 		for(int i = 0; i<study.length;i++){
 			study[i] = 0;

@@ -795,8 +795,6 @@ public class game {
 		
 		if(i == 1){
 			saveLoad.loadData();
-		}else{
-			 initial.valueReset();	
 		}
 		
 		day = initial.day;

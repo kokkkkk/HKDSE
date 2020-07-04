@@ -1,5 +1,5 @@
-Chinese History
-Economics
+Chist
+Econ
 E&RS
 Geog
 Hist
@@ -12,3 +12,4 @@ T&L
 Music
 VA
 PE
+end
