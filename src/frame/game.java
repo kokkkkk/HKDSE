@@ -36,7 +36,7 @@ public class game {
 	}
 
 	JButton[] morningSubjects = new JButton[subjectCount], afternoonSubjects = new JButton[subjectCount], nightSubjects = new JButton[subjectCount];
-	String[] subjectNames = {"Chin", "Eng", "Math", "LS", "Sub1", "Sub2"};
+	String[] subjectNames = {"Chin", "Eng", "Math", "LS", "sub1", "sub2"};
 
 	JButton[] morningActions = new JButton[actionCount], afternoonActions = new JButton[actionCount], nightActions = new JButton[actionCount];
 	String[] actionNames = {"Revision", "Do Past Paper", "Go tutorial", "Break"};
@@ -226,11 +226,11 @@ public class game {
 		dataName4.setFont(title.normalFont);
 		dataName4.setForeground(Color.white);
 		
-		dataName5 = new JLabel("Sub1: ");
+		dataName5 = new JLabel(initial.subject[5]);
 		dataName5.setFont(title.normalFont);
 		dataName5.setForeground(Color.white);
 		
-		dataName6 = new JLabel("Sub2: ");
+		dataName6 = new JLabel(initial.subject[6]);
 		dataName6.setFont(title.normalFont);
 		dataName6.setForeground(Color.white);
 		
@@ -293,9 +293,9 @@ public class game {
 		}
 
 		for (int index = 0; index < morningSubjects.length; index++) {
-			morningSubjects[index] = createSubjectJButton(subjectNames[index], "m_" + subjectNames[index].toLowerCase(), choiceHandler);
-			afternoonSubjects[index] = createSubjectJButton(subjectNames[index], "a_" + subjectNames[index].toLowerCase(), choiceHandler);
-			nightSubjects[index] = createSubjectJButton(subjectNames[index], "n_" + subjectNames[index].toLowerCase(), choiceHandler);
+			morningSubjects[index] = createSubjectJButton(initial.subject[index+1], "m_" + subjectNames[index].toLowerCase(), choiceHandler);
+			afternoonSubjects[index] = createSubjectJButton(initial.subject[index+1], "a_" + subjectNames[index].toLowerCase(), choiceHandler);
+			nightSubjects[index] = createSubjectJButton(initial.subject[index+1], "n_" + subjectNames[index].toLowerCase(), choiceHandler);
 		}
 		
 		menuButton = new JButton("Menu");
@@ -549,8 +549,8 @@ public class game {
 		dataNum2.setText(""+eng);
 		dataNum3.setText(""+math);
 		dataNum4.setText(""+ls);
-		dataNum5.setText(""+sub1);
-		dataNum6.setText(""+sub2);
+		dataNum5.setText(initial.subject[5]);
+		dataNum6.setText(initial.subject[6]);
 		moneyValueLabel.setText(""+money);
 		
 	}

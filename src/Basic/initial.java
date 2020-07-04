@@ -17,7 +17,7 @@ public class initial {
 	public static int[] study = {0,0,0,0,0,0,0}; //null, chin, eng, math, ls, sub1, sub2
 	public static int[] knowledge = {0,0,0,0,0,0,0};
 	public static int[] examSkill = {0,0,0,0,0,0,0};
-	public static String[] subject = {"null","Chinese", "English", "Math", "LS", "Sub1", "Sub2"};
+	public static String[] subject = {"null","Chin", "English", "Math", "LS", "Sub1", "Sub2"};
 	
 	//Used by main.energy class
 	public static int energyValue = 100;
@@ -102,5 +102,10 @@ public class initial {
 		
 		//Used for game restart
 		closeWindow = false;
+	}
+	
+	public static void setElective(String[] choice){
+		subject[5] = choice[0];
+		subject[6] = choice[1];
 	}
 }

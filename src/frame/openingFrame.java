@@ -16,6 +16,7 @@ public class openingFrame {
 		
 	JPanel gameTextPanel, openingPhotoPanel, openingTextPanel, buttonPanel;
 	JTextArea openingText;
+	JButton submit;
 	
 	int i;
 	int count = 0;
@@ -83,7 +84,7 @@ public class openingFrame {
 		gameTextPanel.setVisible(true);
 	}
 	
-public void addButton(int a, String[] buttonText, ActionListener handler){
+public void addButton(int a, String[] buttonText, ActionListener handler, boolean smart){
 		
 		buttonPanel = new JPanel();
 		buttonPanel.setBounds(0,380,740,40);
@@ -101,6 +102,13 @@ public void addButton(int a, String[] buttonText, ActionListener handler){
 			b.setFocusPainted(false);
 			b.setActionCommand(buttonText[i]);
 			b.addActionListener(handler);
+			
+			if(!smart){
+				if(buttonText[i].equals("Bio")||buttonText[i].equals("Chem")||buttonText[i].equals("Phy")){
+					b.setEnabled(false);
+				}
+			}
+			
 			buttonPanel.add(b);
 			button.add(b);
 		}
@@ -113,12 +121,13 @@ public void addButton(int a, String[] buttonText, ActionListener handler){
 		reset.addActionListener(handler);
 		buttonPanel.add(reset);
 		
-		JButton submit = new JButton("Submit");
+		submit = new JButton("Submit");
 		submit.setBackground(Color.BLACK);
 		submit.setForeground(Color.GREEN);
 		submit.setFocusPainted(false);
 		submit.setActionCommand("submit");
 		submit.addActionListener(handler);
+		submit.setEnabled(false);
 		buttonPanel.add(submit);
 	
 		openingTextPanel.add(buttonPanel);
@@ -134,8 +143,10 @@ public void addButton(int a, String[] buttonText, ActionListener handler){
 	
 	public void buttonReset(){
 		for(int i = 0; i<button.size();i++){
-			button.get(i).setEnabled(true);
+			button.get(i).setForeground(Color.white);
 		}
+		
+		enableSubmit(false);
 	}
 	
 	private void clearFrame(){
@@ -160,6 +171,10 @@ public void addButton(int a, String[] buttonText, ActionListener handler){
 	
 	public void setText(String[] t){
 		text = t;
+	}
+	
+	public void enableSubmit(boolean enable){
+		submit.setEnabled(enable);
 	}
 	
 	public void endOpening()

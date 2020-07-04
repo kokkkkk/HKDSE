@@ -9,6 +9,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import Basic.initial;
+
 public class endGame{
 
 	frame.title title;
@@ -64,12 +66,12 @@ public class endGame{
 		lsName.setForeground(Color.white);
 		lsName.setBorder(BorderFactory.createLineBorder(Color.green));
 		
-		sub1Name = new JLabel("Sub1",SwingConstants.CENTER);
+		sub1Name = new JLabel(initial.subject[5],SwingConstants.CENTER);
 		sub1Name.setFont(title.normalFont);
 		sub1Name.setForeground(Color.white);
 		sub1Name.setBorder(BorderFactory.createLineBorder(Color.green));
 		
-		sub2Name = new JLabel("Sub2",SwingConstants.CENTER);
+		sub2Name = new JLabel(initial.subject[6],SwingConstants.CENTER);
 		sub2Name.setFont(title.normalFont);
 		sub2Name.setForeground(Color.white);
 		sub2Name.setBorder(BorderFactory.createLineBorder(Color.green));

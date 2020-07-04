@@ -32,6 +32,7 @@ public class opening {
 	boolean textDisplay = false;
 	
 	String[] electives;
+	String[] electives_select = new String[2];
 	
 	String text[];
 	
@@ -87,7 +88,7 @@ public class opening {
 		
 		electives = t.split("\n");
 		
-		openingFrame.addButton(electives.length, electives, buttonHandler);
+		openingFrame.addButton(electives.length, electives, buttonHandler,smart);
 		
 		eventQueue++;
 	}
@@ -138,6 +139,12 @@ public class opening {
 		
 	}
 	
+	private void submitElective(){
+		initial.setElective(electives_select);
+		
+		executeAll();
+	}
+	
 	public class buttonHandler implements ActionListener{
 		
 		int buttonNum = 0;
@@ -149,15 +156,24 @@ public class opening {
 			
 			switch(action){
 			case "submit":
-				
-				executeAll();
+				submitElective();
 				break;
+				
+			case "reset":
+				openingFrame.buttonReset();
+				buttonNum = 0;
+				break;
+				
 			default:
 				if(buttonNum < 2){
+					electives_select[buttonNum] = action;
 					buttonNum++;
 					((JButton) e.getSource()).setForeground(Color.orange);
-				}else{
-				
+					
+					if(buttonNum == 2){
+						openingFrame.enableSubmit(true);
+					}
+					
 				}
 				break;
 				
