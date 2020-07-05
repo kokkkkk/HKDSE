@@ -1,2 +1,0 @@
-elective_stupid
-end

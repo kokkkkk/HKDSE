@@ -1,2 +1,3 @@
-background_poor
+I am not a rich man.
+My classmates are rich.
 end
