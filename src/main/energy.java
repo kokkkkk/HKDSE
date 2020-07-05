@@ -31,7 +31,6 @@ public class energy {
 				
 				energyValue = 0;
 				energyUseupDay++;
-				System.out.println(energyUseupDay);
 				
 			}
 			

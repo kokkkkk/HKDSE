@@ -19,6 +19,13 @@ public class saveLoad {
 			int money = Integer.parseInt(br.readLine());
 			
 			int ini = Integer.parseInt(br.readLine());
+			
+			int energyValue = Integer.parseInt(br.readLine());
+			int energyUseupDay = Integer.parseInt(br.readLine());
+			boolean exhaust = Boolean.parseBoolean(br.readLine());
+			boolean energyUseup = Boolean.parseBoolean(br.readLine());
+			
+			boolean tired = Boolean.parseBoolean(br.readLine());
 			 
 			 String[] mark_s = br.readLine().split("/");
 			 String[] knowledge_s = br.readLine().split("/");
@@ -39,6 +46,8 @@ public class saveLoad {
 			}
 			
 			initial.valueSetup(day,money,ini,mark,knowledge,examSkill,subject);
+			initial.energy_update(energyValue, energyUseupDay, exhaust, energyUseup);
+			initial.study_update(tired);
 			
 		}catch(Exception e){
 			
@@ -52,6 +61,13 @@ public class saveLoad {
 		
 			int money = initial.moneyValue;
 			int ini = initial.iniValue;
+			
+			int energyValue = initial.energyValue;
+			int energyUseupDay = initial.energyUseupDay;
+			boolean exhaust = initial.exhaust;
+			boolean energyUseup = initial.energyUseup;
+			
+			boolean tired = initial.tired;
 			 
 			 int[] mark = initial.study;
 			 int[] knowledge = initial.knowledge;
@@ -66,6 +82,16 @@ public class saveLoad {
 			bw.write(""+money);
 			bw.newLine();
 			bw.write(""+ini);
+			bw.newLine();
+			bw.write(""+energyValue);
+			bw.newLine();
+			bw.write(""+energyUseupDay);
+			bw.newLine();
+			bw.write(""+exhaust);
+			bw.newLine();
+			bw.write(""+energyUseup);
+			bw.newLine();
+			bw.write(""+tired);
 			bw.newLine();
 			
 			for(int i=0;i<mark.length;i++){

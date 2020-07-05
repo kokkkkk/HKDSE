@@ -181,11 +181,16 @@ public class opening {
 			case "reset":
 				openingFrame.buttonReset();
 				buttonNum = 0;
+				
+				for(int i = 0;i<electives_select.length;i++){
+					electives_select[i] = "";
+				}
+				
 				break;
 				
 			default:
 				if(buttonNum < 2){
-					if(electives_select[buttonNum] != action){
+					if(buttonNum == 0 || electives_select[buttonNum-1] != action){
 						electives_select[buttonNum] = action;
 						buttonNum++;
 						((JButton) e.getSource()).setForeground(Color.orange);

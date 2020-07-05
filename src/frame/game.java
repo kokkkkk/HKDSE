@@ -86,8 +86,6 @@ public class game {
 		
 		title = tit;
 		
-		start(i);
-		
 		title.window.addKeyListener(new keyHandler(this));
 		
 		endGame = new endGame(title);
@@ -462,7 +460,7 @@ public class game {
 		daySchedulePanel.setVisible(false);
 		menuPanel.setVisible(false);
 		
-
+		start(i);
 		clearFrame();
 		frameSetup();
 
@@ -795,16 +793,19 @@ public class game {
 		
 		if(i == 1){
 			saveLoad.loadData();
+			dayReset();
+		}else{
+			day = initial.day;
+			chin = initial.Chin;
+			eng = initial.Eng;
+			math = initial.Math;
+			ls = initial.ls;
+			sub1 = initial.sub_1;
+			sub2 = initial.sub_2;
+			money = initial.moneyValue;
 		}
 		
-		day = initial.day;
-		chin = initial.Chin;
-		eng = initial.Eng;
-		math = initial.Math;
-		ls = initial.ls;
-		sub1 = initial.sub_1;
-		sub2 = initial.sub_2;
-		money = initial.moneyValue;
+	
 	}
 	
 	

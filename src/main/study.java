@@ -121,19 +121,28 @@ public class study{
 	
 	public void checkSameSub(int sub){
 		
-		if (tempSub == 0 ){
+		if(sub!=0){
+			if (tempSub == 0){
+				
+				tempSub = sub;
+				
+			}else if(tempSub == sub){
+				
+				studySameSub++;
+				
+				if(studySameSub >= 2){
+					System.out.println("tired");
+					tired = true;
+				}
+				
+			}else{
+				
+				tempSub = sub;
+				studySameSub = 0;
+				
+				tired = false;
 			
-			tempSub = sub;
-			
-		}else if(tempSub == sub){
-			
-			studySameSub++;
-			
-			if(studySameSub >= 2){
-				System.out.println("tired");
-				tired = true;
 			}
-			
 		}else{
 			
 			tempSub = sub;
@@ -142,6 +151,7 @@ public class study{
 			tired = false;
 		
 		}
+		
 		initial.study_update(tired);
 	}
 	
