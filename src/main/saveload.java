@@ -23,6 +23,7 @@ public class saveLoad {
 			 String[] mark_s = br.readLine().split("/");
 			 String[] knowledge_s = br.readLine().split("/");
 			 String[] examSkill_s = br.readLine().split("/");
+			 String[] subject = br.readLine().split("/");
 			
 			br.close();
 			
@@ -37,7 +38,7 @@ public class saveLoad {
 				examSkill[i] = Integer.parseInt(String.valueOf(examSkill_s[i]));
 			}
 			
-			initial.valueSetup(day,money,ini,mark,knowledge,examSkill);
+			initial.valueSetup(day,money,ini,mark,knowledge,examSkill,subject);
 			
 		}catch(Exception e){
 			
@@ -55,6 +56,8 @@ public class saveLoad {
 			 int[] mark = initial.study;
 			 int[] knowledge = initial.knowledge;
 			 int[] examSkill = initial.examSkill;
+			 
+			 String[] subject = initial.subject;
 			
 			BufferedWriter bw = new BufferedWriter(new FileWriter("SaveFile.txt"));
 			
@@ -93,6 +96,17 @@ public class saveLoad {
 				}else{
 					bw.write("/");
 					bw.write(""+mark[i]);
+				}
+			}
+			
+			bw.newLine();
+			
+			for(int i=0;i<subject.length;i++){
+				if(i==0){
+					bw.write(""+subject[i]);
+				}else{
+					bw.write("/");
+					bw.write(""+subject[i]);
 				}
 			}
 			

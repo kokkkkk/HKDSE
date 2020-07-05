@@ -58,6 +58,28 @@ public class initial {
 
 	}
 	
+	public static void valueSetup(int dayValue, int money,int ini,int[] studyValue, int[] knowledgeValue, int[]examSkillValue, String[] sub){
+		day = dayValue;
+		
+		moneyValue = money;
+		
+		iniValue = ini;
+	
+		study = studyValue;
+		knowledge = knowledgeValue;
+		examSkill = examSkillValue;
+		
+		 Chin = study[1]; //Chinese
+		 Eng = study[2];   //English
+		 Math = study[3];  //Mathematics
+		 ls = study[4];  //Mathematics
+		 sub_1 = study[5]; // Subject 1
+		 sub_2 =study[6];  // Subject 2
+		 
+		 subject = sub;
+
+	}
+	
 	//Used by main.energy class
 	public static void energy_update(int energy, int useup, boolean ex, boolean usedup ){
 		energyValue = energy;
