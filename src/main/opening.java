@@ -185,14 +185,15 @@ public class opening {
 				
 			default:
 				if(buttonNum < 2){
-					electives_select[buttonNum] = action;
-					buttonNum++;
-					((JButton) e.getSource()).setForeground(Color.orange);
-					
-					if(buttonNum == 2){
-						openingFrame.enableSubmit(true);
+					if(electives_select[buttonNum] != action){
+						electives_select[buttonNum] = action;
+						buttonNum++;
+						((JButton) e.getSource()).setForeground(Color.orange);
+						
+						if(buttonNum == 2){
+							openingFrame.enableSubmit(true);
+						}
 					}
-					
 				}
 				break;
 				
