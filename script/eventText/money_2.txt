@@ -1,0 +1,6 @@
+[Text]
+System: Your money is less than $100
+You may not have enough money for tutorial
+Please pay attention to it.
+[Text]
+end

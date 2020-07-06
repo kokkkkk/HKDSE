@@ -1,0 +1,7 @@
+[Text]
+Classmate: Hello, are you okay?
+You seem a little bit unwell.
+I am afraid that you may get tired.
+Break is also important during study.
+[Text]
+end
