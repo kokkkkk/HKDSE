@@ -60,7 +60,8 @@ public class initial {
 
 	}
 	
-	public static void valueSetup(int dayValue, int money,int ini,int[] studyValue, int[] knowledgeValue, int[]examSkillValue, String[] sub){
+	public static void valueSetup(int dayValue, int money,int ini,int[] studyValue,
+			int[] knowledgeValue, int[]examSkillValue, String[] sub, Vector<Integer> triggered){
 		day = dayValue;
 		
 		moneyValue = money;
@@ -79,6 +80,8 @@ public class initial {
 		 sub_2 =study[6];  // Subject 2
 		 
 		 subject = sub;
+		 
+		 triggeredEvent = triggered;
 
 	}
 	

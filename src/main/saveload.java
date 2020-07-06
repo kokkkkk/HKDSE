@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.Vector;
 
 import Basic.initial;
 
@@ -27,16 +28,19 @@ public class saveLoad {
 			
 			boolean tired = Boolean.parseBoolean(br.readLine());
 			 
-			 String[] mark_s = br.readLine().split("/");
-			 String[] knowledge_s = br.readLine().split("/");
-			 String[] examSkill_s = br.readLine().split("/");
-			 String[] subject = br.readLine().split("/");
+			String[] mark_s = br.readLine().split("/");
+			String[] knowledge_s = br.readLine().split("/");
+			String[] examSkill_s = br.readLine().split("/");
+			String[] subject = br.readLine().split("/");
+			String[] triggeredEvent_s = br.readLine().split("/");
 			
 			br.close();
 			
 			int[] mark = {0,0,0,0,0,0,0};
 			int[] knowledge = {0,0,0,0,0,0,0};
 			int[] examSkill = {0,0,0,0,0,0,0};
+			
+			Vector<Integer> triggeredEvent = new Vector<Integer>();
 		
 			for(int i=0; i<mark_s.length;i++)
 			{
@@ -45,7 +49,12 @@ public class saveLoad {
 				examSkill[i] = Integer.parseInt(String.valueOf(examSkill_s[i]));
 			}
 			
-			initial.valueSetup(day,money,ini,mark,knowledge,examSkill,subject);
+			for(int i=0; i<triggeredEvent_s.length;i++)
+			{
+				triggeredEvent.add(Integer.parseInt(String.valueOf(triggeredEvent_s[i])));
+			}
+			
+			initial.valueSetup(day,money,ini,mark,knowledge,examSkill,subject,triggeredEvent);
 			initial.energy_update(energyValue, energyUseupDay, exhaust, energyUseup);
 			initial.study_update(tired);
 			
@@ -69,11 +78,13 @@ public class saveLoad {
 			
 			boolean tired = initial.tired;
 			 
-			 int[] mark = initial.study;
-			 int[] knowledge = initial.knowledge;
-			 int[] examSkill = initial.examSkill;
+			int[] mark = initial.study;
+			int[] knowledge = initial.knowledge;
+			int[] examSkill = initial.examSkill;
 			 
-			 String[] subject = initial.subject;
+			String[] subject = initial.subject;
+			 
+			Vector<Integer> triggeredEvent = initial.triggeredEvent;
 			
 			BufferedWriter bw = new BufferedWriter(new FileWriter("SaveFile.txt"));
 			
@@ -133,6 +144,17 @@ public class saveLoad {
 				}else{
 					bw.write("/");
 					bw.write(""+subject[i]);
+				}
+			}
+			
+			bw.newLine();
+			
+			for(int i=0;i<triggeredEvent.size();i++){
+				if(i==0){
+					bw.write(""+triggeredEvent.get(i));
+				}else{
+					bw.write("/");
+					bw.write(""+triggeredEvent.get(i));
 				}
 			}
 			
