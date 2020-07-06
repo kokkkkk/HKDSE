@@ -1,7 +1,0 @@
-[Text]
-Me: Sorry, I don't have enough money for the tutorial
-Classmate: Umm...
-Okay, I will lend you some
-Please pay back the money to me tomorrow.
-[Text]
-end

@@ -1,7 +1,0 @@
-[Text]
-Classmate: Hello, are you okay?
-You seem so tired.
-You should not study the same subject for the whole day!
-Or you can't remember anything!
-[Text]
-end
