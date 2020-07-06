@@ -1,5 +1,6 @@
 package Basic;
 import java.util.Random;
+import java.util.Vector;
 
 public class initial {
 	static Random rand = new Random();
@@ -36,6 +37,7 @@ public class initial {
 	
 	//Used by Event.eventHandler class
 	public static int eventNum = 0;
+	public static Vector<Integer> triggeredEvent = new Vector<>();
 	
 	
 	public static void valueSetup(int dayValue, int money,int ini,int[] studyValue, int[] knowledgeValue, int[]examSkillValue){
@@ -124,6 +126,10 @@ public class initial {
 		
 		//Used for game restart
 		closeWindow = false;
+		
+		//Used by Event.eventHandler class
+		eventNum = 0;
+		triggeredEvent = new Vector<>();
 	}
 	
 	public static void setElective(String[] choice){

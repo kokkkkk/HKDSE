@@ -39,7 +39,7 @@ public class eventHandler {
 	
 	int eventNum = 0;
 	
-	Vector<Integer> triggeredEvent = new Vector<>();
+	Vector<Integer> triggeredEvent = initial.triggeredEvent;
 	
 	/*Instantiate event class*/
 	generalEvent generalEvent;
