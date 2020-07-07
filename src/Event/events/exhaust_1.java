@@ -30,4 +30,9 @@ public class exhaust_1 implements eventInterface{
 		
 	}
 
+	@Override
+	public String pictureName() {
+		return "event_1.png";
+	}
+
 }

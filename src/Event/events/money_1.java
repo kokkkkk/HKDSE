@@ -23,4 +23,9 @@ public class money_1 implements eventInterface {
 		System.out.print("moneyValue :"+ initial.moneyValue);
 	}
 
+	@Override
+	public String pictureName() {
+		return "event_1.png";
+	}
+
 }

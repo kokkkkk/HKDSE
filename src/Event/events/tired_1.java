@@ -28,6 +28,11 @@ public class tired_1 implements Event.eventInterface{
 		}
 		
 	}
+
+	@Override
+	public String pictureName() {
+		return "event_1.png";
+	}
 	
 	
 }

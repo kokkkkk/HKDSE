@@ -5,7 +5,9 @@ import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
@@ -17,7 +19,9 @@ public class eventFrame{
 	frame.game game;
 		
 	JPanel gameTextPanel,eventTextPanel,eventPhotoPanel, buttonPanel;
+	JLabel eventPhotoLabel;
 	JTextArea eventText;
+	ImageIcon imageIcon;
 	
 	int event = 0;
 	int count = 0;
@@ -54,7 +58,9 @@ public class eventFrame{
 	
 		eventPhotoPanel = new JPanel();
 		eventPhotoPanel.setBounds(0,0,740,380);
-		eventPhotoPanel.setBackground(Color.red);
+		eventPhotoPanel.setBackground(Color.BLACK);
+		
+		eventPhotoLabel = new JLabel();
 		
 		eventTextPanel = new JPanel();
 		eventTextPanel.setBounds(0,380,740,140);
@@ -69,8 +75,9 @@ public class eventFrame{
 		eventText.setFont(title.normalFont);
 		eventText.setLineWrap(true);
 		eventText.setEditable(false);
-			
+					
 		eventTextPanel.add(eventText);
+		eventPhotoPanel.add(eventPhotoLabel);
 		
 		gameTextPanel.add(eventTextPanel);
 		gameTextPanel.add(eventPhotoPanel);
@@ -79,7 +86,7 @@ public class eventFrame{
 		
 	}
 		
-	public void eventSetup(MouseListener mouse){
+	public void eventSetup(MouseListener mouse, String image){
 		
 		game.clearFrame();
 			
@@ -89,6 +96,9 @@ public class eventFrame{
 		eventPhotoPanel.addMouseListener(mouse);
 		eventText.addMouseListener(mouse);
 		eventTextPanel.addMouseListener(mouse);
+		
+		imageIcon = new ImageIcon(this.getClass().getClassLoader().getResource(image));
+		eventPhotoLabel.setIcon(imageIcon);
 			
 		gameTextPanel.setVisible(true);
 		

@@ -19,6 +19,11 @@ public class tired_2 implements eventInterface{
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public String pictureName() {
+		return "event_1.png";
+	}
 	
 	
 }

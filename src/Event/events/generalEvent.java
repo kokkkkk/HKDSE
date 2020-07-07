@@ -32,18 +32,20 @@ public class generalEvent{
 	boolean eventText = false;
 	
 	String eventName = "";
+	String pictureName ="";
 
 	public generalEvent(Object event){
 		eventExecute = event;
 		
 		eventName = ((eventInterface) event).getname();
+		pictureName = ((eventInterface) event).pictureName();
 	}
 	
 	public void execution(eventFrame eventFrame) {
 		
 		this.eventFrame = eventFrame;
 		
-		eventFrame.eventSetup(mouse);
+		eventFrame.eventSetup(mouse,pictureName);
 		
 		readText(eventFrame);
 			

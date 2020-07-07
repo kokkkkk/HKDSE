@@ -22,4 +22,9 @@ public class money_2 implements eventInterface {
 		
 	}
 
+	@Override
+	public String pictureName() {
+		return "event_1.png";
+	}
+
 }
