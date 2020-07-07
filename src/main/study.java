@@ -9,6 +9,7 @@ public class study{
 	
 	Random rand = new Random();
 	private int mark[] = initial.study;
+	private int[] mark_sequence = {0,0,0};
 	int[] knowledge = initial.knowledge;
 	int[] examSkill = initial.examSkill;
 	int iniValue = initial.iniValue;
@@ -17,6 +18,8 @@ public class study{
 	boolean tired = initial.tired;
 	int tempSub = 0;
 	int studySameSub = 0;
+	
+	int i = 0;
 	
 	public void mark_cal(int sub, int choice, boolean exhaust){
 		
@@ -78,6 +81,9 @@ public class study{
 			getMark()[sub] = 0;
 		}
 		
+		mark_sequence[i] = getMark()[sub];
+		i++;
+		
 		initial.valueSetup(initial.day, initial.moneyValue, initial.iniValue, mark, knowledge, examSkill);
 		
 	}
@@ -107,6 +113,10 @@ public class study{
 	public int gettutorial(){
 		
 		return tutorial;
+	}
+	
+	public int[] getMark_sequence(){
+		return mark_sequence;
 	}
 	
 	public void setMark(int mark[]) {
@@ -168,5 +178,9 @@ public class study{
 		iniValue = initial.iniValue;
 		exhaustConstant = iniValue;
 		tired = initial.tired;
+	}
+	
+	public void clear(){
+		i = 0;
 	}
 }

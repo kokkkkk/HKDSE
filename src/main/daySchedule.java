@@ -71,8 +71,8 @@ public class daySchedule {
 						break;
 					}
 					
-					System.out.println(initial.subject[sub[i]] + " 's Mark: " + mark[sub[i]]);
-					scheduleText += initial.subject[sub[i]] + " 's Mark: " + mark[sub[i]] + "\n";
+					System.out.println(initial.subject[sub[i]] + " 's Mark: " + mark[i]);
+					scheduleText += initial.subject[sub[i]] + " 's Mark: " + mark[i] + "\n";
 					break;
 				case 1: 
 					System.out.println("Afternoon :" + initial.subject[sub[i]]);
@@ -93,8 +93,8 @@ public class daySchedule {
 						break;
 					}
 					
-					System.out.println(initial.subject[sub[i]] + " 's Mark: " + mark[sub[i]]);
-					scheduleText += initial.subject[sub[i]] + " 's Mark: " + mark[sub[i]] + "\n";
+					System.out.println(initial.subject[sub[i]] + " 's Mark: " + mark[i]);
+					scheduleText += initial.subject[sub[i]] + " 's Mark: " + mark[i] + "\n";
 					break;
 				case 2: 
 					System.out.println("Night :" + initial.subject[sub[i]]);
@@ -115,8 +115,8 @@ public class daySchedule {
 						break;
 					}
 					
-					System.out.println(initial.subject[sub[i]] + " 's Mark: " + mark[sub[i]]);
-					scheduleText += initial.subject[sub[i]] + " 's Mark: " + mark[sub[i]] + "\n";
+					System.out.println(initial.subject[sub[i]] + " 's Mark: " + mark[i]);
+					scheduleText += initial.subject[sub[i]] + " 's Mark: " + mark[i] + "\n";
 					break;
 				}
 				

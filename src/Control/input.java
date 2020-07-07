@@ -64,6 +64,8 @@ public class input implements ActionListener{
 			sub1 = mark[5];
 			sub2 = mark[6];
 			
+			study.clear();
+			
 			money.addMoney();
 			
 			money.lostMoney(study.gettutorial());
@@ -90,7 +92,7 @@ public class input implements ActionListener{
 				game.moneyUseup(false);
 			}
 			
-			daySchedule.getData(studySubject, mark, choices, moneyUseup ,energy.checkExhaust(),sameSubTired);
+			daySchedule.getData(studySubject, study.getMark_sequence(), choices, moneyUseup ,energy.checkExhaust(),sameSubTired);
 			
 			game.dayScheduleSetup(daySchedule.getSchedule());
 			daySchedule.resetSchedule();
