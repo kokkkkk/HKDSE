@@ -6,8 +6,9 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Vector;
 
 import Event.eventInterface;
@@ -91,11 +92,13 @@ public class generalEvent{
 
 	public void readText(eventFrame eventFrame) {
 		String t ="";
-		String fileName = "./script/eventText/" + eventName + ".txt";
+		
+		InputStream fileName = this.getClass().getResourceAsStream("/"+eventName+".txt");
+		//String fileName = "./script/eventText/" + eventName + ".txt";
 		
 		try {
 			
-			br = new BufferedReader(new FileReader(fileName));
+			br = new BufferedReader(new InputStreamReader(fileName));
 			
 			String line = br.readLine();
 			

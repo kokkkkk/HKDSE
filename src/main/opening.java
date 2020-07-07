@@ -7,8 +7,9 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 import javax.swing.JButton;
 
@@ -112,11 +113,12 @@ public class opening {
 		
 		String t = "";
 		
-		String fileName = "./script/openingText/" + name + ".txt";
+		InputStream fileName = this.getClass().getResourceAsStream("/" +name + ".txt");
+		//String fileName = "./script/openingText/" + name + ".txt";
 		
 		try {
 			
-			BufferedReader br = new BufferedReader(new FileReader(fileName));
+			BufferedReader br = new BufferedReader(new InputStreamReader(fileName));
 			
 			String line = br.readLine();
 			
