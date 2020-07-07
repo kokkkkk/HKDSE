@@ -114,7 +114,6 @@ public class opening {
 		String t = "";
 		
 		InputStream fileName = this.getClass().getResourceAsStream("/" +name + ".txt");
-		//String fileName = "./script/openingText/" + name + ".txt";
 		
 		try {
 			

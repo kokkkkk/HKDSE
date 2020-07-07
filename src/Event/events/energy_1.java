@@ -24,7 +24,7 @@ public class energy_1 implements eventInterface {
 
 	@Override
 	public String pictureName() {
-		return "event_1.png";
+		return "event_2.png";
 	}
 
 }

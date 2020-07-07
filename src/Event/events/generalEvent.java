@@ -94,7 +94,6 @@ public class generalEvent{
 		String t ="";
 		
 		InputStream fileName = this.getClass().getResourceAsStream("/"+eventName+".txt");
-		//String fileName = "./script/eventText/" + eventName + ".txt";
 		
 		try {
 			
