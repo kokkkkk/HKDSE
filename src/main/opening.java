@@ -39,7 +39,7 @@ public class opening {
 	
 	public opening(frame.title tit, int i){
 		
-		openingFrame = new openingFrame(tit,0,mouse);
+		openingFrame = new openingFrame(tit,0,mouse,"opening.png");
 		
 		displayText();
 	}

@@ -6,7 +6,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 import java.util.Vector;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
@@ -15,8 +17,10 @@ public class openingFrame {
 	frame.title title;
 		
 	JPanel gameTextPanel, openingPhotoPanel, openingTextPanel, buttonPanel;
+	JLabel openingPhotoLabel;
 	JTextArea openingText;
 	JButton submit;
+	ImageIcon imageIcon;
 	
 	int i;
 	int count = 0;
@@ -35,7 +39,7 @@ public class openingFrame {
 		this.textEnd = textEnd;
 	}
 
-	public openingFrame(frame.title tit, int i,MouseListener mouse){
+	public openingFrame(frame.title tit, int i,MouseListener mouse,String image){
 			
 		title = tit;
 		this.i = i;
@@ -48,8 +52,12 @@ public class openingFrame {
 	
 		openingPhotoPanel = new JPanel();
 		openingPhotoPanel.setBounds(0,0,740,380);
-		openingPhotoPanel.setBackground(Color.red);
+		openingPhotoPanel.setBackground(Color.black);
 		openingPhotoPanel.addMouseListener(mouse);
+		
+		openingPhotoLabel = new JLabel();
+		imageIcon = new ImageIcon(this.getClass().getClassLoader().getResource(image));
+		openingPhotoLabel.setIcon(imageIcon);
 		
 		openingTextPanel = new JPanel();
 		openingTextPanel.setBounds(0,380,740,140);
@@ -68,6 +76,7 @@ public class openingFrame {
 		openingText.addMouseListener(mouse);
 			
 		openingTextPanel.add(openingText);
+		openingPhotoPanel.add(openingPhotoLabel);
 		
 		gameTextPanel.add(openingTextPanel);
 		gameTextPanel.add(openingPhotoPanel);

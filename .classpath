@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="res/event/|script/eventText/|script/openingText/|script/|script/|script/openingText/|script/eventText/" kind="src" path="src"/>
+	<classpathentry excluding="res/event/|script/eventText/|script/openingText/|script/|script/|script/openingText/|script/eventText/|res/opening/" kind="src" path="src"/>
 	<classpathentry kind="src" path="src/script/openingText"/>
 	<classpathentry kind="src" path="src/script/eventText"/>
 	<classpathentry kind="src" path="src/res/event"/>
+	<classpathentry kind="src" path="src/res/opening"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
