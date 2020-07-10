@@ -17,6 +17,7 @@ public class titleHandler implements ActionListener {
 		
 	}
 	
+	@Override
 	public void actionPerformed(ActionEvent event){
 		
 		String action = event.getActionCommand();

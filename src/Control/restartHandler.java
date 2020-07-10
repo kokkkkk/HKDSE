@@ -19,6 +19,7 @@ public class restartHandler implements ActionListener {
 		
 	}
 	
+	@Override
 	public void actionPerformed(ActionEvent event){
 		title.window.dispose();
 		new frame.title();

@@ -33,6 +33,7 @@ public class input implements ActionListener{
 	}
 	
 	
+	@Override
 	public void actionPerformed(ActionEvent event){
 		
 		game.addday(0);

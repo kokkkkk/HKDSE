@@ -855,7 +855,7 @@ public class game {
 		showSchedule = 0;
 		
 		
-		tmr = new Timer(1000, (ActionListener) new ActionListener() {
+		tmr = new Timer(1000, new ActionListener() {
 		    @Override
 		    
 		    public void actionPerformed(ActionEvent e) {

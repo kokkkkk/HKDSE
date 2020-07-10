@@ -13,6 +13,7 @@ public class dayResetHandler implements ActionListener {
 		
 	}
 	
+	@Override
 	public void actionPerformed(ActionEvent event){
 		
 		game.dayReset();

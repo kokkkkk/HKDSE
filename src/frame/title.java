@@ -3,6 +3,7 @@ package frame;
 import main.saveLoad;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Image;
@@ -11,12 +12,14 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 public class title{
 	
@@ -33,8 +36,8 @@ public class title{
 	JLabel titleName,titleImageLabel;
 	JButton newGameButton,continueButton,exitButton;
 	
-	ImageIcon titleImage,newGameImage;
-
+	ImageIcon titleImage, newImage;
+	
 	main.saveLoad saveLoad = new saveLoad();
 	
 	Control.titleHandler titleHandler;
@@ -75,10 +78,8 @@ public class title{
 		titleName.setFont(titleFont);
 		titleName.setForeground(Color.white);
 		
-		newGameButton = new JButton("New Game");
-		newGameButton.setBackground(Color.black);
-		newGameButton.setForeground(Color.white);
-		newGameButton.setFont(normalFont);
+		newGameButton = new JButton();
+		newGameButton.setBorderPainted(false);
 		newGameButton.setMargin(new Insets(0,0,0,0));
 		newGameButton.setContentAreaFilled(false);
 		newGameButton.setFocusPainted(false);
@@ -86,19 +87,19 @@ public class title{
 		newGameButton.addActionListener(titleHandler);
 
 		
-		continueButton = new JButton("Continue");
-		continueButton.setBackground(Color.black);
-		continueButton.setForeground(Color.white);
-		continueButton.setFont(normalFont);
+		continueButton = new JButton();
+		continueButton.setBorderPainted(false);
+		continueButton.setMargin(new Insets(0,0,0,0));
+		continueButton.setContentAreaFilled(false);
 		continueButton.setFocusPainted(false);
 		continueButton.setContentAreaFilled(false);
 		continueButton.setActionCommand("continue");
 		continueButton.addActionListener(titleHandler);
 		
-		exitButton = new JButton("Exit");
-		exitButton.setBackground(Color.black);
-		exitButton.setForeground(Color.white);
-		exitButton.setFont(normalFont);
+		exitButton = new JButton();
+		exitButton.setBorderPainted(false);
+		exitButton.setMargin(new Insets(0,0,0,0));
+		exitButton.setContentAreaFilled(false);
 		exitButton.setFocusPainted(false);
 		exitButton.setContentAreaFilled(false);
 		exitButton.setActionCommand("exit");
@@ -126,21 +127,14 @@ public class title{
 		con.add(choices);
 		con.add(titleImagePanel);
 		
-		/*
-		BufferedImage image = null;
-		try{
-			image = ImageIO.read(getClass().getClassLoader().getResource("BigButtonRegular.png"));
-		}catch(IOException e){
-			
-		}
-		Image img = image.getScaledInstance(choices.getWidth(), 100, Image.SCALE_SMOOTH);
-		newGameImage = new ImageIcon(img);
-		newGameButton.setIcon(newGameImage);
+		addUI(newGameButton,"New Game");
+		addUI(continueButton,"Continue");
+		addUI(exitButton,"Exit");
 		
 		if(!saveLoad.checkFileExist()){
 			continueButton.setEnabled(false);
 		}
-		*/
+		
 		title.setVisible(true);
 		choices.setVisible(true);
 		
@@ -151,5 +145,33 @@ public class title{
 		title.setVisible(false);
 		choices.setVisible(false);
 		titleImagePanel.setVisible(false);
+	}
+	
+	private void addUI(JButton button,String t){
+		
+		
+		button.setIcon(findImage("BigButtonRegular.png"));
+		button.setRolloverIcon(findImage("BigButtonHover.png"));
+		button.setPressedIcon(findImage("BigButtonPressed.png"));
+		button.setHorizontalAlignment(SwingConstants.LEFT);
+		
+		JLabel text = new JLabel(t);
+		text.setFont(normalFont);
+		text.setForeground(Color.BLACK);
+		text.setAlignmentX(JLabel.CENTER_ALIGNMENT);
+		button.add(text);
+		
+	}
+	
+	private ImageIcon findImage(String imageName){
+		BufferedImage image = null;
+		try{
+			image = ImageIO.read(getClass().getClassLoader().getResource(imageName));
+		}catch(IOException e){
+			
+		}
+		Image img = image.getScaledInstance(choices.getWidth()-5, 100, Image.SCALE_SMOOTH);
+		newImage = new ImageIcon(img);
+		return newImage;
 	}
 }
