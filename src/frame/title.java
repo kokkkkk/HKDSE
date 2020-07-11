@@ -3,23 +3,15 @@ package frame;
 import main.saveLoad;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.awt.Image;
 import java.awt.Insets;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
-import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 
 public class title{
 	
@@ -36,9 +28,10 @@ public class title{
 	JLabel titleName,titleImageLabel;
 	JButton newGameButton,continueButton,exitButton;
 	
-	ImageIcon titleImage, newImage;
+	ImageIcon titleImage;
 	
 	main.saveLoad saveLoad = new saveLoad();
+	Basic.addUI addUI = new Basic.addUI();
 	
 	Control.titleHandler titleHandler;
 	
@@ -127,9 +120,9 @@ public class title{
 		con.add(choices);
 		con.add(titleImagePanel);
 		
-		addUI(newGameButton,"New Game");
-		addUI(continueButton,"Continue");
-		addUI(exitButton,"Exit");
+		addUI.addUI_button(newGameButton,"New Game",choices.getWidth()-5,100,normalFont);
+		addUI.addUI_button(continueButton,"Continue",choices.getWidth()-5,100,normalFont);
+		addUI.addUI_button(exitButton,"Exit",choices.getWidth()-5,100,normalFont);
 		
 		if(!saveLoad.checkFileExist()){
 			continueButton.setEnabled(false);
@@ -147,31 +140,4 @@ public class title{
 		titleImagePanel.setVisible(false);
 	}
 	
-	private void addUI(JButton button,String t){
-		
-		
-		button.setIcon(findImage("BigButtonRegular.png"));
-		button.setRolloverIcon(findImage("BigButtonHover.png"));
-		button.setPressedIcon(findImage("BigButtonPressed.png"));
-		button.setHorizontalAlignment(SwingConstants.LEFT);
-		
-		JLabel text = new JLabel(t);
-		text.setFont(normalFont);
-		text.setForeground(Color.BLACK);
-		text.setAlignmentX(JLabel.CENTER_ALIGNMENT);
-		button.add(text);
-		
-	}
-	
-	private ImageIcon findImage(String imageName){
-		BufferedImage image = null;
-		try{
-			image = ImageIO.read(getClass().getClassLoader().getResource(imageName));
-		}catch(IOException e){
-			
-		}
-		Image img = image.getScaledInstance(choices.getWidth()-5, 100, Image.SCALE_SMOOTH);
-		newImage = new ImageIcon(img);
-		return newImage;
-	}
 }
