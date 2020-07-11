@@ -31,6 +31,12 @@ public class addUI {
 		
 	}
 	
+	public void addUI_label(JLabel label,int width, int height){
+		label.setIconTextGap(-width);
+		label.setIcon(findImage("label_1.png",width,height));
+		label.setHorizontalTextPosition(JLabel.CENTER);
+	}
+	
 	private ImageIcon findImage(String imageName,int width, int height){
 		BufferedImage image = null;
 		try{

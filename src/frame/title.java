@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 public class title{
 	
@@ -69,7 +70,8 @@ public class title{
 		
 		titleName = new JLabel("DSE Life");
 		titleName.setFont(titleFont);
-		titleName.setForeground(Color.white);
+		titleName.setForeground(Color.BLACK);
+		titleName.setOpaque(true);
 		
 		newGameButton = new JButton();
 		newGameButton.setBorderPainted(false);
@@ -99,7 +101,7 @@ public class title{
 		exitButton.addActionListener(titleHandler);
 		
 		titleImagePanel.add(titleImageLabel);
-		title.add(titleName);
+	
 		choices.add(newGameButton);
 		choices.add(continueButton);
 		choices.add(exitButton);
@@ -123,6 +125,9 @@ public class title{
 		addUI.addUI_button(newGameButton,"New Game",choices.getWidth()-5,100,normalFont);
 		addUI.addUI_button(continueButton,"Continue",choices.getWidth()-5,100,normalFont);
 		addUI.addUI_button(exitButton,"Exit",choices.getWidth()-5,100,normalFont);
+		addUI.addUI_label(titleName, title.getWidth(), title.getHeight());
+		
+		title.add(titleName);
 		
 		if(!saveLoad.checkFileExist()){
 			continueButton.setEnabled(false);
