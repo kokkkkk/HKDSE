@@ -3,6 +3,7 @@ package frame;
 import main.saveLoad;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Insets;
@@ -13,6 +14,9 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+
+import Basic.o_jLabel;
+import Basic.o_jbutton;
 
 public class title{
 	
@@ -32,7 +36,6 @@ public class title{
 	ImageIcon titleImage;
 	
 	main.saveLoad saveLoad = new saveLoad();
-	Basic.addUI addUI = new Basic.addUI();
 	
 	Control.titleHandler titleHandler;
 	
@@ -68,40 +71,38 @@ public class title{
 		choices.setBounds(160,160,500,300);
 		choices.setOpaque(false);
 		
-		titleName = new JLabel("DSE Life");
+		titleName = new o_jLabel("DSE Life");
 		titleName.setFont(titleFont);
+		titleName.setPreferredSize(new Dimension(600,100));
 		titleName.setForeground(Color.BLACK);
-		titleName.setOpaque(true);
 		
-		newGameButton = new JButton();
+		newGameButton = new o_jbutton("New Game");
+		newGameButton.setFont(normalFont);
 		newGameButton.setBorderPainted(false);
-		newGameButton.setMargin(new Insets(0,0,0,0));
-		newGameButton.setContentAreaFilled(false);
+		newGameButton.setForeground(Color.BLACK);
 		newGameButton.setFocusPainted(false);
 		newGameButton.setActionCommand("new");
 		newGameButton.addActionListener(titleHandler);
 
 		
-		continueButton = new JButton();
+		continueButton = new o_jbutton("Continue");
+		continueButton.setFont(normalFont);
+		continueButton.setForeground(Color.BLACK);
 		continueButton.setBorderPainted(false);
-		continueButton.setMargin(new Insets(0,0,0,0));
-		continueButton.setContentAreaFilled(false);
 		continueButton.setFocusPainted(false);
-		continueButton.setContentAreaFilled(false);
 		continueButton.setActionCommand("continue");
 		continueButton.addActionListener(titleHandler);
 		
-		exitButton = new JButton();
+		exitButton = new o_jbutton("Exit");
+		exitButton.setFont(normalFont);
+		exitButton.setForeground(Color.BLACK);
 		exitButton.setBorderPainted(false);
-		exitButton.setMargin(new Insets(0,0,0,0));
-		exitButton.setContentAreaFilled(false);
 		exitButton.setFocusPainted(false);
-		exitButton.setContentAreaFilled(false);
 		exitButton.setActionCommand("exit");
 		exitButton.addActionListener(titleHandler);
 		
 		titleImagePanel.add(titleImageLabel);
-	
+		title.add(titleName);
 		choices.add(newGameButton);
 		choices.add(continueButton);
 		choices.add(exitButton);
@@ -121,13 +122,6 @@ public class title{
 		con.add(title);
 		con.add(choices);
 		con.add(titleImagePanel);
-		
-		addUI.addUI_button(newGameButton,"New Game",choices.getWidth()-5,100,normalFont);
-		addUI.addUI_button(continueButton,"Continue",choices.getWidth()-5,100,normalFont);
-		addUI.addUI_button(exitButton,"Exit",choices.getWidth()-5,100,normalFont);
-		addUI.addUI_label(titleName, title.getWidth(), title.getHeight());
-		
-		title.add(titleName);
 		
 		if(!saveLoad.checkFileExist()){
 			continueButton.setEnabled(false);

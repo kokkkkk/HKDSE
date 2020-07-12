@@ -10,34 +10,12 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 public class addUI {
 	
-
-	public void addUI_button(JButton button,String t,int width, int height,Font font){
-		
-		
-		button.setIcon(findImage("BigButtonRegular.png",width,height));
-		button.setRolloverIcon(findImage("BigButtonHover.png",width,height));
-		button.setPressedIcon(findImage("BigButtonPressed.png",width,height));
-		button.setHorizontalAlignment(SwingConstants.LEFT);
-		
-		JLabel text = new JLabel(t);
-		text.setFont(font);
-		text.setForeground(Color.BLACK);
-		text.setAlignmentX(JLabel.CENTER_ALIGNMENT);
-		button.add(text);
-		
-	}
-	
-	public void addUI_label(JLabel label,int width, int height){
-		label.setIconTextGap(-width);
-		label.setIcon(findImage("label_1.png",width,height));
-		label.setHorizontalTextPosition(JLabel.CENTER);
-	}
-	
-	private ImageIcon findImage(String imageName,int width, int height){
+	public ImageIcon findImage(String imageName,int width, int height){
 		BufferedImage image = null;
 		try{
 			image = ImageIO.read(getClass().getClassLoader().getResource(imageName));
@@ -48,4 +26,18 @@ public class addUI {
 		ImageIcon newImage = new ImageIcon(img);
 		return newImage;
 	}
+	
+	public Image findImages(String imageName){
+		BufferedImage image = null;
+		try{
+			image = ImageIO.read(getClass().getClassLoader().getResource(imageName));
+		}catch(IOException e){
+			
+		}
+		return image;
+		
+	}
+
 }
+
+

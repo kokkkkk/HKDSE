@@ -6,11 +6,15 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 import java.util.Vector;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+
+import Basic.o_jbutton;
+import Basic.o_textArea;
 
 
 public class openingFrame {
@@ -66,9 +70,9 @@ public class openingFrame {
 		openingTextPanel.setBackground(Color.blue);
 		openingTextPanel.addMouseListener(mouse);
 		
-		openingText = new JTextArea();
+		openingText = new o_textArea();
 		openingText.setBounds(0,420,740,100);
-		openingText.setBackground(Color.black);
+		openingText.setBackground(new Color(1,1,1,(float)0.01));
 		openingText.setForeground(Color.white);
 		openingText.setFont(title.normalFont);
 		openingText.setLineWrap(true);
@@ -89,15 +93,16 @@ public class openingFrame {
 	public void openingSetup(){
 			
 		title.con.add(gameTextPanel);
-			
+		
 		gameTextPanel.setVisible(true);
 	}
 	
-public void addButton(int a, String[] buttonText, ActionListener handler, boolean smart){
+	
+	public void addButton(int a, String[] buttonText, ActionListener handler, boolean smart){
 		
 		buttonPanel = new JPanel();
 		buttonPanel.setBounds(0,380,740,40);
-		buttonPanel.setBackground(Color.BLACK);
+		buttonPanel.setBackground(new Color(88,26,10));
 		
 		int col = 1+(a+2)/5;
 		
@@ -105,9 +110,9 @@ public void addButton(int a, String[] buttonText, ActionListener handler, boolea
 		openingTextPanel.setLayout(new GridLayout(2,1));
 		
 		for(int i = 0;i<a;i++){
-			JButton b = new JButton(buttonText[i]);
-			b.setBackground(Color.BLACK);
-			b.setForeground(Color.white);
+			JButton b = new o_jbutton(buttonText[i]);
+			b.setForeground(Color.black);
+			b.setBorderPainted(false);
 			b.setFocusPainted(false);
 			b.setActionCommand(buttonText[i]);
 			b.addActionListener(handler);
@@ -122,17 +127,17 @@ public void addButton(int a, String[] buttonText, ActionListener handler, boolea
 			button.add(b);
 		}
 		
-		JButton reset = new JButton("Reset");
-		reset.setBackground(Color.BLACK);
-		reset.setForeground(Color.GREEN);
+		JButton reset = new o_jbutton("Reset");
+		reset.setForeground(Color.BLACK);
 		reset.setFocusPainted(false);
+		reset.setBorderPainted(false);
 		reset.setActionCommand("reset");
 		reset.addActionListener(handler);
 		buttonPanel.add(reset);
 		
-		submit = new JButton("Submit");
-		submit.setBackground(Color.BLACK);
-		submit.setForeground(Color.GREEN);
+		submit = new o_jbutton("Submit");
+		submit.setForeground(Color.magenta);
+		submit.setBorderPainted(false);
 		submit.setFocusPainted(false);
 		submit.setActionCommand("submit");
 		submit.addActionListener(handler);
@@ -152,7 +157,7 @@ public void addButton(int a, String[] buttonText, ActionListener handler, boolea
 	
 	public void buttonReset(){
 		for(int i = 0; i<button.size();i++){
-			button.get(i).setForeground(Color.white);
+			button.get(i).setForeground(Color.BLACK);
 		}
 		
 		enableSubmit(false);
