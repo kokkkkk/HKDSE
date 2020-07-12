@@ -10,6 +10,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -19,6 +20,7 @@ import javax.swing.SwingConstants;
 import javax.swing.Timer;
 
 import Basic.initial;
+import Basic.o_jPanel;
 import Control.keyHandler;
 import main.saveLoad;
 
@@ -44,11 +46,11 @@ public class game {
 
 	JPanel dayPanel, mainTextPanel,dataPanel,adddayPanel,m_choicePanel,a_choicePanel,n_choicePanel,mPanel,aPanel,
 	nPanel,mSubjectPanel,aSubjectPanel,nSubjectPanel,energyLevelPanel,dayResetPanel,moneyPanel,energyStatusPanel,
-	daySchedulePanel,menuButtonPanel,menuPanel;
+	daySchedulePanel,menuButtonPanel,menuPanel,bgImagePanel;
 	
 	JLabel dayLabel, dayNumber,dataName1,dataName2,dataName3,dataName4,dataName5,dataName6,dataNum1,dataNum2,
 	dataNum3,dataNum4,dataNum5,dataNum6,mLabel,aLabel,nLabel,energyLevelLabel,moneyLabel,moneyValueLabel,
-	energyStatusLabel,moneyStatusLabel,dayScheduleTitle;
+	energyStatusLabel,moneyStatusLabel,dayScheduleTitle,bgImageLabel;
 	
 	JTextArea daySchedule;
 	
@@ -63,6 +65,8 @@ public class game {
 			dayScheduleExitButton,menuButton,menuSaveButton,menuBackToTitleButton,menuBackButton;
 	
 	JProgressBar energyBar;
+	
+	ImageIcon bgImage;
 	
 	int day, chin, eng, math, ls, sub1, sub2, money, showSchedule;
 	private int[] studySubject = {0,0,0};
@@ -96,11 +100,20 @@ public class game {
 		dayResetHandler = new Control.dayResetHandler(this);
 		dayScheduleHandler = new Control.dayScheduleHandler(this);
 		
+		bgImage = new ImageIcon(getClass().getClassLoader().getResource("background_1.png"));
+		
+		bgImagePanel = new JPanel();
+		bgImagePanel.setBounds(0,0,800,600);
+		
+		bgImageLabel = new JLabel();
+		bgImageLabel.setIcon(bgImage);
+		
+		bgImagePanel.add(bgImageLabel);
+		
 		//Main Pane---------------------------------------------------------->
 		
-		dayPanel = new JPanel();
+		dayPanel = new o_jPanel(1);
 		dayPanel.setBounds(650,20,100,40);
-		dayPanel.setBackground(Color.red);
 		
 		energyLevelPanel = new JPanel();
 		energyLevelPanel.setBounds(400,20,200,50);
@@ -110,7 +123,7 @@ public class game {
 		energyStatusPanel.setBounds(330,20,70,50);
 		energyStatusPanel.setBackground(Color.blue);
 		
-		moneyPanel = new JPanel();
+		moneyPanel = new o_jPanel(1);
 		moneyPanel.setBounds(10,20,250,40);
 		moneyPanel.setBackground(Color.red);
 		
@@ -118,7 +131,7 @@ public class game {
 		mainTextPanel.setBounds(160,100,590,400);
 		mainTextPanel.setBackground(Color.red);
 		
-		dataPanel = new JPanel();
+		dataPanel = new o_jPanel(2);
 		dataPanel.setBounds(10,100,150,400);
 		dataPanel.setLayout(new GridLayout(6,2));
 		dataPanel.setBackground(Color.blue);
@@ -182,11 +195,11 @@ public class game {
 
 		dayLabel = new JLabel("Day: ");
 		dayLabel.setFont(title.normalFont);
-		dayLabel.setForeground(Color.white);
+		dayLabel.setForeground(Color.black);
 		
 		moneyLabel = new JLabel("Money: ");
 		moneyLabel.setFont(title.normalFont);
-		moneyLabel.setForeground(Color.white);
+		moneyLabel.setForeground(Color.black);
 		
 		moneyStatusLabel = new JLabel();
 		moneyStatusLabel.setFont(title.normalFont);
@@ -202,11 +215,11 @@ public class game {
 		
 		dayNumber = new JLabel();
 		dayNumber.setFont(title.normalFont);
-		dayNumber.setForeground(Color.white);
+		dayNumber.setForeground(Color.black);
 		
 		moneyValueLabel = new JLabel("0");
 		moneyValueLabel.setFont(title.normalFont);
-		moneyValueLabel.setForeground(Color.white);
+		moneyValueLabel.setForeground(Color.BLACK);
 		
 		dataName1 = new JLabel("Chin: ");
 		dataName1.setFont(title.normalFont);
@@ -430,6 +443,8 @@ public class game {
 		menuPanel.add(menuBackButton);
 		
 		//Menu Pane<---------------------------------------------------------
+		
+		
 		title.con.add(menuPanel);
 		
 		title.con.add(dayPanel);
@@ -450,6 +465,9 @@ public class game {
 		title.con.add(energyLevelPanel);
 		title.con.add(energyStatusPanel);
 		title.con.add(menuButtonPanel);
+		
+		title.con.add(bgImagePanel);
+		title.con.setOpaque(false);
 		
 		mSubjectPanel.setVisible(false);
 		aSubjectPanel.setVisible(false);
@@ -766,6 +784,7 @@ public class game {
 	
 	public void clearFrame(){
 		
+		bgImagePanel.setVisible(false);
 		dayPanel.setVisible(false);
 		mainTextPanel.setVisible(false);
 		dataPanel.setVisible(false);
@@ -811,6 +830,7 @@ public class game {
 	
 	private void frameSetup()
 	{
+		bgImagePanel.setVisible(true);
 		dayPanel.setVisible(true);
 		mainTextPanel.setVisible(true);
 		dataPanel.setVisible(true);

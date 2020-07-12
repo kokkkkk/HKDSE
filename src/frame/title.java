@@ -3,10 +3,8 @@ package frame;
 import main.saveLoad;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.awt.Insets;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -15,7 +13,7 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-import Basic.o_jLabel;
+import Basic.o_jPanel;
 import Basic.o_jbutton;
 
 public class title{
@@ -62,19 +60,20 @@ public class title{
 		
 		titleHandler = new Control.titleHandler(this);
 		
-		title = new JPanel();
+		title = new o_jPanel(1);
 		title.setBounds(100,30,600,100);
-		title.setOpaque(false);
 		
 		choices = new JPanel();
 		choices.setLayout(new GridLayout(3,1));
 		choices.setBounds(160,160,500,300);
 		choices.setOpaque(false);
 		
-		titleName = new o_jLabel("DSE Life");
+		titleName = new JLabel("DSE Life");
+		titleName.setPreferredSize(title.getSize());
 		titleName.setFont(titleFont);
-		titleName.setPreferredSize(new Dimension(600,100));
 		titleName.setForeground(Color.BLACK);
+		titleName.setVerticalAlignment(SwingConstants.CENTER);
+		titleName.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		newGameButton = new o_jbutton("New Game");
 		newGameButton.setFont(normalFont);
