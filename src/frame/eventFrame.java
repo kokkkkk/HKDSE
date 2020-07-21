@@ -12,6 +12,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 import Basic.initial;
+import Basic.o_jbutton;
+import Basic.o_textArea;
 
 public class eventFrame{
 	
@@ -68,7 +70,7 @@ public class eventFrame{
 		eventTextPanel.setLayout(new GridLayout(1,1));
 		eventTextPanel.setBackground(Color.blue);
 		
-		eventText = new JTextArea();
+		eventText = new o_textArea();
 		eventText.setBounds(0,420,740,100);
 		eventText.setBackground(Color.black);
 		eventText.setForeground(Color.white);
@@ -128,14 +130,14 @@ public class eventFrame{
 		
 		buttonPanel = new JPanel();
 		buttonPanel.setBounds(0,380,740,40);
+		buttonPanel.setBackground(new Color(88,26,10));
 		
 		buttonPanel.setLayout(new GridLayout(1,a));
 		eventTextPanel.setLayout(new GridLayout(2,1));
 		
 		for(int i = 0;i<a;i++){
-			JButton b = new JButton(buttonText[i]);
-			b.setBackground(Color.black);
-			b.setForeground(Color.white);
+			JButton b = new o_jbutton(buttonText[i]);
+			b.setForeground(Color.black);
 			b.setFocusPainted(false);
 			b.setActionCommand(buttonText[i]);
 			b.addActionListener(handler);
