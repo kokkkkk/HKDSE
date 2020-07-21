@@ -71,7 +71,6 @@ public class openingFrame {
 		
 		openingText = new o_textArea();
 		openingText.setBounds(0,420,740,100);
-		openingText.setBackground(new Color(1,1,1,(float)0.01));
 		openingText.setForeground(Color.white);
 		openingText.setFont(title.normalFont);
 		openingText.setLineWrap(true);

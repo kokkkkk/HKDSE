@@ -21,6 +21,8 @@ import javax.swing.Timer;
 
 import Basic.initial;
 import Basic.o_jPanel;
+import Basic.o_jbutton;
+import Basic.o_textArea;
 import Control.keyHandler;
 import main.saveLoad;
 
@@ -115,81 +117,70 @@ public class game {
 		dayPanel = new o_jPanel(1);
 		dayPanel.setBounds(650,20,100,40);
 		
-		energyLevelPanel = new JPanel();
+		energyLevelPanel = new o_jPanel(1);
 		energyLevelPanel.setBounds(400,20,200,50);
-		energyLevelPanel.setBackground(Color.red);
 		
-		energyStatusPanel = new JPanel();
+		energyStatusPanel = new o_jPanel(2);
 		energyStatusPanel.setBounds(330,20,70,50);
-		energyStatusPanel.setBackground(Color.blue);
 		
 		moneyPanel = new o_jPanel(1);
 		moneyPanel.setBounds(10,20,250,40);
-		moneyPanel.setBackground(Color.red);
 		
-		mainTextPanel = new JPanel();
+		mainTextPanel = new o_jPanel(1);
 		mainTextPanel.setBounds(160,100,590,400);
-		mainTextPanel.setBackground(Color.red);
 		
 		dataPanel = new o_jPanel(2);
 		dataPanel.setBounds(10,100,150,400);
 		dataPanel.setLayout(new GridLayout(6,2));
-		dataPanel.setBackground(Color.blue);
 		
-		m_choicePanel = new JPanel();
+		m_choicePanel = new o_jPanel(2);
 		m_choicePanel.setBounds(160,130,590,100);
 		m_choicePanel.setLayout(new GridLayout(1,6));
-		m_choicePanel.setBackground(Color.blue);
 		
-		a_choicePanel = new JPanel();
+		a_choicePanel = new o_jPanel(2);
 		a_choicePanel.setBounds(160,260,590,100);
 		a_choicePanel.setLayout(new GridLayout(1,6));
-		a_choicePanel.setBackground(Color.blue);
 		
-		n_choicePanel = new JPanel();
+		n_choicePanel = new o_jPanel(2);
 		n_choicePanel.setBounds(160,390,590,100);
 		n_choicePanel.setLayout(new GridLayout(1,6));
-		n_choicePanel.setBackground(Color.blue);
 		
-		mSubjectPanel = new JPanel();
+		mSubjectPanel = new o_jPanel(2);
 		mSubjectPanel.setBounds(160,130,590,100);
 		mSubjectPanel.setLayout(new GridLayout(1,6));
-		mSubjectPanel.setBackground(Color.blue);
 		
-		aSubjectPanel = new JPanel();
+		aSubjectPanel = new o_jPanel(2);
 		aSubjectPanel.setBounds(160,260,590,100);
 		aSubjectPanel.setLayout(new GridLayout(1,6));
-		aSubjectPanel.setBackground(Color.blue);
 		
-		nSubjectPanel = new JPanel();
+		nSubjectPanel = new o_jPanel(2);
 		nSubjectPanel.setBounds(160,390,590,100);
 		nSubjectPanel.setLayout(new GridLayout(1,6));
-		nSubjectPanel.setBackground(Color.blue);
 		
 		adddayPanel = new JPanel();
 		adddayPanel.setBounds(350,500,120,50);
-		adddayPanel.setBackground(Color.blue);
+		adddayPanel.setOpaque(false);
 		
 		dayResetPanel = new JPanel();
 		dayResetPanel.setBounds(500,500,120,50);
-		dayResetPanel.setBackground(Color.blue);
+		dayResetPanel.setOpaque(false);
 		
-		mPanel = new JPanel();
+		mPanel = new o_jPanel(1);
 		mPanel.setBounds(160,100,590,30);
 		mPanel.setBackground(Color.green);
 		
-		aPanel = new JPanel();
+		aPanel = new o_jPanel(1);
 		aPanel.setBounds(160,230,590,30);
 		aPanel.setBackground(Color.green);
 		
-		nPanel = new JPanel();
+		nPanel = new o_jPanel(1);
 		nPanel.setBounds(160,360,590,30);
 		nPanel.setBackground(Color.green);
 		
 		menuButtonPanel = new JPanel();
 		menuButtonPanel.setBounds(700,520,60,40);
 		menuButtonPanel.setLayout(new GridLayout(1,6));
-		menuButtonPanel.setBackground(Color.blue);
+		menuButtonPanel.setOpaque(false);
 
 		// labels
 
@@ -207,7 +198,7 @@ public class game {
 		
 		energyLevelLabel = new JLabel("Energy",SwingConstants.CENTER);
 		energyLevelLabel.setFont(title.normalFont);
-		energyLevelLabel.setForeground(Color.white);
+		energyLevelLabel.setForeground(Color.black);
 		
 		energyStatusLabel = new JLabel();
 		energyStatusLabel.setFont(title.normalFont);
@@ -271,28 +262,26 @@ public class game {
 		
 		mLabel = new JLabel("Morning");
 		mLabel.setFont(title.normalFont);
-		mLabel.setForeground(Color.white);
+		mLabel.setForeground(Color.BLACK);
 		
 		aLabel = new JLabel("Afternoon");
 		aLabel.setFont(title.normalFont);
-		aLabel.setForeground(Color.white);
+		aLabel.setForeground(Color.black);
 		
 		nLabel = new JLabel("Night");
 		nLabel.setFont(title.normalFont);
-		nLabel.setForeground(Color.white);
+		nLabel.setForeground(Color.black);
 
 		// buttons
 
-		dayAdd = new JButton("Add day");
-		dayAdd.setBackground(Color.black);
-		dayAdd.setForeground(Color.white);
+		dayAdd = new o_jbutton("Add day");
+		dayAdd.setForeground(Color.black);
 		dayAdd.setFont(title.normalFont);
 		dayAdd.setFocusPainted(false);
 		dayAdd.addActionListener(input); //when click, call the class
 		
-		dayReset = new JButton("Reset");
-		dayReset.setBackground(Color.black);
-		dayReset.setForeground(Color.white);
+		dayReset = new o_jbutton("Reset");
+		dayReset.setForeground(Color.black);
 		dayReset.setFont(title.normalFont);
 		dayReset.setFocusPainted(false);
 		dayReset.addActionListener(dayResetHandler); //when click, call the class
@@ -309,7 +298,7 @@ public class game {
 			nightSubjects[index] = createSubjectJButton(initial.subject[index+1], "n_" + subjectNames[index].toLowerCase(), choiceHandler);
 		}
 		
-		menuButton = new JButton("Menu");
+		menuButton = new o_jbutton("Menu");
 		menuButton.setBackground(Color.white);
 		menuButton.setForeground(Color.black);
 		menuButton.setFont(title.VerysmallFont);
@@ -372,7 +361,7 @@ public class game {
 		
 		//Day Schedule Pane------------------------------------------------->
 		
-		daySchedulePanel = new JPanel();
+		daySchedulePanel = new o_jPanel(2);
 		daySchedulePanel.setBounds(100,100,590,400);
 		daySchedulePanel.setBackground(Color.red);
 		daySchedulePanel.setForeground(Color.white);
@@ -383,17 +372,15 @@ public class game {
 		dayScheduleTitle.setFont(title.normalFont);
 		dayScheduleTitle.setForeground(Color.white);
 		
-		daySchedule = new JTextArea("");
-		daySchedule.setBackground(Color.black);
+		daySchedule = new o_textArea();
 		daySchedule.setForeground(Color.white);
 		daySchedule.setFont(title.normalFont);
 		daySchedule.setLineWrap(true);
 		daySchedule.setEditable(false);
 		daySchedule.addMouseListener(mouse);
 		
-		dayScheduleExitButton = new JButton("Exit");
-		dayScheduleExitButton.setBackground(Color.black);
-		dayScheduleExitButton.setForeground(Color.white);
+		dayScheduleExitButton = new o_jbutton("Exit");
+		dayScheduleExitButton.setForeground(Color.BLACK);
 		dayScheduleExitButton.setFont(title.normalFont);
 		dayScheduleExitButton.setFocusPainted(false);
 		dayScheduleExitButton.setActionCommand("exit");
@@ -409,30 +396,26 @@ public class game {
 		
 		//Menu Pane--------------------------------------------------------->
 		
-		menuPanel = new JPanel();
+		menuPanel = new o_jPanel(2);
 		menuPanel.setBounds(100,100,590,400);
 		menuPanel.setLayout(new GridLayout(3,1));
-		menuPanel.setBackground(Color.blue);
 		
-		menuSaveButton = new JButton("Save");
-		menuSaveButton.setBackground(Color.black);
-		menuSaveButton.setForeground(Color.white);
+		menuSaveButton = new o_jbutton("Save");
+		menuSaveButton.setForeground(Color.BLACK);
 		menuSaveButton.setFont(title.normalFont);
 		menuSaveButton.setFocusPainted(false);
 		menuSaveButton.setActionCommand("save");
 		menuSaveButton.addActionListener(menuHandler);
 		
-		menuBackToTitleButton = new JButton("Back to title");
-		menuBackToTitleButton.setBackground(Color.black);
-		menuBackToTitleButton.setForeground(Color.white);
+		menuBackToTitleButton = new  o_jbutton("Back to title");
+		menuBackToTitleButton.setForeground(Color.black);
 		menuBackToTitleButton.setFont(title.normalFont);
 		menuBackToTitleButton.setFocusPainted(false);
 		menuBackToTitleButton.setActionCommand("backToTitle");
 		menuBackToTitleButton.addActionListener(menuHandler);
 		
-		menuBackButton = new JButton("Back");
-		menuBackButton.setBackground(Color.black);
-		menuBackButton.setForeground(Color.white);
+		menuBackButton = new  o_jbutton("Back");
+		menuBackButton.setForeground(Color.black);
 		menuBackButton.setFont(title.normalFont);
 		menuBackButton.setFocusPainted(false);
 		menuBackButton.setActionCommand("back");
@@ -485,10 +468,9 @@ public class game {
 	}
 	
 	private JButton createSubjectJButton(String identifier, String command, ActionListener actionListener) {
-		JButton create = new JButton(identifier);
+		JButton create = new o_jbutton(identifier);
 
-		create.setBackground(Color.black);
-		create.setForeground(Color.white);
+		create.setForeground(Color.black);
 		create.setFont(title.normalFont);
 		create.setFocusPainted(false);
 		create.setActionCommand(command);
@@ -497,10 +479,9 @@ public class game {
 	}
 
 	private JButton createActionJButton(String identifier, String command, Boolean isFontSmall, ActionListener actionListener) {
-		JButton create = new JButton(identifier);
+		JButton create = new o_jbutton(identifier);
 
-		create.setBackground(Color.black);
-		create.setForeground(Color.white);
+		create.setForeground(Color.black);
 		if (isFontSmall) {
 			create.setFont(title.smallFont);
 		} else {

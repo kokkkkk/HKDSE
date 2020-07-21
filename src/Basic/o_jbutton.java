@@ -28,6 +28,7 @@ public class o_jbutton extends JButton{
 			this.setRolloverIcon(addUI.findImage("BigButtonHover.png",getWidth()-5,getHeight()));
 			this.setPressedIcon(addUI.findImage("BigButtonPressed.png",getWidth()-5,getHeight()));
 			this.setBackground(new Color(1,1,1,(float)0.01));
+			this.setBorderPainted(false);
 			this.setMargin(new Insets(0,0,0,0));
 			this.setContentAreaFilled(false);
 			this.setHorizontalAlignment(SwingConstants.LEFT);

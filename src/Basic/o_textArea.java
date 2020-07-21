@@ -1,5 +1,6 @@
 package Basic;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 
@@ -27,6 +28,7 @@ public class o_textArea extends JTextArea{
 			
 			if(!initial){
 				img = image.getScaledInstance(getWidth(), getHeight(), Image.SCALE_FAST);
+				this.setBackground(new Color(1,1,1,(float)0.01));
 				initial = true;
 			}
 			
