@@ -10,6 +10,8 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import Basic.initial;
+import Basic.o_jPanel;
+import Basic.o_jbutton;
 
 public class endGame{
 
@@ -28,23 +30,21 @@ public class endGame{
 		
 		restartHandler = new Control.restartHandler(title,this);
 		
-		gameTextPanel = new JPanel();
+		gameTextPanel = new o_jPanel(1);
 		gameTextPanel.setBounds(100,30,590,400);
-		gameTextPanel.setBackground(Color.red);
 		
-		resultPanel = new JPanel();
+		resultPanel = new o_jPanel(2);
 		resultPanel.setBounds(100,30,590,400);
 		resultPanel.setLayout(new GridLayout(2,6));
 		resultPanel.setBackground(Color.blue);
 		resultPanel.setBorder(BorderFactory.createLineBorder(Color.green));
 		
-		universityPanel = new JPanel();
+		universityPanel = new o_jPanel(2);
 		universityPanel.setBounds(100,450,590,50);
-		universityPanel.setBackground(Color.blue);
 		
 		restartPanel = new JPanel();
 		restartPanel.setBounds(350,500,120,50);
-		restartPanel.setBackground(Color.blue);
+		restartPanel.setOpaque(false);
 		
 		chinName = new JLabel("Chin",SwingConstants.CENTER);
 		chinName.setFont(title.normalFont);
@@ -114,9 +114,8 @@ public class endGame{
 		universityResult.setFont(title.normalFont);
 		universityResult.setForeground(Color.white);
 		
-		restartButton = new JButton("restart");
-		restartButton.setBackground(Color.black);
-		restartButton.setForeground(Color.white);
+		restartButton = new o_jbutton("restart");
+		restartButton.setForeground(Color.BLACK);
 		restartButton.setFont(title.normalFont);
 		restartButton.setFocusPainted(false);
 		restartButton.addActionListener(restartHandler); //when click, call the class
