@@ -7,6 +7,8 @@ import java.awt.event.MouseListener;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
+import Basic.o_jPanel;
+
 public class examFrame {
 		
 	frame.title title;
@@ -30,16 +32,15 @@ public class examFrame {
 		title = tit;
 		endGame = new endGame(title);
 			
-		gameTextPanel = new JPanel();
+		gameTextPanel = new o_jPanel(2);
 		gameTextPanel.setBounds(100,50,590,400);
-		gameTextPanel.setBackground(Color.blue);
 		gameTextPanel.addMouseListener(mouse);
 	
 		examText = new JTextArea("Finally, it's the exam! \n");
 		examText.setBounds(100,50,590,400);
-		examText.setBackground(Color.black);
 		examText.setForeground(Color.white);
 		examText.setFont(title.normalFont);
+		examText.setOpaque(false);
 		examText.setLineWrap(true);
 		examText.setEditable(false);
 		examText.addMouseListener(mouse);

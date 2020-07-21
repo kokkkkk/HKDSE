@@ -23,6 +23,12 @@ public class o_textArea extends JTextArea{
 			image = addUI.findImages("textArea.png");
 		}
 		
+		public o_textArea(String text){
+			super(text);
+			
+			image = addUI.findImages("textArea.png");
+		}
+		
 		@Override
 		protected void paintComponent(Graphics g){
 			
