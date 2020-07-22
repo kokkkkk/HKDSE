@@ -43,7 +43,8 @@ public class game {
 	String[] subjectNames = {"Chin", "Eng", "Math", "LS", "sub1", "sub2"};
 
 	JButton[] morningActions = new JButton[actionCount], afternoonActions = new JButton[actionCount], nightActions = new JButton[actionCount];
-	String[] actionNames = {"Revision", "Do Past Paper", "Go tutorial", "Break"};
+	String[] actionNames = {"Revision", "Do Past Paper", "<html>Go tutorial<br><center><h4>($100)</h4></center></html>",
+							"Break"};
 	String[] actionCommand = {"revision", "doPaper", "tutorial", "break"};
 
 	JPanel dayPanel, mainTextPanel,dataPanel,adddayPanel,m_choicePanel,a_choicePanel,n_choicePanel,mPanel,aPanel,
