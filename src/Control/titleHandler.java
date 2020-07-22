@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import Basic.initial;
 import frame.game;
+import frame.languageFrame;
 import main.opening;
 
 public class titleHandler implements ActionListener {
@@ -41,6 +42,12 @@ public class titleHandler implements ActionListener {
 			
 		case "exit":
 			System.exit(0);
+			break;
+			
+		case "lang":
+			title.clearFrame();
+
+			new languageFrame(title);
 			break;
 		}
 

@@ -26,9 +26,9 @@ public class title{
 	
 	Font titleFont,normalFont,smallFont,VerysmallFont;
 	
-	JPanel title, choices, titleImagePanel;
+	JPanel title, choices, titleImagePanel,languagePanel;
 	JLabel titleName,titleImageLabel;
-	JButton newGameButton,continueButton,exitButton;
+	JButton newGameButton,continueButton,exitButton,languageButton;
 	
 	ImageIcon titleImage;
 	
@@ -47,7 +47,7 @@ public class title{
 		
 		con = window.getLayeredPane();
 		
-		language.languageSetup(0);
+		language.languageSetup();
 		
 		titleFont = language.titleFont;
 		normalFont = language.normalFont;
@@ -72,6 +72,11 @@ public class title{
 		choices.setBounds(160,160,500,300);
 		choices.setOpaque(false);
 		
+		languagePanel = new JPanel();
+		languagePanel.setBackground(Color.WHITE);
+		languagePanel.setBounds(10,500,100,50);
+		languagePanel.setOpaque(false);
+		
 		titleName = new JLabel(language.getV("titleName"));
 		titleName.setPreferredSize(title.getSize());
 		titleName.setFont(titleFont);
@@ -81,7 +86,6 @@ public class title{
 		
 		newGameButton = new o_jbutton(language.getV("newGameButton"));
 		newGameButton.setFont(normalFont);
-		newGameButton.setBorderPainted(false);
 		newGameButton.setForeground(Color.BLACK);
 		newGameButton.setFocusPainted(false);
 		newGameButton.setActionCommand("new");
@@ -91,7 +95,6 @@ public class title{
 		continueButton = new o_jbutton(language.getV("continueButton"));
 		continueButton.setFont(normalFont);
 		continueButton.setForeground(Color.BLACK);
-		continueButton.setBorderPainted(false);
 		continueButton.setFocusPainted(false);
 		continueButton.setActionCommand("continue");
 		continueButton.addActionListener(titleHandler);
@@ -99,16 +102,23 @@ public class title{
 		exitButton = new o_jbutton("Exit");
 		exitButton.setFont(normalFont);
 		exitButton.setForeground(Color.BLACK);
-		exitButton.setBorderPainted(false);
 		exitButton.setFocusPainted(false);
 		exitButton.setActionCommand("exit");
 		exitButton.addActionListener(titleHandler);
+		
+		languageButton = new o_jbutton("Lang");
+		languageButton.setFont(normalFont);
+		languageButton.setForeground(Color.BLACK);
+		languageButton.setFocusPainted(false);
+		languageButton.setActionCommand("lang");
+		languageButton.addActionListener(titleHandler);
 		
 		titleImagePanel.add(titleImageLabel);
 		title.add(titleName);
 		choices.add(newGameButton);
 		choices.add(continueButton);
 		choices.add(exitButton);
+		languagePanel.add(languageButton);
 		
 		titleSetup();
 		
@@ -124,6 +134,7 @@ public class title{
 		
 		con.add(title);
 		con.add(choices);
+		con.add(languagePanel);
 		con.add(titleImagePanel);
 		
 		if(!saveLoad.checkFileExist()){
@@ -132,6 +143,7 @@ public class title{
 		
 		title.setVisible(true);
 		choices.setVisible(true);
+		languagePanel.setVisible(true);
 		
 	}
 	
@@ -139,7 +151,9 @@ public class title{
 		
 		title.setVisible(false);
 		choices.setVisible(false);
+		languagePanel.setVisible(false);
 		titleImagePanel.setVisible(false);
+
 	}
 	
 }

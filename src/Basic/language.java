@@ -10,10 +10,13 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.Vector;
 
 import javafx.util.Pair;
 
 public class language {
+	
+	public static int lang_choose = 0;
 	
 	static ArrayList<Locale> l =  new ArrayList<Locale>(){
 		
@@ -33,21 +36,22 @@ public class language {
 	
 	static ArrayList <Pair<String,String>> gText = new ArrayList<Pair<String,String>>();
 	
-	public static void languageSetup(int i){
+	public static void languageSetup(){
 		
-		gameText = ResourceBundle.getBundle("gameText",l.get(i));
+		gameText = ResourceBundle.getBundle("gameText",l.get(lang_choose));
 		
 		String gameText_key[] = readText("gameText_key").split("\n");
 		
-		titleFont = new Font(font[i], Font.PLAIN,30);
-		normalFont = new Font(font[i], Font.PLAIN,21);
-		smallFont = new Font(font[i], Font.PLAIN,17);
-		VerysmallFont = new Font(font[i], Font.PLAIN,9);
+		titleFont = new Font(font[lang_choose], Font.PLAIN,30);
+		normalFont = new Font(font[lang_choose], Font.PLAIN,21);
+		smallFont = new Font(font[lang_choose], Font.PLAIN,17);
+		VerysmallFont = new Font(font[lang_choose], Font.PLAIN,9);
 		
 		setGameText(gameText_key);
 	}
 	
 	private static void setGameText(String text_key[]){
+		gText.clear();
 		
 		for(int i = 0;i < text_key.length;i++){
 			gText.add(new Pair<String,String>(text_key[i], gameText.getString(text_key[i])));
@@ -55,6 +59,19 @@ public class language {
 		
 		
 	}
+	
+	public static Vector<String> langList(){
+		Vector<String> list = new Vector<String>();
+		
+		String t[] = readText("langList").split("\n");
+		
+		for(int i = 0;i<t.length;i++){
+			list.add(t[i]);
+		}
+		
+		return list;
+	}
+
 	
 	public static String getV(String key){
 		
@@ -64,7 +81,7 @@ public class language {
 				
 				
 				try {
-					System.out.print(new String(p.getValue().getBytes("ISO8859-1")));
+				
 					return new String(p.getValue().getBytes("ISO8859-1"));
 					
 	
