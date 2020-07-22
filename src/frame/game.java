@@ -808,6 +808,11 @@ public class game {
 	
 	}
 	
+	public void event(){
+		moneyPanel.setVisible(true);
+		dayPanel.setVisible(true);
+	}
+	
 	
 	private void frameSetup()
 	{
