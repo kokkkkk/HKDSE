@@ -1,4 +1,6 @@
 titleName
 newGameButton
 continueButton
+exitButton
+languageButton
 end

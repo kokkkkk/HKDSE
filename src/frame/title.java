@@ -99,14 +99,14 @@ public class title{
 		continueButton.setActionCommand("continue");
 		continueButton.addActionListener(titleHandler);
 		
-		exitButton = new o_jbutton("Exit");
+		exitButton = new o_jbutton(language.getV("exitButton"));
 		exitButton.setFont(normalFont);
 		exitButton.setForeground(Color.BLACK);
 		exitButton.setFocusPainted(false);
 		exitButton.setActionCommand("exit");
 		exitButton.addActionListener(titleHandler);
 		
-		languageButton = new o_jbutton("Lang");
+		languageButton = new o_jbutton(language.getV("languageButton"));
 		languageButton.setFont(normalFont);
 		languageButton.setForeground(Color.BLACK);
 		languageButton.setFocusPainted(false);
