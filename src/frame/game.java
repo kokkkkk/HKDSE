@@ -115,7 +115,7 @@ public class game {
 		//Main Pane---------------------------------------------------------->
 		
 		dayPanel = new o_jPanel(1);
-		dayPanel.setBounds(650,20,100,40);
+		dayPanel.setBounds(620,20,140,40);
 		
 		energyLevelPanel = new o_jPanel(1);
 		energyLevelPanel.setBounds(400,20,200,50);
@@ -184,7 +184,7 @@ public class game {
 
 		// labels
 
-		dayLabel = new JLabel("Day: ");
+		dayLabel = new JLabel("Day(s) left: ");
 		dayLabel.setFont(title.normalFont);
 		dayLabel.setForeground(Color.black);
 		
@@ -502,7 +502,7 @@ public class game {
 		sub1 = sub1Value;
 		sub2 = sub2Value;
 		
-		dayNumber.setText(""+day);
+		dayNumber.setText(""+(30 - day));
 		dataNum1.setText(""+chin);
 		dataNum2.setText(""+eng);
 		dataNum3.setText(""+math);
@@ -521,7 +521,7 @@ public class game {
 		sub2 = sub2Value;
 		money = moneyValue;
 		
-		dayNumber.setText(""+day);
+		dayNumber.setText(""+(30 - day));
 		dataNum1.setText(""+chin);
 		dataNum2.setText(""+eng);
 		dataNum3.setText(""+math);
@@ -541,7 +541,7 @@ public class game {
 		sub2 = initial.sub_2;
 		money = initial.moneyValue;
 		
-		dayNumber.setText(""+day);
+		dayNumber.setText(""+(30 - day));
 		dataNum1.setText(""+chin);
 		dataNum2.setText(""+eng);
 		dataNum3.setText(""+math);
@@ -836,7 +836,7 @@ public class game {
 		moneyPanel.setVisible(true);
 		menuButtonPanel.setVisible(true);
 		
-		dayNumber.setText(""+day);
+		dayNumber.setText(""+(30 - day));
 		dataNum1.setText(""+chin);
 		dataNum2.setText(""+eng);
 		dataNum3.setText(""+math);
