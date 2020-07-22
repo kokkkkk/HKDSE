@@ -1,0 +1,4 @@
+titleName
+newGameButton
+continueButton
+end

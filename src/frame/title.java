@@ -13,6 +13,7 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import Basic.language;
 import Basic.o_jPanel;
 import Basic.o_jbutton;
 
@@ -23,9 +24,7 @@ public class title{
 	
 	public JLayeredPane con;
 	
-	Font normalFont = new Font("Times New Roman", Font.PLAIN,21);
-	Font smallFont = new Font("Times New Roman", Font.PLAIN,17);
-	Font VerysmallFont = new Font("Times New Roman", Font.PLAIN,9);
+	Font titleFont,normalFont,smallFont,VerysmallFont;
 	
 	JPanel title, choices, titleImagePanel;
 	JLabel titleName,titleImageLabel;
@@ -37,8 +36,6 @@ public class title{
 	
 	Control.titleHandler titleHandler;
 	
-	Font titleFont = new Font("Times New Roman", Font.PLAIN,30);
-	
 	public title(){
 		
 		window = new JFrame();
@@ -49,6 +46,13 @@ public class title{
 		window.setFocusable(true);
 		
 		con = window.getLayeredPane();
+		
+		language.languageSetup(0);
+		
+		titleFont = language.titleFont;
+		normalFont = language.normalFont;
+		smallFont = language.smallFont;
+		VerysmallFont = language.VerysmallFont;
 		
 		titleImage = new ImageIcon(getClass().getClassLoader().getResource("background.png"));
 		
@@ -68,14 +72,14 @@ public class title{
 		choices.setBounds(160,160,500,300);
 		choices.setOpaque(false);
 		
-		titleName = new JLabel("DSE Life");
+		titleName = new JLabel(language.getV("titleName"));
 		titleName.setPreferredSize(title.getSize());
 		titleName.setFont(titleFont);
 		titleName.setForeground(Color.BLACK);
 		titleName.setVerticalAlignment(SwingConstants.CENTER);
 		titleName.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		newGameButton = new o_jbutton("New Game");
+		newGameButton = new o_jbutton(language.getV("newGameButton"));
 		newGameButton.setFont(normalFont);
 		newGameButton.setBorderPainted(false);
 		newGameButton.setForeground(Color.BLACK);
@@ -84,7 +88,7 @@ public class title{
 		newGameButton.addActionListener(titleHandler);
 
 		
-		continueButton = new o_jbutton("Continue");
+		continueButton = new o_jbutton(language.getV("continueButton"));
 		continueButton.setFont(normalFont);
 		continueButton.setForeground(Color.BLACK);
 		continueButton.setBorderPainted(false);
