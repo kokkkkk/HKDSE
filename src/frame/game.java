@@ -309,6 +309,8 @@ public class game {
 		
 		energyBar = new JProgressBar();
 		energyBar.setPreferredSize(new Dimension(200,50));
+		energyBar.setOpaque(false);
+		energyBar.setBorderPainted(false);
 		energyBar.setValue(100);
 		
 		dayPanel.add(dayLabel);
@@ -718,6 +720,14 @@ public class game {
 	}
 	
 	public void changeEnergyBar(int energyValue){
+		
+		if(energyValue <= 30){
+			energyBar.setForeground(Color.RED);
+		}else if(energyValue<=70){
+			energyBar.setForeground(Color.orange);
+		}else{
+			energyBar.setForeground(Color.green);
+		}
 		
 		energyBar.setValue(energyValue);
 		
