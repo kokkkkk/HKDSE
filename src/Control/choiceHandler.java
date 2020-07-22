@@ -4,69 +4,106 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class choiceHandler implements ActionListener{
-	frame.Main Main;
+	frame.game game;
 	
-	public choiceHandler(frame.Main m){
-		Main = m;
+	public choiceHandler(frame.game g){
+		game = g;
 	}
 	
+	@Override
 	public void actionPerformed(ActionEvent event){
 		String Choice = event.getActionCommand();
 		
 		switch(Choice){
+		 case "m_revision":
+			 game.morningChoice(1);
+			 break;
+		 case "m_doPaper":
+			 game.morningChoice(2);
+			 break;
+		 case "m_tutorial":
+			 game.morningChoice(3);
+			 break;
+		 case "m_break":
+			 game.morningChoice(4);
+			 break;
+		 case "a_revision":
+			 game.afternoonChoice(1);
+			 break;
+		 case "a_doPaper":
+			 game.afternoonChoice(2);
+			 break;
+		 case "a_tutorial":
+			 game.afternoonChoice(3);
+			 break;
+		 case "a_break":
+			 game.afternoonChoice(4);
+			 break;
+		 case "n_revision":
+			 game.nightChoice(1);
+			 break;
+		 case "n_doPaper":
+			 game.nightChoice(2);
+			 break;
+		 case "n_tutorial":
+			 game.nightChoice(3);
+			 break;
+		 case "n_break":
+			 game.nightChoice(4);
+			 break;
 		 case "m_chin": 
-			 Main.morningAction(1);
+			 game.morningAction(1);
 			 break;
 		 case "m_eng":
-			 Main.morningAction(2);
+			 game.morningAction(2);
 			 break;
 		 case "m_math":
-			 Main.morningAction(3);
+			 game.morningAction(3);
 			 break;
 		 case "m_ls":
-			 Main.morningAction(4);
+			 game.morningAction(4);
 			 break;
 		 case "m_sub1":
-			 Main.morningAction(5);
+			 game.morningAction(5);
 			 break;
 		 case "m_sub2":
-			 Main.morningAction(6);
+			 game.morningAction(6);
 			 break;
 		 case "a_chin":
-			 Main.afternoonAction(1);
+			 game.afternoonAction(1);
 			 break;
 		 case "a_eng":
-			 Main.afternoonAction(2);
+			 game.afternoonAction(2);
 			 break;
 		 case "a_math":
-			 Main.afternoonAction(3);
+			 game.afternoonAction(3);
 			 break;
 		 case "a_ls":
-			 Main.afternoonAction(4);
+			 game.afternoonAction(4);
 			 break;
 		 case "a_sub1":
-			 Main.afternoonAction(5);
+			 game.afternoonAction(5);
 			 break;
 		 case "a_sub2":
-			 Main.afternoonAction(6);
+			 game.afternoonAction(6);
 			 break;
 		 case "n_chin":
-			 Main.nightAction(1);
+			 game.nightAction(1);
 			 break;
 		 case "n_eng":
-			 Main.nightAction(2);
+			 game.nightAction(2);
 			 break;
 		 case "n_math":
-			 Main.nightAction(3);
+			 game.nightAction(3);
 			 break;
 		 case "n_ls":
-			 Main.nightAction(4);
+			 game.nightAction(4);
 			 break;
 		 case "n_sub1":
-			 Main.nightAction(5);
+			 game.nightAction(5);
 			 break;
 		 case "n_sub2":
-			 Main.nightAction(6);
+			 game.nightAction(6);
 			 break;
 		}
 	}

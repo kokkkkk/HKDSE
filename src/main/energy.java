@@ -1,12 +1,18 @@
 package main;
 
+import Basic.initial;
+
 public class energy {
 	
-	int energyValue = 100;
+	int energyValue = Basic.initial.energyValue;
+	int energyUseupDay = Basic.initial.energyUseupDay;
+	boolean exhaust = Basic.initial.exhaust;
 
 	public int energyUse(int[] studySub){
 		
-		if (energyValue > 0 || energyValue < 100){
+		valueUpdate();
+		
+		if (energyValue >= 0 && energyValue <= 100){
 			
 			for(int i = 0;i<studySub.length;i++){
 				
@@ -16,17 +22,53 @@ public class energy {
 					
 				}else{
 					
-					energyValue += 5;
+					energyValue += 30;
 					
 				}
 			}
+			
+			if(energyValue <= 0){
+				
+				energyValue = 0;
+				energyUseupDay++;
+				
+			}
+			
+			if(energyValue > 100){
+				
+				energyValue = 100;
+				
+			}
+				
+			if(energyUseupDay >= 3){
+				
+				if(energyUseupDay == 3){
+					System.out.println("exhaust");
+					exhaust = true;
+					energyUseupDay++;
+				}else{
+					energyUseupDay++;
+				}
+					
+			}	
+			
 		}
 		
+		initial.energy_update(energyValue, energyUseupDay, exhaust, energyValue <= 0);
 		return energyValue;
 		
 	}
 	
+	public void valueUpdate(){
+
+		energyValue = Basic.initial.energyValue;
+		energyUseupDay = Basic.initial.energyUseupDay;
+		exhaust = Basic.initial.exhaust;
+	}
+	
 	public boolean checkEnergyUseup(){
+		
+		valueUpdate();
 
 		if (energyValue > 0){
 			
@@ -37,6 +79,11 @@ public class energy {
 			return true;
 		}
 	
+	}
+	
+	public boolean checkExhaust(){
+		
+		return exhaust;
 	}
 	
 	public int getEnergyValue(){

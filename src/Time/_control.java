@@ -1,24 +1,23 @@
 package Time;
 
+import Basic.initial;
+
 public class _control {
-	
-	Basic.initial initial = new Basic.initial();
 	
 	private boolean timeup = false;
 	
-	int day = initial.day;
-	
+
 	public void increase(){
-			day++;
+			initial.day++;
 			
-			if(day>=30){
+			if(initial.day>=30){
 				timeup = true;
 			}
 	}
 	
 	public int getDay(){
 		
-		return day;
+		return initial.day;
 	}
 	
 	public boolean getTimeup(){
@@ -35,8 +34,8 @@ public class _control {
 	}
 	
 	public void setDay(int dayValue){
-		day = dayValue;
-		System.out.println("restart: "+day);
+		initial.day = dayValue;
+		System.out.println("restart: "+initial.day);
 	}
 	
 }

@@ -1,0 +1,10 @@
+Introduction of character:
+Background: 	-rich/poor->affect money
+		-smart/stupid->affect iniValue
+
+Electives:	-Let character choose two electives
+		Resriction:
+			if stupid, unable to choose science electives
+
+Introduction of game:
+Background:	-player only have 30 days to prepare for dse

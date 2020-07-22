@@ -3,28 +3,26 @@ package Control;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import frame.Main;
-
 public class restartHandler implements ActionListener {
 	
-	frame.Main main;
+	frame.title title;
 	frame.endGame endGame;
 	Time._control time = new Time._control();
-	Basic.initial initial = new Basic.initial();
 	main.study study = new main.study();
 	main.result result = new main.result();
 
-	public restartHandler(frame.Main m,frame.endGame end){
+	public restartHandler(frame.title tit,frame.endGame end){
 		
-		main = m;
+		title = tit;
 		
 		endGame = end;
 		
 	}
 	
+	@Override
 	public void actionPerformed(ActionEvent event){
-		frame.Main main = new frame.Main();
-		frame.endGame endGame = new frame.endGame(this.main);
+		title.window.dispose();
+		new frame.title();
 		
 	}
 }
