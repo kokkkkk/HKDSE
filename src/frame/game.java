@@ -310,6 +310,7 @@ public class game {
 		
 		energyBar = new JProgressBar();
 		energyBar.setPreferredSize(new Dimension(200,50));
+		energyBar.setForeground(Color.green);
 		energyBar.setOpaque(false);
 		energyBar.setBorderPainted(false);
 		energyBar.setValue(100);

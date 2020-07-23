@@ -14,6 +14,7 @@ import java.io.InputStreamReader;
 import javax.swing.JButton;
 
 import Basic.initial;
+import Basic.language;
 import frame.openingFrame;
 
 public class opening {
@@ -34,6 +35,7 @@ public class opening {
 	
 	String[] electives;
 	String[] electives_select = new String[2];
+	String[] buttonCommand = {"Chist","Econ","E&RS","Geog","Hist","Bio","Chem","Phy","BAFS","ICT","T&L","Music","VA","PE"};
 	
 	String text[];
 	
@@ -75,7 +77,7 @@ public class opening {
 	}
 	
 	private void intro_end(){
-		String t = "I am studying "+ electives_select[0] + " and " +  electives_select[1] + "\n"; 
+		String t = language.getV("introEnd")+" "+ initial.subject[5] +" "+ language.getV("introEnd1") + " " + initial.subject[6] + "\n"; 
 		
 		t += readText("inroduction_end");
 		
@@ -104,7 +106,7 @@ public class opening {
 		
 		electives = t.split("\n");
 		
-		openingFrame.addButton(electives.length, electives, buttonHandler,smart);
+		openingFrame.addButton(electives.length, electives,buttonCommand, buttonHandler,smart);
 		
 		eventQueue++;
 	}
@@ -113,7 +115,7 @@ public class opening {
 		
 		String t = "";
 		
-		InputStream fileName = this.getClass().getResourceAsStream("/" +name + ".txt");
+		InputStream fileName = this.getClass().getResourceAsStream("/" +name +language.lang[language.lang_choose]+ ".txt");
 		
 		try {
 			
@@ -191,8 +193,8 @@ public class opening {
 				
 			default:
 				if(buttonNum < 2){
-					if(buttonNum == 0 || electives_select[buttonNum-1] != action){
-						electives_select[buttonNum] = action;
+					if(buttonNum == 0 || !(electives_select[buttonNum-1].equals( ((JButton) e.getSource()).getName()))){
+						electives_select[buttonNum] = ((JButton) e.getSource()).getName();
 						buttonNum++;
 						((JButton) e.getSource()).setForeground(Color.MAGENTA);
 						

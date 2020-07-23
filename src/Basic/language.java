@@ -28,6 +28,8 @@ public class language {
 		
 	}};
 	
+	public static String lang[] = {"_en_US","_zh_HK"} ;
+	
 	static String font[] = {"Times New Roman","SimHei"};
 
 	public static Font titleFont,normalFont,smallFont,VerysmallFont;

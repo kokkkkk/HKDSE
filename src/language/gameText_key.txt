@@ -24,4 +24,7 @@ dayScheduleTitle
 menuSaveButton
 menuBackToTitleButton
 menuBackButton
+submit
+introEnd
+introEnd1
 end
