@@ -18,7 +18,7 @@ public class initial {
 	public static int[] study = {0,0,0,0,0,0,0}; //null, chin, eng, math, ls, sub1, sub2
 	public static int[] knowledge = {0,0,0,0,0,0,0};
 	public static int[] examSkill = {0,0,0,0,0,0,0};
-	public static String[] subject = {"null","Chin", "English", "Math", "LS", "Sub1", "Sub2"};
+	public static String[] subject = {"null",language.getV("Chin"), language.getV("Eng"), language.getV("Math"), language.getV("LS"), "Sub1", "Sub2"};
 	
 	//Used by main.energy class
 	public static int energyValue = 100;
