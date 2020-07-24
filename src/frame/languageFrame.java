@@ -63,14 +63,14 @@ public class languageFrame {
 		listScroller.setOpaque(false);
 		listScroller.getViewport().setOpaque(false);
 		
-		backButton = new o_jbutton("Back");
+		backButton = new o_jbutton(language.getV("menuBackButton"));
 		backButton.setFont(language.normalFont);
 		backButton.setForeground(Color.BLACK);
 		backButton.setFocusPainted(false);
 		backButton.setActionCommand("back");
 		backButton.addActionListener(languageHandler);
 		
-		confirmButton = new o_jbutton("Confirm");
+		confirmButton = new o_jbutton(language.getV("confirm"));
 		confirmButton.setFont(language.normalFont);
 		confirmButton.setForeground(Color.BLACK);
 		confirmButton.setFocusPainted(false);

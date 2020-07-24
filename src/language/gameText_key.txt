@@ -62,4 +62,5 @@ examPerformance2
 examPerformance3
 but
 moneyUseup
+confirm
 end
