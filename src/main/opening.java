@@ -193,8 +193,8 @@ public class opening {
 				
 			default:
 				if(buttonNum < 2){
-					if(buttonNum == 0 || !(electives_select[buttonNum-1].equals( ((JButton) e.getSource()).getName()))){
-						electives_select[buttonNum] = ((JButton) e.getSource()).getName();
+					if(buttonNum == 0 || electives_select[buttonNum-1] != action){
+						electives_select[buttonNum] = action;
 						buttonNum++;
 						((JButton) e.getSource()).setForeground(Color.MAGENTA);
 						

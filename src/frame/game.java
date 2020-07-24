@@ -214,27 +214,27 @@ public class game {
 		moneyValueLabel.setFont(title.normalFont);
 		moneyValueLabel.setForeground(Color.BLACK);
 		
-		dataName1 = new JLabel(initial.subject[1]);
+		dataName1 = new JLabel();
 		dataName1.setFont(title.normalFont);
 		dataName1.setForeground(Color.white);
 		
-		dataName2 = new JLabel(initial.subject[2]);
+		dataName2 = new JLabel();
 		dataName2.setFont(title.normalFont);
 		dataName2.setForeground(Color.white);
 		
-		dataName3 = new JLabel(initial.subject[3]);
+		dataName3 = new JLabel();
 		dataName3.setFont(title.normalFont);
 		dataName3.setForeground(Color.white);
 		
-		dataName4 = new JLabel(initial.subject[4]);
+		dataName4 = new JLabel();
 		dataName4.setFont(title.normalFont);
 		dataName4.setForeground(Color.white);
 		
-		dataName5 = new JLabel(initial.subject[5]);
+		dataName5 = new JLabel();
 		dataName5.setFont(title.normalFont);
 		dataName5.setForeground(Color.white);
 		
-		dataName6 = new JLabel(initial.subject[6]);
+		dataName6 = new JLabel();
 		dataName6.setFont(title.normalFont);
 		dataName6.setForeground(Color.white);
 		
@@ -293,12 +293,6 @@ public class game {
 			afternoonActions[index] = createActionJButton(actionNames[index], "a_" + actionCommand[index], index == Action.PASTPAPER.ordinal(), choiceHandler);
 			nightActions[index] = createActionJButton(actionNames[index], "n_" + actionCommand[index], index == Action.PASTPAPER.ordinal(), choiceHandler);
 		}
-
-		for (int index = 0; index < morningSubjects.length; index++) {
-			morningSubjects[index] = createSubjectJButton(initial.subject[index+1], "m_" + subjectNames[index].toLowerCase(), choiceHandler);
-			afternoonSubjects[index] = createSubjectJButton(initial.subject[index+1], "a_" + subjectNames[index].toLowerCase(), choiceHandler);
-			nightSubjects[index] = createSubjectJButton(initial.subject[index+1], "n_" + subjectNames[index].toLowerCase(), choiceHandler);
-		}
 		
 		menuButton = new o_jbutton(language.getV("menuButton"));
 		menuButton.setBackground(Color.white);
@@ -347,18 +341,6 @@ public class game {
 		mPanel.add(mLabel);
 		aPanel.add(aLabel);
 		nPanel.add(nLabel);
-
-		for (int index = 0; index < morningActions.length; index++) {
-			m_choicePanel.add(morningActions[index]);
-			a_choicePanel.add(afternoonActions[index]);
-			n_choicePanel.add(nightActions[index]);
-		}
-
-		for (int index = 0; index < morningSubjects.length; index++) {
-			mSubjectPanel.add(morningSubjects[index]);
-			aSubjectPanel.add(afternoonSubjects[index]);
-			nSubjectPanel.add(nightSubjects[index]);
-		}
 
 		menuButtonPanel.add(menuButton);
 		
@@ -806,8 +788,13 @@ public class game {
 		
 		if(i == 1){
 			saveLoad.loadData();
+			
+			initial_subject();
+			
 			dayReset();
 		}else{
+			initial_subject();
+			
 			day = initial.day;
 			chin = initial.Chin;
 			eng = initial.Eng;
@@ -819,6 +806,34 @@ public class game {
 		}
 		
 	
+	}
+	
+	private void initial_subject(){
+		
+		dataName1.setText(initial.subject[1]);
+		dataName2.setText(initial.subject[2]);
+		dataName3.setText(initial.subject[3]);
+		dataName4.setText(initial.subject[4]);
+		dataName5.setText(initial.subject[5]);
+		dataName6.setText(initial.subject[6]);
+		
+		for (int index = 0; index < morningSubjects.length; index++) {
+			morningSubjects[index] = createSubjectJButton(initial.subject[index+1], "m_" + subjectNames[index].toLowerCase(), choiceHandler);
+			afternoonSubjects[index] = createSubjectJButton(initial.subject[index+1], "a_" + subjectNames[index].toLowerCase(), choiceHandler);
+			nightSubjects[index] = createSubjectJButton(initial.subject[index+1], "n_" + subjectNames[index].toLowerCase(), choiceHandler);
+		}
+		
+		for (int index = 0; index < morningActions.length; index++) {
+			m_choicePanel.add(morningActions[index]);
+			a_choicePanel.add(afternoonActions[index]);
+			n_choicePanel.add(nightActions[index]);
+		}
+
+		for (int index = 0; index < morningSubjects.length; index++) {
+			mSubjectPanel.add(morningSubjects[index]);
+			aSubjectPanel.add(afternoonSubjects[index]);
+			nSubjectPanel.add(nightSubjects[index]);
+		}
 	}
 	
 	public void event(){

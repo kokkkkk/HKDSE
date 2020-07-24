@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import Basic.initial;
+import Basic.language;
 import Basic.o_jPanel;
 import Basic.o_jbutton;
 
@@ -46,22 +47,22 @@ public class endGame{
 		restartPanel.setBounds(350,500,120,50);
 		restartPanel.setOpaque(false);
 		
-		chinName = new JLabel("Chin",SwingConstants.CENTER);
+		chinName = new JLabel(initial.subject[1],SwingConstants.CENTER);
 		chinName.setFont(title.normalFont);
 		chinName.setForeground(Color.white);
 		chinName.setBorder(BorderFactory.createLineBorder(Color.green));
 		
-		engName = new JLabel("Eng",SwingConstants.CENTER);
+		engName = new JLabel(initial.subject[2],SwingConstants.CENTER);
 		engName.setFont(title.normalFont);
 		engName.setForeground(Color.white);
 		engName.setBorder(BorderFactory.createLineBorder(Color.green));
 		
-		mathName = new JLabel("Math",SwingConstants.CENTER);
+		mathName = new JLabel(initial.subject[3],SwingConstants.CENTER);
 		mathName.setFont(title.normalFont);
 		mathName.setForeground(Color.white);
 		mathName.setBorder(BorderFactory.createLineBorder(Color.green));
 		
-		lsName = new JLabel("LS",SwingConstants.CENTER);
+		lsName = new JLabel(initial.subject[4],SwingConstants.CENTER);
 		lsName.setFont(title.normalFont);
 		lsName.setForeground(Color.white);
 		lsName.setBorder(BorderFactory.createLineBorder(Color.green));
@@ -106,7 +107,7 @@ public class endGame{
 		sub2Result.setForeground(Color.white);
 		sub2Result.setBorder(BorderFactory.createLineBorder(Color.green));
 		
-		universityLabel = new JLabel("Chance to university :");
+		universityLabel = new JLabel(language.getV("universityLabel"));
 		universityLabel.setFont(title.normalFont);
 		universityLabel.setForeground(Color.white);
 		
@@ -114,7 +115,7 @@ public class endGame{
 		universityResult.setFont(title.normalFont);
 		universityResult.setForeground(Color.white);
 		
-		restartButton = new o_jbutton("restart");
+		restartButton = new o_jbutton(language.getV("restartButton"));
 		restartButton.setForeground(Color.BLACK);
 		restartButton.setFont(title.normalFont);
 		restartButton.setFocusPainted(false);
@@ -152,6 +153,13 @@ public class endGame{
 		title.con.add(restartPanel);
 		title.con.add(universityPanel);
 		
+		chinName.setText(initial.subject[1]);
+		engName.setText(initial.subject[2]);
+		mathName.setText(initial.subject[3]);
+		lsName.setText(initial.subject[4]);
+		sub1Name.setText(initial.subject[5]);
+		sub2Name.setText(initial.subject[6]);
+		
 		resultPanel.setVisible(true);
 		gameTextPanel.setVisible(true);
 		restartPanel.setVisible(true);
@@ -170,10 +178,10 @@ public class endGame{
 		sub2Result.setText(grade[5]);
 		
 		if(universityChance){
-			universityResult.setText("Yes");
+			universityResult.setText(language.getV("yes"));
 			
 		}else{
-			universityResult.setText("No");
+			universityResult.setText(language.getV("no"));
 			
 		}
 		

@@ -32,7 +32,11 @@ public class saveLoad {
 			String[] knowledge_s = br.readLine().split("/");
 			String[] examSkill_s = br.readLine().split("/");
 			String[] subject = br.readLine().split("/");
-			String[] triggeredEvent_s = br.readLine().split("/");
+			
+			String[] triggeredEvent_s = null;
+			if(br.readLine() != null){
+				triggeredEvent_s = br.readLine().split("/");
+			}
 			
 			br.close();
 			
@@ -49,9 +53,12 @@ public class saveLoad {
 				examSkill[i] = Integer.parseInt(String.valueOf(examSkill_s[i]));
 			}
 			
-			for(int i=0; i<triggeredEvent_s.length;i++)
-			{
-				triggeredEvent.add(Integer.parseInt(String.valueOf(triggeredEvent_s[i])));
+			if(triggeredEvent_s != null){
+				
+				for(int i=0; i<triggeredEvent_s.length;i++)
+				{
+					triggeredEvent.add(Integer.parseInt(String.valueOf(triggeredEvent_s[i])));
+				}
 			}
 			
 			initial.valueSetup(day,money,ini,mark,knowledge,examSkill,subject,triggeredEvent);
@@ -59,7 +66,7 @@ public class saveLoad {
 			initial.study_update(tired);
 			
 		}catch(Exception e){
-			
+			e.printStackTrace();
 		}
 	}
 	
@@ -82,7 +89,7 @@ public class saveLoad {
 			int[] knowledge = initial.knowledge;
 			int[] examSkill = initial.examSkill;
 			 
-			String[] subject = initial.subject;
+			String[] subject = initial.o_subject;
 			 
 			Vector<Integer> triggeredEvent = initial.triggeredEvent;
 			

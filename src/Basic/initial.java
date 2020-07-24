@@ -18,7 +18,8 @@ public class initial {
 	public static int[] study = {0,0,0,0,0,0,0}; //null, chin, eng, math, ls, sub1, sub2
 	public static int[] knowledge = {0,0,0,0,0,0,0};
 	public static int[] examSkill = {0,0,0,0,0,0,0};
-	public static String[] subject = {"null",language.getV("Chin"), language.getV("Eng"), language.getV("Math"), language.getV("LS"), "Sub1", "Sub2"};
+	public static String[] o_subject = {"null","Chin","Eng","Math","LS","Sub1","Sub2"};
+	public static String[] subject = {"null",language.getV(o_subject[1]), language.getV(o_subject[2]), language.getV(o_subject[3]), language.getV(o_subject[4]), language.getV(o_subject[5]), language.getV(o_subject[6])};
 	
 	//Used by main.energy class
 	public static int energyValue = 100;
@@ -79,7 +80,8 @@ public class initial {
 		 sub_1 = study[5]; // Subject 1
 		 sub_2 =study[6];  // Subject 2
 		 
-		 subject = sub;
+		 o_subject = sub;
+		 sub_update();
 		 
 		 triggeredEvent = triggered;
 
@@ -136,7 +138,16 @@ public class initial {
 	}
 	
 	public static void setElective(String[] choice){
-		subject[5] = choice[0];
-		subject[6] = choice[1];
+		o_subject[5] = choice[0];
+		o_subject[6] = choice[1];
+	
+		sub_update();
+	}
+	
+	private static  void sub_update(){
+		for(int i=1;i<o_subject.length;i++){
+			subject[i] = language.getV(o_subject[i]);
+		}
+		
 	}
 }

@@ -1,6 +1,7 @@
 package main;
 
 import Basic.initial;
+import Basic.language;
 
 public class daySchedule {
 	
@@ -36,16 +37,16 @@ public class daySchedule {
 				
 				switch(i) {
 				case 0: 
-					System.out.println("Morning : Break");
-					scheduleText += "Morning : Break\n";
+					System.out.println(language.getV("mLabel")+" : " +language.getV("break"));
+					scheduleText += language.getV("mLabel")+" : " +language.getV("break")+"\n";
 					break;
 				case 1: 
 					System.out.println("Afternoon : Break");
-					scheduleText += "Afternoon : Break\n";
+					scheduleText += language.getV("aLabel")+" : " +language.getV("break")+"\n";
 					break;
 				case 2: 
 					System.out.println("Night : Break");
-					scheduleText += "Night : Break\n";
+					scheduleText += language.getV("nLabel")+" : " +language.getV("break")+"\n";
 					break;
 				}
 				
@@ -53,70 +54,31 @@ public class daySchedule {
 				
 				switch(i) {
 				case 0: 
-					System.out.println("Morning :" + initial.subject[sub[i]]);
-					scheduleText += "Morning :" + initial.subject[sub[i]]+"\n";
+					System.out.println(language.getV("mLabel")+" : " + initial.subject[sub[i]]);
+					scheduleText += language.getV("mLabel")+" : "  + initial.subject[sub[i]]+"\n";
 					
-					switch(choices[i]) {
-					case 1:
-						System.out.println("Method : Revision");
-						scheduleText += "Method : Revision\n";
-						break;
-					case 2:
-						System.out.println("Method : Do Past Paper");
-						scheduleText += "Method : Do Past Paper\n";
-						break;
-					case 3:
-						System.out.println("Method : Tutorial");
-						scheduleText += "Method : Tutorial\n";
-						break;
-					}
+					methodText(i);
 					
-					System.out.println(initial.subject[sub[i]] + " 's Mark: " + mark[i]);
-					scheduleText += initial.subject[sub[i]] + " 's Mark: " + mark[i] + "\n";
+					System.out.println(initial.subject[sub[i]] + " "+language.getV("smark")+" " + mark[i]);
+					scheduleText += initial.subject[sub[i]] + " "+language.getV("smark")+" " + mark[i] + "\n";
 					break;
 				case 1: 
-					System.out.println("Afternoon :" + initial.subject[sub[i]]);
-					scheduleText += "Afternoon :" + initial.subject[sub[i]] + "\n";
+					System.out.println(language.getV("aLabel")+" : "  + initial.subject[sub[i]]);
+					scheduleText += language.getV("aLabel")+" : "  + initial.subject[sub[i]] + "\n";
 					
-					switch(choices[i]) {
-					case 1:
-						System.out.println("Method : Revision");
-						scheduleText += "Method : Revision\n";
-						break;
-					case 2:
-						System.out.println("Method : Do Past Paper");
-						scheduleText += "Method : Do Past Paper\n";
-						break;
-					case 3:
-						System.out.println("Method : Tutorial");
-						scheduleText += "Method : Tutorial\n";
-						break;
-					}
+					methodText(i);
 					
 					System.out.println(initial.subject[sub[i]] + " 's Mark: " + mark[i]);
-					scheduleText += initial.subject[sub[i]] + " 's Mark: " + mark[i] + "\n";
+					scheduleText += initial.subject[sub[i]] + " "+language.getV("smark")+" " + mark[i] + "\n";
 					break;
 				case 2: 
-					System.out.println("Night :" + initial.subject[sub[i]]);
-					scheduleText += "Night :" + initial.subject[sub[i]] + "\n";
+					System.out.println(language.getV("nLabel")+" : "  + initial.subject[sub[i]]);
+					scheduleText += language.getV("nLabel")+" : "  + initial.subject[sub[i]] + "\n";
 					
-					switch(choices[i]) {
-					case 1:
-						System.out.println("Method : Revision");
-						scheduleText += "Method : Revision\n";
-						break;
-					case 2:
-						System.out.println("Method : Do Past Paper");
-						scheduleText += "Method : Do Past Paper\n";
-						break;
-					case 3:
-						System.out.println("Method : Tutorial");
-						scheduleText += "Method : Tutorial\n";
-						break;
-					}
+					methodText(i);
 					
 					System.out.println(initial.subject[sub[i]] + " 's Mark: " + mark[i]);
-					scheduleText += initial.subject[sub[i]] + " 's Mark: " + mark[i] + "\n";
+					scheduleText += initial.subject[sub[i]] + " "+language.getV("smark")+" " + mark[i] + "\n";
 					break;
 				}
 				
@@ -127,21 +89,21 @@ public class daySchedule {
 		if(moneyUseup) {
 			
 			System.out.println("Borrowed Money");
-			scheduleText += "Borrowed money from others.\n";
+			scheduleText += language.getV("borrowMoney")+"\n";
 			
 		}
 		
 		if(exhaust) {
 			
 			System.out.println("Exhaust");
-			scheduleText += "Exhaust. Life is no hope.\n";
+			scheduleText += language.getV("schedule_exhaust")+"\n";
 			
 		}
 		
 		if(sameSubTired) {
 			
 			System.out.println("SameSubTired");
-			scheduleText += "Tired because study the same subject.\n";
+			scheduleText += language.getV("schedule_ssTired")+"\n";
 			
 		}
 		
@@ -158,6 +120,24 @@ public class daySchedule {
 	public void resetSchedule(){
 		fullSchedule = new String[0];
 		scheduleText = "";
+	}
+	
+	private void methodText(int i){
+		
+		switch(choices[i]) {
+		case 1:
+			System.out.println(language.getV("method")+" : "+ "Revision");
+			scheduleText += language.getV("method")+" : "+ language.getV("revision")+"\n";
+			break;
+		case 2:
+			System.out.println("Method : Do Past Paper");
+			scheduleText += language.getV("method")+" : "+ language.getV("doPastpaper")+"\n";
+			break;
+		case 3:
+			System.out.println("Method : Tutorial");
+			scheduleText += language.getV("method")+" : "+ language.getV("tutorial")+"\n";
+			break;
+		}
 	}
 
 }

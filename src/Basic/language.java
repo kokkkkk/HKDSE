@@ -50,6 +50,7 @@ public class language {
 		VerysmallFont = new Font(font[lang_choose], Font.PLAIN,9);
 		
 		setGameText(gameText_key);
+		
 	}
 	
 	private static void setGameText(String text_key[]){
