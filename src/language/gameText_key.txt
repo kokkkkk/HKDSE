@@ -50,4 +50,15 @@ T&L
 Music
 VA
 PE
+examText
+is
+vhard
+hard
+normal
+easy
+veasy
+examPerformance1
+examPerformance2
+examPerformance3
+but
 end
