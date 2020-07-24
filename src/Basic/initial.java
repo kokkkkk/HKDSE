@@ -15,6 +15,7 @@ public class initial {
 	public static int sub_2 = 0; // Subject 2
 	public static int iniValue = 0;
 	public static int moneyValue = 0;
+	public static int moneyaddAmount = 0;
 	public static int[] study = {0,0,0,0,0,0,0}; //null, chin, eng, math, ls, sub1, sub2
 	public static int[] knowledge = {0,0,0,0,0,0,0};
 	public static int[] examSkill = {0,0,0,0,0,0,0};
@@ -61,11 +62,12 @@ public class initial {
 
 	}
 	
-	public static void valueSetup(int dayValue, int money,int ini,int[] studyValue,
+	public static void valueSetup(int dayValue, int money,int addAmount,int ini,int[] studyValue,
 			int[] knowledgeValue, int[]examSkillValue, String[] sub, Vector<Integer> triggered){
 		day = dayValue;
 		
 		moneyValue = money;
+		moneyaddAmount = addAmount;
 		
 		iniValue = ini;
 	
@@ -110,6 +112,7 @@ public class initial {
 		sub_2 = 0; // Subject 2
 		iniValue = rand.nextInt(11)+1;
 		moneyValue =  rand.nextInt(201)+1;
+		moneyaddAmount = moneyValue;
 		
 		for(int i = 0; i<study.length;i++){
 			study[i] = 0;

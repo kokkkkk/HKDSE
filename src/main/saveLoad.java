@@ -18,6 +18,7 @@ public class saveLoad {
 			int day = Integer.parseInt(br.readLine());
 			
 			int money = Integer.parseInt(br.readLine());
+			int addAmount = Integer.parseInt(br.readLine());
 			
 			int ini = Integer.parseInt(br.readLine());
 			
@@ -34,8 +35,9 @@ public class saveLoad {
 			String[] subject = br.readLine().split("/");
 			
 			String[] triggeredEvent_s = null;
-			if(br.readLine() != null){
-				triggeredEvent_s = br.readLine().split("/");
+			String temp = br.readLine();
+			if(temp != null){
+				triggeredEvent_s = temp.split("/");
 			}
 			
 			br.close();
@@ -61,7 +63,7 @@ public class saveLoad {
 				}
 			}
 			
-			initial.valueSetup(day,money,ini,mark,knowledge,examSkill,subject,triggeredEvent);
+			initial.valueSetup(day,money,addAmount,ini,mark,knowledge,examSkill,subject,triggeredEvent);
 			initial.energy_update(energyValue, energyUseupDay, exhaust, energyUseup);
 			initial.study_update(tired);
 			
@@ -76,6 +78,7 @@ public class saveLoad {
 			int day = initial.day;
 		
 			int money = initial.moneyValue;
+			int addAmount = initial.moneyaddAmount;
 			int ini = initial.iniValue;
 			
 			int energyValue = initial.energyValue;
@@ -98,6 +101,8 @@ public class saveLoad {
 			bw.write(""+day);
 			bw.newLine();
 			bw.write(""+money);
+			bw.newLine();
+			bw.write(""+addAmount);
 			bw.newLine();
 			bw.write(""+ini);
 			bw.newLine();

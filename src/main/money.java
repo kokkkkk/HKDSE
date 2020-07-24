@@ -8,21 +8,20 @@ public class money {
 	Random rand = new Random();
 	
 	int moneyValue = initial.moneyValue;
-	int addAmount;
+	int addAmount = initial.moneyaddAmount;
 	boolean moneyUseup = initial.moneyUseup;
 
 	public money(){
 		
-		addAmount = moneyValue;
-		initial.moneyValue = moneyValue;
+		moneyValue = initial.moneyValue;
 		
 	}
 	
 	public void addMoney(){
-		
+		addAmount = initial.moneyaddAmount;
 		moneyValue = initial.moneyValue;
 		
-		moneyValue = moneyValue + addAmount;
+		moneyValue += addAmount;
 		
 		initial.moneyValue = moneyValue;
 	}
@@ -48,7 +47,7 @@ public class money {
 	
 	public boolean getMoneyuseup(){
 		
-		moneyUseup = initial.moneyUseup;
+		moneyValue = initial.moneyValue;
 		
 		if(moneyValue<=0){
 			

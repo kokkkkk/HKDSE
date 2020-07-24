@@ -210,7 +210,7 @@ public class game {
 		dayNumber.setFont(title.normalFont);
 		dayNumber.setForeground(Color.black);
 		
-		moneyValueLabel = new JLabel("0");
+		moneyValueLabel = new JLabel("0",SwingConstants.LEFT);
 		moneyValueLabel.setFont(title.normalFont);
 		moneyValueLabel.setForeground(Color.BLACK);
 		
@@ -688,7 +688,7 @@ public class game {
 		
 		if(moneyUseup && day != 1) {
 			
-			moneyStatusLabel.setText("Money Use up");
+			moneyStatusLabel.setText(language.getV("moneyUseup"));
 			
 		}
 			
