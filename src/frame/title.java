@@ -13,6 +13,7 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import Basic.language;
 import Basic.o_jPanel;
 import Basic.o_jbutton;
 
@@ -23,21 +24,17 @@ public class title{
 	
 	public JLayeredPane con;
 	
-	Font normalFont = new Font("Times New Roman", Font.PLAIN,21);
-	Font smallFont = new Font("Times New Roman", Font.PLAIN,17);
-	Font VerysmallFont = new Font("Times New Roman", Font.PLAIN,9);
+	Font titleFont,normalFont,smallFont,VerysmallFont;
 	
-	JPanel title, choices, titleImagePanel;
+	JPanel title, choices, titleImagePanel,languagePanel;
 	JLabel titleName,titleImageLabel;
-	JButton newGameButton,continueButton,exitButton;
+	JButton newGameButton,continueButton,exitButton,languageButton;
 	
 	ImageIcon titleImage;
 	
 	main.saveLoad saveLoad = new saveLoad();
 	
 	Control.titleHandler titleHandler;
-	
-	Font titleFont = new Font("Times New Roman", Font.PLAIN,30);
 	
 	public title(){
 		
@@ -49,6 +46,13 @@ public class title{
 		window.setFocusable(true);
 		
 		con = window.getLayeredPane();
+		
+		language.languageSetup();
+		
+		titleFont = language.titleFont;
+		normalFont = language.normalFont;
+		smallFont = language.smallFont;
+		VerysmallFont = language.VerysmallFont;
 		
 		titleImage = new ImageIcon(getClass().getClassLoader().getResource("background.png"));
 		
@@ -68,43 +72,53 @@ public class title{
 		choices.setBounds(160,160,500,300);
 		choices.setOpaque(false);
 		
-		titleName = new JLabel("DSE Life");
+		languagePanel = new JPanel();
+		languagePanel.setBackground(Color.WHITE);
+		languagePanel.setBounds(10,500,100,50);
+		languagePanel.setOpaque(false);
+		
+		titleName = new JLabel(language.getV("titleName"));
 		titleName.setPreferredSize(title.getSize());
 		titleName.setFont(titleFont);
 		titleName.setForeground(Color.BLACK);
 		titleName.setVerticalAlignment(SwingConstants.CENTER);
 		titleName.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		newGameButton = new o_jbutton("New Game");
+		newGameButton = new o_jbutton(language.getV("newGameButton"));
 		newGameButton.setFont(normalFont);
-		newGameButton.setBorderPainted(false);
 		newGameButton.setForeground(Color.BLACK);
 		newGameButton.setFocusPainted(false);
 		newGameButton.setActionCommand("new");
 		newGameButton.addActionListener(titleHandler);
 
 		
-		continueButton = new o_jbutton("Continue");
+		continueButton = new o_jbutton(language.getV("continueButton"));
 		continueButton.setFont(normalFont);
 		continueButton.setForeground(Color.BLACK);
-		continueButton.setBorderPainted(false);
 		continueButton.setFocusPainted(false);
 		continueButton.setActionCommand("continue");
 		continueButton.addActionListener(titleHandler);
 		
-		exitButton = new o_jbutton("Exit");
+		exitButton = new o_jbutton(language.getV("exitButton"));
 		exitButton.setFont(normalFont);
 		exitButton.setForeground(Color.BLACK);
-		exitButton.setBorderPainted(false);
 		exitButton.setFocusPainted(false);
 		exitButton.setActionCommand("exit");
 		exitButton.addActionListener(titleHandler);
+		
+		languageButton = new o_jbutton(language.getV("languageButton"));
+		languageButton.setFont(normalFont);
+		languageButton.setForeground(Color.BLACK);
+		languageButton.setFocusPainted(false);
+		languageButton.setActionCommand("lang");
+		languageButton.addActionListener(titleHandler);
 		
 		titleImagePanel.add(titleImageLabel);
 		title.add(titleName);
 		choices.add(newGameButton);
 		choices.add(continueButton);
 		choices.add(exitButton);
+		languagePanel.add(languageButton);
 		
 		titleSetup();
 		
@@ -120,6 +134,7 @@ public class title{
 		
 		con.add(title);
 		con.add(choices);
+		con.add(languagePanel);
 		con.add(titleImagePanel);
 		
 		if(!saveLoad.checkFileExist()){
@@ -128,6 +143,7 @@ public class title{
 		
 		title.setVisible(true);
 		choices.setVisible(true);
+		languagePanel.setVisible(true);
 		
 	}
 	
@@ -135,7 +151,9 @@ public class title{
 		
 		title.setVisible(false);
 		choices.setVisible(false);
+		languagePanel.setVisible(false);
 		titleImagePanel.setVisible(false);
+
 	}
 	
 }

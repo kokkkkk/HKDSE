@@ -11,6 +11,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Vector;
 
+import Basic.language;
 import Event.eventInterface;
 import frame.eventFrame;
 
@@ -93,7 +94,7 @@ public class generalEvent{
 	public void readText(eventFrame eventFrame) {
 		String t ="";
 		
-		InputStream fileName = this.getClass().getResourceAsStream("/"+eventName+".txt");
+		InputStream fileName = this.getClass().getResourceAsStream("/"+eventName+language.lang[language.lang_choose]+".txt");
 		
 		try {
 			

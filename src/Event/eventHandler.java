@@ -63,6 +63,7 @@ public class eventHandler {
 	public eventHandler(game g, title tit){
 		title = tit;
 		game = g;
+		
 	}
 	
 	public void update(){
@@ -172,7 +173,6 @@ public class eventHandler {
 		}else if(moneyValue > 1000){
 			
 			if(random(5)){
-				
 				execute(new generalEvent(money_4));
 				
 			}

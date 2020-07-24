@@ -7,6 +7,7 @@ import java.awt.event.MouseListener;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
+import Basic.language;
 import Basic.o_jPanel;
 
 public class examFrame {
@@ -36,7 +37,7 @@ public class examFrame {
 		gameTextPanel.setBounds(100,50,590,400);
 		gameTextPanel.addMouseListener(mouse);
 	
-		examText = new JTextArea("Finally, it's the exam! \n");
+		examText = new JTextArea(language.getV("examText")+" \n");
 		examText.setBounds(100,50,590,400);
 		examText.setForeground(Color.white);
 		examText.setFont(title.normalFont);

@@ -20,6 +20,7 @@ import javax.swing.SwingConstants;
 import javax.swing.Timer;
 
 import Basic.initial;
+import Basic.language;
 import Basic.o_jPanel;
 import Basic.o_jbutton;
 import Basic.o_textArea;
@@ -43,7 +44,8 @@ public class game {
 	String[] subjectNames = {"Chin", "Eng", "Math", "LS", "sub1", "sub2"};
 
 	JButton[] morningActions = new JButton[actionCount], afternoonActions = new JButton[actionCount], nightActions = new JButton[actionCount];
-	String[] actionNames = {"Revision", "Do Past Paper", "Go tutorial", "Break"};
+	String[] actionNames = {language.getV("revision"), language.getV("doPastpaper"), "<html>"+language.getV("tutorial")+"<br><center><h4>($100)</h4></center></html>",
+							language.getV("break")};
 	String[] actionCommand = {"revision", "doPaper", "tutorial", "break"};
 
 	JPanel dayPanel, mainTextPanel,dataPanel,adddayPanel,m_choicePanel,a_choicePanel,n_choicePanel,mPanel,aPanel,
@@ -115,7 +117,7 @@ public class game {
 		//Main Pane---------------------------------------------------------->
 		
 		dayPanel = new o_jPanel(1);
-		dayPanel.setBounds(650,20,100,40);
+		dayPanel.setBounds(620,20,140,40);
 		
 		energyLevelPanel = new o_jPanel(1);
 		energyLevelPanel.setBounds(400,20,200,50);
@@ -184,11 +186,11 @@ public class game {
 
 		// labels
 
-		dayLabel = new JLabel("Day: ");
+		dayLabel = new JLabel(language.getV("dayLabel"));
 		dayLabel.setFont(title.normalFont);
 		dayLabel.setForeground(Color.black);
 		
-		moneyLabel = new JLabel("Money: ");
+		moneyLabel = new JLabel(language.getV("moneyLabel"));
 		moneyLabel.setFont(title.normalFont);
 		moneyLabel.setForeground(Color.black);
 		
@@ -196,7 +198,7 @@ public class game {
 		moneyStatusLabel.setFont(title.normalFont);
 		moneyStatusLabel.setForeground(Color.black);
 		
-		energyLevelLabel = new JLabel("Energy",SwingConstants.CENTER);
+		energyLevelLabel = new JLabel(language.getV("energyLevelLabel"),SwingConstants.CENTER);
 		energyLevelLabel.setFont(title.normalFont);
 		energyLevelLabel.setForeground(Color.black);
 		
@@ -208,31 +210,31 @@ public class game {
 		dayNumber.setFont(title.normalFont);
 		dayNumber.setForeground(Color.black);
 		
-		moneyValueLabel = new JLabel("0");
+		moneyValueLabel = new JLabel("0",SwingConstants.LEFT);
 		moneyValueLabel.setFont(title.normalFont);
 		moneyValueLabel.setForeground(Color.BLACK);
 		
-		dataName1 = new JLabel("Chin: ");
+		dataName1 = new JLabel();
 		dataName1.setFont(title.normalFont);
 		dataName1.setForeground(Color.white);
 		
-		dataName2 = new JLabel("Eng: ");
+		dataName2 = new JLabel();
 		dataName2.setFont(title.normalFont);
 		dataName2.setForeground(Color.white);
 		
-		dataName3 = new JLabel("Math: ");
+		dataName3 = new JLabel();
 		dataName3.setFont(title.normalFont);
 		dataName3.setForeground(Color.white);
 		
-		dataName4 = new JLabel("LS: ");
+		dataName4 = new JLabel();
 		dataName4.setFont(title.normalFont);
 		dataName4.setForeground(Color.white);
 		
-		dataName5 = new JLabel(initial.subject[5]);
+		dataName5 = new JLabel();
 		dataName5.setFont(title.normalFont);
 		dataName5.setForeground(Color.white);
 		
-		dataName6 = new JLabel(initial.subject[6]);
+		dataName6 = new JLabel();
 		dataName6.setFont(title.normalFont);
 		dataName6.setForeground(Color.white);
 		
@@ -260,27 +262,27 @@ public class game {
 		dataNum6.setFont(title.normalFont);
 		dataNum6.setForeground(Color.white);
 		
-		mLabel = new JLabel("Morning");
+		mLabel = new JLabel(language.getV("mLabel"));
 		mLabel.setFont(title.normalFont);
 		mLabel.setForeground(Color.BLACK);
 		
-		aLabel = new JLabel("Afternoon");
+		aLabel = new JLabel(language.getV("aLabel"));
 		aLabel.setFont(title.normalFont);
 		aLabel.setForeground(Color.black);
 		
-		nLabel = new JLabel("Night");
+		nLabel = new JLabel(language.getV("nLabel"));
 		nLabel.setFont(title.normalFont);
 		nLabel.setForeground(Color.black);
 
 		// buttons
 
-		dayAdd = new o_jbutton("Add day");
+		dayAdd = new o_jbutton(language.getV("dayAdd"));
 		dayAdd.setForeground(Color.black);
 		dayAdd.setFont(title.normalFont);
 		dayAdd.setFocusPainted(false);
 		dayAdd.addActionListener(input); //when click, call the class
 		
-		dayReset = new o_jbutton("Reset");
+		dayReset = new o_jbutton(language.getV("dayReset"));
 		dayReset.setForeground(Color.black);
 		dayReset.setFont(title.normalFont);
 		dayReset.setFocusPainted(false);
@@ -291,14 +293,8 @@ public class game {
 			afternoonActions[index] = createActionJButton(actionNames[index], "a_" + actionCommand[index], index == Action.PASTPAPER.ordinal(), choiceHandler);
 			nightActions[index] = createActionJButton(actionNames[index], "n_" + actionCommand[index], index == Action.PASTPAPER.ordinal(), choiceHandler);
 		}
-
-		for (int index = 0; index < morningSubjects.length; index++) {
-			morningSubjects[index] = createSubjectJButton(initial.subject[index+1], "m_" + subjectNames[index].toLowerCase(), choiceHandler);
-			afternoonSubjects[index] = createSubjectJButton(initial.subject[index+1], "a_" + subjectNames[index].toLowerCase(), choiceHandler);
-			nightSubjects[index] = createSubjectJButton(initial.subject[index+1], "n_" + subjectNames[index].toLowerCase(), choiceHandler);
-		}
 		
-		menuButton = new o_jbutton("Menu");
+		menuButton = new o_jbutton(language.getV("menuButton"));
 		menuButton.setBackground(Color.white);
 		menuButton.setForeground(Color.black);
 		menuButton.setFont(title.VerysmallFont);
@@ -308,6 +304,9 @@ public class game {
 		
 		energyBar = new JProgressBar();
 		energyBar.setPreferredSize(new Dimension(200,50));
+		energyBar.setForeground(Color.green);
+		energyBar.setOpaque(false);
+		energyBar.setBorderPainted(false);
 		energyBar.setValue(100);
 		
 		dayPanel.add(dayLabel);
@@ -343,18 +342,6 @@ public class game {
 		aPanel.add(aLabel);
 		nPanel.add(nLabel);
 
-		for (int index = 0; index < morningActions.length; index++) {
-			m_choicePanel.add(morningActions[index]);
-			a_choicePanel.add(afternoonActions[index]);
-			n_choicePanel.add(nightActions[index]);
-		}
-
-		for (int index = 0; index < morningSubjects.length; index++) {
-			mSubjectPanel.add(morningSubjects[index]);
-			aSubjectPanel.add(afternoonSubjects[index]);
-			nSubjectPanel.add(nightSubjects[index]);
-		}
-
 		menuButtonPanel.add(menuButton);
 		
 		//Main Pane<---------------------------------------------------------
@@ -368,7 +355,7 @@ public class game {
 		daySchedulePanel.setBorder(BorderFactory.createMatteBorder(5, 5, 5, 5, Color.white));
 		daySchedulePanel.setLayout(new BorderLayout());
 		
-		dayScheduleTitle = new JLabel("Day Schedule", SwingConstants.CENTER );
+		dayScheduleTitle = new JLabel(language.getV("dayScheduleTitle"), SwingConstants.CENTER );
 		dayScheduleTitle.setFont(title.normalFont);
 		dayScheduleTitle.setForeground(Color.white);
 		
@@ -379,7 +366,7 @@ public class game {
 		daySchedule.setEditable(false);
 		daySchedule.addMouseListener(mouse);
 		
-		dayScheduleExitButton = new o_jbutton("Exit");
+		dayScheduleExitButton = new o_jbutton(language.getV("exitButton"));
 		dayScheduleExitButton.setForeground(Color.BLACK);
 		dayScheduleExitButton.setFont(title.normalFont);
 		dayScheduleExitButton.setFocusPainted(false);
@@ -400,21 +387,21 @@ public class game {
 		menuPanel.setBounds(100,100,590,400);
 		menuPanel.setLayout(new GridLayout(3,1));
 		
-		menuSaveButton = new o_jbutton("Save");
+		menuSaveButton = new o_jbutton(language.getV("menuSaveButton"));
 		menuSaveButton.setForeground(Color.BLACK);
 		menuSaveButton.setFont(title.normalFont);
 		menuSaveButton.setFocusPainted(false);
 		menuSaveButton.setActionCommand("save");
 		menuSaveButton.addActionListener(menuHandler);
 		
-		menuBackToTitleButton = new  o_jbutton("Back to title");
+		menuBackToTitleButton = new  o_jbutton(language.getV("menuBackToTitleButton"));
 		menuBackToTitleButton.setForeground(Color.black);
 		menuBackToTitleButton.setFont(title.normalFont);
 		menuBackToTitleButton.setFocusPainted(false);
 		menuBackToTitleButton.setActionCommand("backToTitle");
 		menuBackToTitleButton.addActionListener(menuHandler);
 		
-		menuBackButton = new  o_jbutton("Back");
+		menuBackButton = new  o_jbutton(language.getV("menuBackButton"));
 		menuBackButton.setForeground(Color.black);
 		menuBackButton.setFont(title.normalFont);
 		menuBackButton.setFocusPainted(false);
@@ -502,7 +489,7 @@ public class game {
 		sub1 = sub1Value;
 		sub2 = sub2Value;
 		
-		dayNumber.setText(""+day);
+		dayNumber.setText(""+(30 - day));
 		dataNum1.setText(""+chin);
 		dataNum2.setText(""+eng);
 		dataNum3.setText(""+math);
@@ -521,7 +508,7 @@ public class game {
 		sub2 = sub2Value;
 		money = moneyValue;
 		
-		dayNumber.setText(""+day);
+		dayNumber.setText(""+(30 - day));
 		dataNum1.setText(""+chin);
 		dataNum2.setText(""+eng);
 		dataNum3.setText(""+math);
@@ -541,7 +528,7 @@ public class game {
 		sub2 = initial.sub_2;
 		money = initial.moneyValue;
 		
-		dayNumber.setText(""+day);
+		dayNumber.setText(""+(30 - day));
 		dataNum1.setText(""+chin);
 		dataNum2.setText(""+eng);
 		dataNum3.setText(""+math);
@@ -701,7 +688,7 @@ public class game {
 		
 		if(moneyUseup && day != 1) {
 			
-			moneyStatusLabel.setText("Money Use up");
+			moneyStatusLabel.setText(language.getV("moneyUseup"));
 			
 		}
 			
@@ -717,6 +704,14 @@ public class game {
 	}
 	
 	public void changeEnergyBar(int energyValue){
+		
+		if(energyValue <= 30){
+			energyBar.setForeground(Color.RED);
+		}else if(energyValue<=70){
+			energyBar.setForeground(Color.orange);
+		}else{
+			energyBar.setForeground(Color.green);
+		}
 		
 		energyBar.setValue(energyValue);
 		
@@ -793,8 +788,13 @@ public class game {
 		
 		if(i == 1){
 			saveLoad.loadData();
+			
+			initial_subject();
+			
 			dayReset();
 		}else{
+			initial_subject();
+			
 			day = initial.day;
 			chin = initial.Chin;
 			eng = initial.Eng;
@@ -806,6 +806,39 @@ public class game {
 		}
 		
 	
+	}
+	
+	private void initial_subject(){
+		
+		dataName1.setText(initial.subject[1]);
+		dataName2.setText(initial.subject[2]);
+		dataName3.setText(initial.subject[3]);
+		dataName4.setText(initial.subject[4]);
+		dataName5.setText(initial.subject[5]);
+		dataName6.setText(initial.subject[6]);
+		
+		for (int index = 0; index < morningSubjects.length; index++) {
+			morningSubjects[index] = createSubjectJButton(initial.subject[index+1], "m_" + subjectNames[index].toLowerCase(), choiceHandler);
+			afternoonSubjects[index] = createSubjectJButton(initial.subject[index+1], "a_" + subjectNames[index].toLowerCase(), choiceHandler);
+			nightSubjects[index] = createSubjectJButton(initial.subject[index+1], "n_" + subjectNames[index].toLowerCase(), choiceHandler);
+		}
+		
+		for (int index = 0; index < morningActions.length; index++) {
+			m_choicePanel.add(morningActions[index]);
+			a_choicePanel.add(afternoonActions[index]);
+			n_choicePanel.add(nightActions[index]);
+		}
+
+		for (int index = 0; index < morningSubjects.length; index++) {
+			mSubjectPanel.add(morningSubjects[index]);
+			aSubjectPanel.add(afternoonSubjects[index]);
+			nSubjectPanel.add(nightSubjects[index]);
+		}
+	}
+	
+	public void event(){
+		moneyPanel.setVisible(true);
+		dayPanel.setVisible(true);
 	}
 	
 	
@@ -831,7 +864,7 @@ public class game {
 		moneyPanel.setVisible(true);
 		menuButtonPanel.setVisible(true);
 		
-		dayNumber.setText(""+day);
+		dayNumber.setText(""+(30 - day));
 		dataNum1.setText(""+chin);
 		dataNum2.setText(""+eng);
 		dataNum3.setText(""+math);

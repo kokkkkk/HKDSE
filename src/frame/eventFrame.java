@@ -91,6 +91,7 @@ public class eventFrame{
 	public void eventSetup(MouseListener mouse, String image){
 		
 		game.clearFrame();
+		game.event();
 			
 		title.con.add(gameTextPanel);
 		

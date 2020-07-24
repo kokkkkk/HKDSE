@@ -18,6 +18,7 @@ public class saveLoad {
 			int day = Integer.parseInt(br.readLine());
 			
 			int money = Integer.parseInt(br.readLine());
+			int addAmount = Integer.parseInt(br.readLine());
 			
 			int ini = Integer.parseInt(br.readLine());
 			
@@ -32,7 +33,12 @@ public class saveLoad {
 			String[] knowledge_s = br.readLine().split("/");
 			String[] examSkill_s = br.readLine().split("/");
 			String[] subject = br.readLine().split("/");
-			String[] triggeredEvent_s = br.readLine().split("/");
+			
+			String[] triggeredEvent_s = null;
+			String temp = br.readLine();
+			if(temp != null){
+				triggeredEvent_s = temp.split("/");
+			}
 			
 			br.close();
 			
@@ -49,17 +55,20 @@ public class saveLoad {
 				examSkill[i] = Integer.parseInt(String.valueOf(examSkill_s[i]));
 			}
 			
-			for(int i=0; i<triggeredEvent_s.length;i++)
-			{
-				triggeredEvent.add(Integer.parseInt(String.valueOf(triggeredEvent_s[i])));
+			if(triggeredEvent_s != null){
+				
+				for(int i=0; i<triggeredEvent_s.length;i++)
+				{
+					triggeredEvent.add(Integer.parseInt(String.valueOf(triggeredEvent_s[i])));
+				}
 			}
 			
-			initial.valueSetup(day,money,ini,mark,knowledge,examSkill,subject,triggeredEvent);
+			initial.valueSetup(day,money,addAmount,ini,mark,knowledge,examSkill,subject,triggeredEvent);
 			initial.energy_update(energyValue, energyUseupDay, exhaust, energyUseup);
 			initial.study_update(tired);
 			
 		}catch(Exception e){
-			
+			e.printStackTrace();
 		}
 	}
 	
@@ -69,6 +78,7 @@ public class saveLoad {
 			int day = initial.day;
 		
 			int money = initial.moneyValue;
+			int addAmount = initial.moneyaddAmount;
 			int ini = initial.iniValue;
 			
 			int energyValue = initial.energyValue;
@@ -82,7 +92,7 @@ public class saveLoad {
 			int[] knowledge = initial.knowledge;
 			int[] examSkill = initial.examSkill;
 			 
-			String[] subject = initial.subject;
+			String[] subject = initial.o_subject;
 			 
 			Vector<Integer> triggeredEvent = initial.triggeredEvent;
 			
@@ -91,6 +101,8 @@ public class saveLoad {
 			bw.write(""+day);
 			bw.newLine();
 			bw.write(""+money);
+			bw.newLine();
+			bw.write(""+addAmount);
 			bw.newLine();
 			bw.write(""+ini);
 			bw.newLine();

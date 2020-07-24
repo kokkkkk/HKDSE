@@ -20,7 +20,6 @@ public class money_1 implements eventInterface {
 	@Override
 	public void result(int i) {
 		initial.moneyValue = 0;
-		System.out.print("moneyValue :"+ initial.moneyValue);
 	}
 
 	@Override

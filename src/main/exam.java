@@ -3,6 +3,7 @@ package main;
 import java.util.Random;
 
 import Basic.initial;
+import Basic.language;
 
 public class exam{
 	
@@ -27,44 +28,44 @@ public class exam{
 		for(int i=1;i<difficulty.length;i++){
 			difficulty[i] = rand.nextInt(5);
 			
-			text += initial.subject[i]+" is ";
+			text += initial.subject[i]+" "+language.getV("is")+" ";
 			
 			switch(difficulty[i]){
 			
 			case 0: //Very hard
 				examSkill[i] -= 20;
 				
-				text += "very hard";
-				text += "\nPerformance is affected";
+				text += language.getV("vhard");
+				text += "\n"+language.getV("examPerformance1");
 				break;
 				
 			case 1: //Hard
-				text += "hard";
+				text += language.getV("hard");
 				
 				if(!(knowledge[i] > 90 && examSkill[i] > 90)){
 					knowledge[i] -= 10;
 					examSkill[i] -= 5;
 					
-					text += "\nPerformance is affected";
+					text += "\n"+language.getV("examPerformance1");
 				}else{
 					
-					text += "\nBut Performance is not affected";
+					text += "\n"+language.getV("but")+" "+language.getV("examPerformance2");
 					
 				}
 				
 				break;
 				
 			case 2: //Normal
-				text += "normal";
-				text += "\nPerformance is not affected";
+				text += language.getV("normal");
+				text += "\n"+language.getV("examPerformance2");
 				break;
 				
 			case 3: //Easy
 				
 				examSkill[i]*= 1.5;
 				
-				text += "easy";
-				text += "\nPerformance is better";
+				text += language.getV("easy");
+				text += "\n"+language.getV("examPerformance3");
 				
 				break;
 				
@@ -72,8 +73,8 @@ public class exam{
 				knowledge[i] *= 1.5;
 				examSkill[i] += 20;
 				
-				text += "very easy";
-				text += "\nPerformance is better";
+				text += language.getV("veasy");
+				text += "\n"+language.getV("examPerformance3");
 				break;
 			}
 			

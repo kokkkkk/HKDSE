@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
+import Basic.language;
 import Basic.o_jbutton;
 import Basic.o_textArea;
 
@@ -96,7 +97,7 @@ public class openingFrame {
 	}
 	
 	
-	public void addButton(int a, String[] buttonText, ActionListener handler, boolean smart){
+	public void addButton(int a, String[] buttonText,String[] buttonCommand, ActionListener handler, boolean smart){
 		
 		buttonPanel = new JPanel();
 		buttonPanel.setBounds(0,380,740,40);
@@ -110,13 +111,14 @@ public class openingFrame {
 		for(int i = 0;i<a;i++){
 			JButton b = new o_jbutton(buttonText[i]);
 			b.setForeground(Color.black);
+			b.setName(buttonText[i]);
 			b.setBorderPainted(false);
 			b.setFocusPainted(false);
-			b.setActionCommand(buttonText[i]);
+			b.setActionCommand(buttonCommand[i]);
 			b.addActionListener(handler);
 			
 			if(!smart){
-				if(buttonText[i].equals("Bio")||buttonText[i].equals("Chem")||buttonText[i].equals("Phy")){
+				if(buttonCommand[i].equals("Bio")||buttonCommand[i].equals("Chem")||buttonCommand[i].equals("Phy")){
 					b.setEnabled(false);
 				}
 			}
@@ -125,7 +127,7 @@ public class openingFrame {
 			button.add(b);
 		}
 		
-		JButton reset = new o_jbutton("Reset");
+		JButton reset = new o_jbutton(language.getV("dayReset"));
 		reset.setForeground(Color.BLACK);
 		reset.setFocusPainted(false);
 		reset.setBorderPainted(false);
@@ -133,7 +135,7 @@ public class openingFrame {
 		reset.addActionListener(handler);
 		buttonPanel.add(reset);
 		
-		submit = new o_jbutton("Submit");
+		submit = new o_jbutton(language.getV("submit"));
 		submit.setForeground(Color.magenta);
 		submit.setBorderPainted(false);
 		submit.setFocusPainted(false);
