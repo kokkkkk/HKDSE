@@ -90,6 +90,8 @@ public class game {
 	
 	main.saveLoad saveLoad  = new saveLoad();
 	
+	Time.timer timer = new Time.timer();
+	
 	public game(frame.title tit, int i){
 		
 		title = tit;
@@ -449,7 +451,6 @@ public class game {
 		menuPanel.setVisible(false);
 		
 		start(i);
-		clearFrame();
 		frameSetup();
 
 	}
@@ -752,6 +753,8 @@ public class game {
 
 	public void endGame(int[] knowledge,int[] examSkill){
 		
+		timer.shutdown(); //stop bgm
+		
 		clearFrame();
 		
 		endGame.resultSetup(knowledge,examSkill);
@@ -805,7 +808,7 @@ public class game {
 			money = initial.moneyValue;
 		}
 		
-	
+		timer.run(1,1,1); //play bgm
 	}
 	
 	private void initial_subject(){

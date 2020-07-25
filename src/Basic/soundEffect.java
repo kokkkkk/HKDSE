@@ -1,6 +1,5 @@
 package Basic;
 
-import java.io.File;
 import java.net.URL;
 
 import javax.sound.sampled.AudioInputStream;
