@@ -1,0 +1,9 @@
+[Text]
+Meow~
+Me: Oh, a cat.
+Where is it going?
+Where is it come from?
+Maybe it's like me.
+Don't know where I come from and where I should go.
+[Text]
+end

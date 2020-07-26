@@ -1,0 +1,13 @@
+[Text]
+Me: [Have a question that I don't know how to solve]
+[Should I ask the teacher?]
+[Text]
+[Button]
+2
+Yes
+No
+Me: [Okay, let me ask the teacher]
+[ButtonText]
+Me: [Nevermind, just let it go]
+[ButtonText]
+end

@@ -1,0 +1,17 @@
+[Text]
+Me: Hi.
+Classmate: Sorry, I'm very busy now
+I have to finish all the past paper today.
+I don't have time to talk with someone which has no value for my future.
+Me: ...
+[May I go home or go to find teacher?]
+[Text]
+[Button]
+2
+Back home
+Find teacher
+Me: [Nevermind, just let it go]
+[ButtonText]
+Me: [Okay, let me find the teacher]
+[ButtonText]
+end

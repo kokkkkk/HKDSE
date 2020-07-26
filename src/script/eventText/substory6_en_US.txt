@@ -1,0 +1,6 @@
+[Text]
+Me: The life must go on
+I still need to study hard in order to live
+That's the only way.
+[Text]
+end

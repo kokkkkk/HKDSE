@@ -1,0 +1,23 @@
+[Text]
+Me: [Bus]
+[What if I'm hit by the car?]
+[Will it make my life more easier?]
+[My whole life before was chasing the things that I didn't want.]
+[Learning instrument, go to tutorial, chasing for A grade]
+[Am I happy?]
+[What is the meaning for my entire life?]
+[Life is hard, but will it be better when we enter the society?]
+[No,I don't think so.]
+[It's just a bigger hell.]
+[So, should I end my life now?]
+[Text]
+[Button]
+2
+Yes
+No
+Me: [Okay, goodbye world.]
+[ButtonText]
+Me: [I think too much]
+[Maybe it will be better after the exam]
+[ButtonText]
+end
