@@ -10,4 +10,5 @@ Teacher: Listen!
 I'm busy now, the exam will come soon.
 Let us talk after the exam.
 Me: Okay...
+[Text]
 end

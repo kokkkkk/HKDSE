@@ -1,18 +1,26 @@
-package Event.events;
+package Event.events.understory;
 
 import Event.eventHandler;
 import Event.eventInterface;
 
-public class tired_2 implements eventInterface{
-
+public class substory4 implements eventInterface{
+	
 	@Override
 	public String getname() {
-		return "tired_2";
+		
+		return "substory4";
+	}
+
+	@Override
+	public String pictureName() {
+		
+		return "system.png";
 	}
 
 	@Override
 	public int getid() {
-		return 2;
+		// TODO Auto-generated method stub
+		return 24;
 	}
 
 	@Override
@@ -22,15 +30,8 @@ public class tired_2 implements eventInterface{
 	}
 
 	@Override
-	public String pictureName() {
-		return "event_1.png";
-	}
-
-	@Override
 	public void newEvent(eventHandler e) {
 		// TODO Auto-generated method stub
 		
 	}
-	
-	
 }

@@ -4,4 +4,5 @@ What should I do?
 No one can help me!
 I'm useless.
 Even the clock is running, and I?
+[Text]
 end

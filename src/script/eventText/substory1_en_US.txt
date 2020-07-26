@@ -2,6 +2,7 @@
 Me: I would like to ask...
 Teacher: You? Haha, really?
 Classmate: I want to ask...
-Teacher: Let me answer the his question first
+Teacher: Let me answer his question first
 You know? He is always better than you.
+[Text]
 end

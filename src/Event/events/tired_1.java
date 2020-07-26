@@ -1,6 +1,7 @@
 package Event.events;
 
 import Basic.initial;
+import Event.eventHandler;
 
 public class tired_1 implements Event.eventInterface{
 
@@ -32,6 +33,12 @@ public class tired_1 implements Event.eventInterface{
 	@Override
 	public String pictureName() {
 		return "event_1.png";
+	}
+
+	@Override
+	public void newEvent(eventHandler e) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

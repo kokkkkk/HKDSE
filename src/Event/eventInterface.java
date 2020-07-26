@@ -6,5 +6,5 @@ public abstract interface eventInterface {
 	String pictureName();
 	int getid();
 	void result(int i);
-	
+	void newEvent(eventHandler e);
 }

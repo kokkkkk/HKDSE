@@ -1,31 +1,33 @@
-package Event.events;
+package Event.events.understory;
 
+import Basic.initial;
 import Event.eventHandler;
 import Event.eventInterface;
 
-public class energy_1 implements eventInterface {
-
+public class substory5 implements eventInterface{
+	
 	@Override
 	public String getname() {
 		
-		return "energy_1";
-	}
-
-	@Override
-	public int getid() {
-		
-		return 6;
-	}
-
-	@Override
-	public void result(int i) {
-		// TODO Auto-generated method stub
-		
+		return "substory5";
 	}
 
 	@Override
 	public String pictureName() {
-		return "event_2.png";
+		
+		return "system.png";
+	}
+
+	@Override
+	public int getid() {
+		// TODO Auto-generated method stub
+		return 25;
+	}
+
+	@Override
+	public void result(int i) {
+		initial.closeWindow = true;
+		
 	}
 
 	@Override
@@ -33,5 +35,4 @@ public class energy_1 implements eventInterface {
 		// TODO Auto-generated method stub
 		
 	}
-
 }

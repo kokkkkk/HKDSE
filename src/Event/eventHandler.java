@@ -5,6 +5,7 @@ import java.util.Vector;
 
 import Basic.initial;
 import Event.events.*;
+import Event.events.understory.*;
 import frame.eventFrame;
 import frame.game;
 import frame.title;
@@ -58,6 +59,18 @@ public class eventHandler {
 	money_3 money_3 = new money_3();
 	money_4 money_4 = new money_4();
 	
+	//Understory Class
+	understory1 understory1 = new understory1();
+	understory2 understory2 = new understory2();
+	understory3 understory3 = new understory3();
+	understory4 understory4 = new understory4();
+	understory5 understory5 = new understory5();
+	understory6 understory6 = new understory6();
+	understory7 understory7 = new understory7();
+	understory8 understory8 = new understory8();
+	understory9 understory9 = new understory9();
+	understory10 understory10 = new understory10();
+	
 	/*Instantiate event class*/
 	
 	public eventHandler(game g, title tit){
@@ -96,6 +109,7 @@ public class eventHandler {
 	
 		checkEnergy();
 		checkMoney();
+		checkUnderstory();
 		
 		if(!exe){
 			game.dayReset();
@@ -103,7 +117,7 @@ public class eventHandler {
 		
 	}
 	
-	private void execute(generalEvent o){
+	public void execute(generalEvent o){
 		exe = true;
 		eventNum++;
 		initial.eventNum++;
@@ -177,6 +191,42 @@ public class eventHandler {
 				
 			}
 			
+		}
+	}
+	
+	private void checkUnderstory(){
+		if(day==5){
+			execute(new generalEvent(understory1));
+		}else if(day==7){
+			
+			execute(new generalEvent(understory2));
+		}else if(day==9){
+			
+			execute(new generalEvent(understory3));
+		}else if(day==12){
+			
+			execute(new generalEvent(understory4));
+		}else if(day==14){
+			
+			understory5.newEvent(this);
+			execute(new generalEvent(understory5));
+		}else if(day==16){
+			
+			execute(new generalEvent(understory6));
+		}else if(day==20){
+			
+			understory7.newEvent(this);
+			execute(new generalEvent(understory7));
+		}else if(day==24){
+			
+			understory8.newEvent(this);
+			execute(new generalEvent(understory8));
+		}else if(day==27){
+			
+			execute(new generalEvent(understory9));
+		}else if(day==30){
+			
+			execute(new generalEvent(understory10));
 		}
 	}
 }

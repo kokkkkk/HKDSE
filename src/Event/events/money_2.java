@@ -1,5 +1,6 @@
 package Event.events;
 
+import Event.eventHandler;
 import Event.eventInterface;
 
 public class money_2 implements eventInterface {
@@ -25,6 +26,12 @@ public class money_2 implements eventInterface {
 	@Override
 	public String pictureName() {
 		return "system.png";
+	}
+
+	@Override
+	public void newEvent(eventHandler e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
