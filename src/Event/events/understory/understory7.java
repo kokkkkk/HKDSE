@@ -20,7 +20,7 @@ public class understory7 implements eventInterface{
 	@Override
 	public String pictureName() {
 		
-		return "system.png";
+		return "understory7.png";
 	}
 
 	@Override
