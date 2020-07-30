@@ -6,17 +6,26 @@ import java.awt.event.ActionListener;
 public class endGameHandler implements ActionListener{
 	frame.title title;
 	frame.endGame endGame;
+	
+	boolean r;
 
-	public endGameHandler(frame.title tit,frame.endGame e){
+	public endGameHandler(frame.title tit,frame.endGame e, boolean result){
 		
 		title = tit;
 		endGame = e;
+		
+		r = result;
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent event){
 		endGame.clearFrame();
-		new main.ending(title);
+		
+		if(r){
+			new main.ending(title,1);
+		}else{
+			new main.ending(title,2);
+		}
 		
 	}
 }

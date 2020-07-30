@@ -16,9 +16,9 @@ public class ending {
 	String endVer;
 	String text[];
 	
-	public ending(frame.title tit){
+	public ending(frame.title tit,int result){
 		
-		int i = 1;
+		int i = result;
 		
 		endVer = "ending"+i;
 		String picture = endVer +".png";

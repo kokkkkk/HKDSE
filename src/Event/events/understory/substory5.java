@@ -26,6 +26,7 @@ public class substory5 implements eventInterface{
 
 	@Override
 	public void result(int i) {
+		
 		initial.closeWindow = true;
 		
 	}
