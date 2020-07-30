@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="res/event/|script/eventText/|script/openingText/|script/|script/|script/openingText/|script/eventText/|res/opening/|res/|res/ui/bigbutton/|res/ui/|res/ui/bigbutton/|res/ui/|language/|res/SE/" kind="src" path="src"/>
+	<classpathentry excluding="res/event/|script/eventText/|script/openingText/|script/|script/|script/openingText/|script/eventText/|res/opening/|res/|res/ui/bigbutton/|res/ui/|res/ui/bigbutton/|res/ui/|language/|res/SE/|script/endingText/|script/endingText/|res/ending/" kind="src" path="src"/>
 	<classpathentry kind="src" path="src/script/openingText"/>
 	<classpathentry kind="src" path="src/script/eventText"/>
 	<classpathentry kind="src" path="src/res/event"/>
 	<classpathentry kind="src" path="src/res/opening"/>
-	<classpathentry excluding="event/|opening/|ui/bigbutton/|ui/|ui/bigbutton/|ui/|SE/" kind="src" path="src/res"/>
+	<classpathentry excluding="event/|opening/|ui/bigbutton/|ui/|ui/bigbutton/|ui/|SE/|ending/" kind="src" path="src/res"/>
 	<classpathentry kind="src" path="src/res/ui/bigbutton"/>
 	<classpathentry excluding="bigbutton/" kind="src" path="src/res/ui"/>
 	<classpathentry kind="src" path="src/language"/>
 	<classpathentry kind="src" path="src/res/SE"/>
+	<classpathentry kind="src" path="src/script/endingText"/>
+	<classpathentry kind="src" path="src/res/ending"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

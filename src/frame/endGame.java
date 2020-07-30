@@ -17,19 +17,19 @@ import Basic.o_jbutton;
 public class endGame{
 
 	frame.title title;
-	JPanel gameTextPanel,resultPanel,restartPanel,universityPanel;
+	JPanel gameTextPanel,resultPanel,nextPanel,universityPanel;
 	JLabel chinName,engName,mathName,lsName,sub1Name,sub2Name,chinResult,engResult,mathResult,lsResult,sub1Result,
 	sub2Result,universityLabel,universityResult;
-	JButton restartButton;
+	JButton nextButton;
 	
 	main.result result = new main.result();
-	Control.restartHandler restartHandler;
+	Control.endGameHandler endGameHandler;
 	
 	public endGame(frame.title tit){
 		
 		title = tit;
 		
-		restartHandler = new Control.restartHandler(title,this);
+		endGameHandler = new Control.endGameHandler(title,this);
 		
 		gameTextPanel = new o_jPanel(1);
 		gameTextPanel.setBounds(100,30,590,400);
@@ -43,9 +43,9 @@ public class endGame{
 		universityPanel = new o_jPanel(2);
 		universityPanel.setBounds(100,450,590,50);
 		
-		restartPanel = new JPanel();
-		restartPanel.setBounds(350,500,120,50);
-		restartPanel.setOpaque(false);
+		nextPanel = new JPanel();
+		nextPanel.setBounds(350,500,120,50);
+		nextPanel.setOpaque(false);
 		
 		chinName = new JLabel(initial.subject[1],SwingConstants.CENTER);
 		chinName.setFont(title.normalFont);
@@ -115,11 +115,11 @@ public class endGame{
 		universityResult.setFont(title.normalFont);
 		universityResult.setForeground(Color.white);
 		
-		restartButton = new o_jbutton(language.getV("restartButton"));
-		restartButton.setForeground(Color.BLACK);
-		restartButton.setFont(title.normalFont);
-		restartButton.setFocusPainted(false);
-		restartButton.addActionListener(restartHandler); //when click, call the class
+		nextButton = new o_jbutton(language.getV("next"));
+		nextButton.setForeground(Color.BLACK);
+		nextButton.setFont(title.normalFont);
+		nextButton.setFocusPainted(false);
+		nextButton.addActionListener(endGameHandler); //when click, call the class
 		
 		resultPanel.add(chinName);
 		resultPanel.add(engName);
@@ -137,11 +137,11 @@ public class endGame{
 		universityPanel.add(universityLabel);
 		universityPanel.add(universityResult);
 		
-		restartPanel.add(restartButton);
+		nextPanel.add(nextButton);
 
 		resultPanel.setVisible(false);
 		gameTextPanel.setVisible(false);
-		restartPanel.setVisible(false);
+		nextPanel.setVisible(false);
 		universityPanel.setVisible(false);
 	
 	}
@@ -150,7 +150,7 @@ public class endGame{
 		
 		title.con.add(resultPanel);
 		title.con.add(gameTextPanel);
-		title.con.add(restartPanel);
+		title.con.add(nextPanel);
 		title.con.add(universityPanel);
 		
 		chinName.setText(initial.subject[1]);
@@ -162,7 +162,7 @@ public class endGame{
 		
 		resultPanel.setVisible(true);
 		gameTextPanel.setVisible(true);
-		restartPanel.setVisible(true);
+		nextPanel.setVisible(true);
 		universityPanel.setVisible(true);
 		
 		displayGrade(result.gradeCalculate(knowledge,examSkill),result.universityChance());
@@ -187,5 +187,10 @@ public class endGame{
 		
 	}
 	
-	
+	public void clearFrame(){
+		resultPanel.setVisible(false);
+		gameTextPanel.setVisible(false);
+		nextPanel.setVisible(false);
+		universityPanel.setVisible(false);
+	}
 }
