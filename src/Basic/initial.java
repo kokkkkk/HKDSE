@@ -2,6 +2,8 @@ package Basic;
 import java.util.Random;
 import java.util.Vector;
 
+import frame.splashScreen;
+
 public class initial {
 	static Random rand = new Random();
 	

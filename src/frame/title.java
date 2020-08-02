@@ -12,7 +12,9 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.SwingWorker;
 
+import Basic.initial;
 import Basic.language;
 import Basic.o_jPanel;
 import Basic.o_jbutton;
@@ -123,11 +125,29 @@ public class title{
 		titleSetup();
 		
 		window.setVisible(true);
-	
 	}
 	
 	public static void main(String[] args) {
-		new title();
+		
+		splashScreen splash =  new frame.splashScreen();
+		
+		SwingWorker<Void,Void> load = new SwingWorker<Void,Void>(){
+
+			@Override
+			protected Void doInBackground() throws Exception {
+				new title();
+				return null;
+			}
+			
+			@Override
+			protected void done() {
+				splash.hide();
+			}
+			
+		};
+			load.execute();
+			splash.show();
+
 	}
 	
 	public void titleSetup(){
@@ -144,11 +164,10 @@ public class title{
 		title.setVisible(true);
 		choices.setVisible(true);
 		languagePanel.setVisible(true);
-		
 	}
 	
 	public void clearFrame() {
-		
+	
 		title.setVisible(false);
 		choices.setVisible(false);
 		languagePanel.setVisible(false);

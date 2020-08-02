@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.SwingWorker;
 
 import Basic.language;
 import Basic.o_jbutton;
@@ -193,8 +194,28 @@ public class openingFrame {
 	
 	public void endOpening()
 	{
-		clearFrame();
-		new game(title,i);
+		
+	splashScreen splash =  new frame.splashScreen(title);
+		
+		SwingWorker<Void,Void> load = new SwingWorker<Void,Void>(){
+
+			@Override
+			protected Void doInBackground() throws Exception {
+				clearFrame();
+				new game(title,i);
+				return null;
+			}
+			
+			@Override
+			protected void done() {
+				splash.hide();
+			}
+			
+		};
+		load.execute();
+		splash.show();
+		
+		
 	}
 
 

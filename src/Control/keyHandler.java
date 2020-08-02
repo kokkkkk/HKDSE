@@ -24,6 +24,11 @@ public class keyHandler implements KeyListener {
 			new adminFrame(game);
 		}
 		
+		if(key == KeyEvent.VK_B){
+			
+			new frame.splashScreen();
+		}
+		
 	}
 
 	@Override

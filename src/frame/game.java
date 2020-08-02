@@ -452,7 +452,6 @@ public class game {
 		
 		start(i);
 		frameSetup();
-
 	}
 	
 	private JButton createSubjectJButton(String identifier, String command, ActionListener actionListener) {
@@ -809,6 +808,7 @@ public class game {
 		}
 		
 		timer.run(1,1,1); //play bgm
+		
 	}
 	
 	private void initial_subject(){
@@ -875,7 +875,6 @@ public class game {
 		dataNum5.setText(""+sub1);
 		dataNum6.setText(""+sub2);
 		moneyValueLabel.setText(""+money);
-
 	}
 	
 	
