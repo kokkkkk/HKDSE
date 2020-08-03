@@ -29,25 +29,25 @@ public class saveLoad {
 			
 			int day = Integer.parseInt(encryption.decrypt(br.readLine()));
 			
-			int money = Integer.parseInt(br.readLine());
-			int addAmount = Integer.parseInt(br.readLine());
+			int money = Integer.parseInt(encryption.decrypt(br.readLine()));
+			int addAmount = Integer.parseInt(encryption.decrypt(br.readLine()));
 			
-			int ini = Integer.parseInt(br.readLine());
+			int ini = Integer.parseInt(encryption.decrypt(br.readLine()));
 			
-			int energyValue = Integer.parseInt(br.readLine());
-			int energyUseupDay = Integer.parseInt(br.readLine());
-			boolean exhaust = Boolean.parseBoolean(br.readLine());
-			boolean energyUseup = Boolean.parseBoolean(br.readLine());
+			int energyValue = Integer.parseInt(encryption.decrypt(br.readLine()));
+			int energyUseupDay = Integer.parseInt(encryption.decrypt(br.readLine()));
+			boolean exhaust = Boolean.parseBoolean(encryption.decrypt(br.readLine()));
+			boolean energyUseup = Boolean.parseBoolean(encryption.decrypt(br.readLine()));
 			
-			boolean tired = Boolean.parseBoolean(br.readLine());
+			boolean tired = Boolean.parseBoolean(encryption.decrypt(br.readLine()));
 			 
-			String[] mark_s = br.readLine().split("/");
-			String[] knowledge_s = br.readLine().split("/");
-			String[] examSkill_s = br.readLine().split("/");
-			String[] subject = br.readLine().split("/");
+			String[] mark_s = encryption.decrypt(br.readLine()).split("/");
+			String[] knowledge_s = encryption.decrypt(br.readLine()).split("/");
+			String[] examSkill_s = encryption.decrypt(br.readLine()).split("/");
+			String[] subject = encryption.decrypt(br.readLine()).split("/");
 			
 			String[] triggeredEvent_s = null;
-			String temp = br.readLine();
+			String temp = encryption.decrypt(br.readLine());
 			if(temp != null){
 				triggeredEvent_s = temp.split("/");
 			}
@@ -86,6 +86,8 @@ public class saveLoad {
 	
 	public void saveData()
 	{
+		String t = "";
+		
 		try{
 			int day = initial.day;
 		
@@ -116,75 +118,90 @@ public class saveLoad {
 			bw.newLine();
 			bw.write(encryption.encrypt(""+day));
 			bw.newLine();
-			bw.write(""+money);
+			bw.write(encryption.encrypt(""+money));
 			bw.newLine();
-			bw.write(""+addAmount);
+			bw.write(encryption.encrypt(""+addAmount));
 			bw.newLine();
-			bw.write(""+ini);
+			bw.write(encryption.encrypt(""+ini));
 			bw.newLine();
-			bw.write(""+energyValue);
+			bw.write(encryption.encrypt(""+energyValue));
 			bw.newLine();
-			bw.write(""+energyUseupDay);
+			bw.write(encryption.encrypt(""+energyUseupDay));
 			bw.newLine();
-			bw.write(""+exhaust);
+			bw.write(encryption.encrypt(""+exhaust));
 			bw.newLine();
-			bw.write(""+energyUseup);
+			bw.write(encryption.encrypt(""+energyUseup));
 			bw.newLine();
-			bw.write(""+tired);
+			bw.write(encryption.encrypt(""+tired));
 			bw.newLine();
 			
 			for(int i=0;i<mark.length;i++){
 				if(i==0){
-					bw.write(""+mark[i]);
+					t += ""+mark[i];
 				}else{
-					bw.write("/");
-					bw.write(""+mark[i]);
+					t += "/";
+					t += ""+mark[i];
 				}
 			}
+			
+			bw.write(encryption.encrypt(t));
+			t = "";
 			
 			bw.newLine();
 			
 			for(int i=0;i<knowledge.length;i++){
 				if(i==0){
-					bw.write(""+knowledge[i]);
+					t += ""+knowledge[i];
 				}else{
-					bw.write("/");
-					bw.write(""+knowledge[i]);
+					t += "/";
+					t += ""+knowledge[i];
 				}
 			}
+			
+			bw.write(encryption.encrypt(t));
+			t = "";
 			
 			bw.newLine();
 			
 			for(int i=0;i<examSkill.length;i++){
 				if(i==0){
-					bw.write(""+examSkill[i]);
+					t += ""+examSkill[i];
 				}else{
-					bw.write("/");
-					bw.write(""+mark[i]);
+					t += "/";
+					t += ""+mark[i];
 				}
 			}
+			
+			bw.write(encryption.encrypt(t));
+			t = "";
 			
 			bw.newLine();
-			
+		
 			for(int i=0;i<subject.length;i++){
 				if(i==0){
-					bw.write(""+subject[i]);
+					t += ""+subject[i];
 				}else{
-					bw.write("/");
-					bw.write(""+subject[i]);
+					t += "/";
+					t += ""+subject[i];
 				}
 			}
+			
+			bw.write(encryption.encrypt(t));
+			t = "";
 			
 			bw.newLine();
 			
 			for(int i=0;i<triggeredEvent.size();i++){
 				if(i==0){
-					bw.write(""+triggeredEvent.get(i));
+					t += ""+triggeredEvent.get(i);
 				}else{
-					bw.write("/");
-					bw.write(""+triggeredEvent.get(i));
+					t += "/";
+					t += ""+triggeredEvent.get(i);
 				}
 			}
+			
+			bw.write(encryption.encrypt(t));
+			t = "";
 			
 			bw.close();
 		}catch(Exception e){
