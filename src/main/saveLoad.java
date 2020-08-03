@@ -5,17 +5,29 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.Base64;
 import java.util.Vector;
+
+import javax.crypto.spec.SecretKeySpec;
 
 import Basic.initial;
 
 public class saveLoad {
 	
+	Basic.encryption encryption = new Basic.encryption();
+	
 	public void loadData(){
 		
 		try{
 			BufferedReader br = new BufferedReader(new FileReader("saveFile.txt"));
-			int day = Integer.parseInt(br.readLine());
+			
+			String key = br.readLine();
+
+			byte[] decodedKey = Base64.getDecoder().decode(key);
+			initial.key = new SecretKeySpec(decodedKey, 0, decodedKey.length, "AES");
+			encryption.updateKey(initial.key);
+			
+			int day = Integer.parseInt(encryption.decrypt(br.readLine()));
 			
 			int money = Integer.parseInt(br.readLine());
 			int addAmount = Integer.parseInt(br.readLine());
@@ -96,9 +108,13 @@ public class saveLoad {
 			 
 			Vector<Integer> triggeredEvent = initial.triggeredEvent;
 			
+			String key = Base64.getEncoder().encodeToString(initial.key.getEncoded());
+			
 			BufferedWriter bw = new BufferedWriter(new FileWriter("SaveFile.txt"));
 			
-			bw.write(""+day);
+			bw.write(""+key);
+			bw.newLine();
+			bw.write(encryption.encrypt(""+day));
 			bw.newLine();
 			bw.write(""+money);
 			bw.newLine();
