@@ -37,17 +37,22 @@ public class splashScreen{
     public void show() {
     	if(t){
     		title.window.setVisible(false);
+    		window.setBounds(title.window.getBounds());
     	}
     	
         window.setVisible(true);
     }
 
     public void hide() {
-        window.dispose();
+    	
+    	window.dispose();
         
         if(t){
+        	title.window.setBounds(window.getBounds());
+        	
     		title.window.setVisible(true);
        	}
+        
     }
 
 }

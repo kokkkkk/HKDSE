@@ -13,8 +13,6 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.SwingWorker;
-
-import Basic.initial;
 import Basic.language;
 import Basic.o_jPanel;
 import Basic.o_jbutton;

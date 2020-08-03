@@ -42,8 +42,6 @@ public class encryption {
 			cip.init(Cipher.ENCRYPT_MODE, key);
 			
 			textEncrypted = cip.doFinal(t);
-			System.out.println("Encrypted: "+ textEncrypted.toString());
-			
 			
 		} catch (InvalidKeyException | UnsupportedEncodingException | IllegalBlockSizeException | BadPaddingException e) {
 			
@@ -61,7 +59,6 @@ public class encryption {
 		try {
 			cip.init(Cipher.DECRYPT_MODE, key);
 			textDecrypted = cip.doFinal(Base64.getDecoder().decode(text));
-			System.out.println(new String(textDecrypted));
 			
 		} catch (InvalidKeyException | IllegalBlockSizeException | BadPaddingException e) {
 			
