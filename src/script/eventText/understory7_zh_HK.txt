@@ -1,17 +1,17 @@
 [Text]
-Me: Hi.
-Classmate: Sorry, I'm very busy now
-I have to finish all the past paper today.
-I don't have time to talk with someone which has no value for my future.
-Me: ...
-[May I go home or go to find teacher?]
+我: 喂。
+同學: 唔好意思啊，我依家好忙，
+我今日仲要做曬啲Past paper.
+我冇時間同啲冇價值嘅人講野。
+我: ……
+[我應唔應該去搵老師傾下呢?]
 [Text]
 [Button]
 2
-Back home
-Find teacher
-Me: [Nevermind, just let it go]
+返屋企
+搵老師
+我: [唔緊要啦，算啦]
 [ButtonText]
-Me: [Okay, let me find the teacher]
+我: [好啦，噉我去搵下]
 [ButtonText]
 end

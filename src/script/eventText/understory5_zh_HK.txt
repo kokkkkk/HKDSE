@@ -1,13 +1,13 @@
 [Text]
-Me: [Have a question that I don't know how to solve]
-[Should I ask the teacher?]
+我: [有一條唔識做]
+[應唔應該問老師呢?]
 [Text]
 [Button]
 2
-Yes
-No
-Me: [Okay, let me ask the teacher]
+好
+唔好
+我: [好啦，噉我去問下]
 [ButtonText]
-Me: [Nevermind, just let it go]
+我: [唔緊要啦，算啦]
 [ButtonText]
 end
